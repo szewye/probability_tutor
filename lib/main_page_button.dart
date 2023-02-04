@@ -3,22 +3,23 @@ import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/constants.dart';
 
 class MainPageButton extends StatelessWidget {
-  const MainPageButton(
-      {Key? key,
-      required this.title,
-      this.buttonColour = offWhite,
-      this.textColour = darkBlue,
-      s})
-      : super(key: key);
+  const MainPageButton({
+    Key? key,
+    required this.title,
+    this.buttonColour = offWhite,
+    this.textColour = darkBlue,
+    required this.onPress,
+  }) : super(key: key);
 
   final String title;
   final Color buttonColour;
   final Color textColour;
+  final onPress;
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-        onPressed: () {},
+        onPressed: onPress,
         style: ElevatedButton.styleFrom(
             backgroundColor: buttonColour,
             padding: const EdgeInsets.all(25),

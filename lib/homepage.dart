@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:probability_tutor/MainPageButton.dart';
+import 'package:probability_tutor/main_page_button.dart';
 import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/constants.dart';
+import 'package:probability_tutor/monty_hall.dart';
 
 class Homepage extends StatelessWidget {
   const Homepage({Key? key}) : super(key: key);
@@ -24,22 +25,31 @@ class Homepage extends StatelessWidget {
               ),
               const SizedBox(height: 50),
               Container(
-                constraints: BoxConstraints(maxWidth: 500),
+                constraints: BoxConstraints(maxWidth: 550),
                 child: Column(
                   children: [
                     SizedBox(
                       width: double.infinity,
-                      child: MainPageButton(title: "Monty Hall"),
+                      child: MainPageButton(
+                          title: "Monty Hall Problem",
+                          onPress: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Monty_Hall()));
+                          }),
                     ),
                     const SizedBox(height: buttonsDistance),
                     SizedBox(
                       width: double.infinity,
-                      child: MainPageButton(title: "Conditional Probability"),
+                      child: MainPageButton(
+                          title: "Conditional Probability", onPress: () {}),
                     ),
                     const SizedBox(height: buttonsDistance),
                     SizedBox(
                       width: double.infinity,
-                      child: MainPageButton(title: "Bayes\'s Theorem"),
+                      child: MainPageButton(
+                          title: "Bayes\'s Theorem", onPress: () {}),
                     ),
                   ],
                 ),
