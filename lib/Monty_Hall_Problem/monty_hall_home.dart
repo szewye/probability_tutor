@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:probability_tutor/main_page_button.dart';
 import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/constants.dart';
-
-import 'homepage.dart';
+import 'package:probability_tutor/homepage.dart';
 
 class Monty_Hall extends StatelessWidget {
   const Monty_Hall({Key? key}) : super(key: key);
@@ -18,7 +17,7 @@ class Monty_Hall extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                'Monty Hall',
+                'Monty Hall Problem',
                 style: Theme.of(context)
                     .textTheme
                     .headline1

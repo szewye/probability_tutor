@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:probability_tutor/Bayes_Theorem/bayes_home.dart';
 import 'package:probability_tutor/main_page_button.dart';
 import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/constants.dart';
-import 'package:probability_tutor/monty_hall.dart';
+import 'package:probability_tutor/Monty_Hall_Problem/monty_hall_home.dart';
 
 class Homepage extends StatelessWidget {
   const Homepage({Key? key}) : super(key: key);
@@ -49,7 +50,13 @@ class Homepage extends StatelessWidget {
                     SizedBox(
                       width: double.infinity,
                       child: MainPageButton(
-                          title: "Bayes\'s Theorem", onPress: () {}),
+                          title: "Bayes\'s Theorem",
+                          onPress: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Bayes_Theorem()));
+                          }),
                     ),
                   ],
                 ),
