@@ -1,1 +1,2 @@
-const double buttonsDistance = 35;
+const double buttonsDistance = 45;
+const double mainPageRoundedButton = 20;
