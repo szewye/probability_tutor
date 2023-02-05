@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:probability_tutor/Bayes_Theorem/bayes_formula.dart';
 import 'package:probability_tutor/homepage.dart';
 import 'package:probability_tutor/main_page_button.dart';
 import 'package:probability_tutor/colours.dart';
@@ -33,7 +34,13 @@ class Bayes_Theorem extends StatelessWidget {
                       width: double.infinity,
                       child: MainPageButton(
                         title: "Formula",
-                        onPress: () {},
+                        onPress: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      Bayes_Theorem_Formula()));
+                        },
                         buttonColour: darkBlue,
                         textColour: offWhite,
                       ),
