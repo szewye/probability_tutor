@@ -77,7 +77,13 @@ class _Bayes_Theorem_Formula extends State<Bayes_Theorem_Formula> {
                               return Container(
                                 width: 120,
                                 height: 60,
-                                child: Text(placeHolder1),
+                                child: rejects.isNotEmpty
+                                    ? Text(
+                                        'not acceptable',
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(color: orangyRed),
+                                      )
+                                    : Text(placeHolder1),
                                 alignment: Alignment.center,
                                 decoration: BoxDecoration(
                                   border: Border.all(color: darkBlue),
@@ -102,7 +108,13 @@ class _Bayes_Theorem_Formula extends State<Bayes_Theorem_Formula> {
                               return Container(
                                 width: 120,
                                 height: 60,
-                                child: Text(placeHolder2),
+                                child: rejects.isNotEmpty
+                                    ? Text(
+                                        'not acceptable',
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(color: orangyRed),
+                                      )
+                                    : Text(placeHolder2),
                                 alignment: Alignment.center,
                                 decoration: BoxDecoration(
                                   border: Border.all(color: darkBlue),
@@ -134,7 +146,13 @@ class _Bayes_Theorem_Formula extends State<Bayes_Theorem_Formula> {
                               return Container(
                                 width: 120,
                                 height: 60,
-                                child: Text(placeHolder3),
+                                child: rejects.isNotEmpty
+                                    ? Text(
+                                        'not acceptable',
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(color: orangyRed),
+                                      )
+                                    : Text(placeHolder3),
                                 alignment: Alignment.center,
                                 decoration: BoxDecoration(
                                   border: Border.all(color: darkBlue),
@@ -159,7 +177,13 @@ class _Bayes_Theorem_Formula extends State<Bayes_Theorem_Formula> {
                               return Container(
                                 width: 120,
                                 height: 60,
-                                child: Text(placeHolder4),
+                                child: rejects.isNotEmpty
+                                    ? Text(
+                                        'not acceptable',
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(color: orangyRed),
+                                      )
+                                    : Text(placeHolder4),
                                 alignment: Alignment.center,
                                 decoration: BoxDecoration(
                                   border: Border.all(color: darkBlue),
@@ -190,7 +214,13 @@ class _Bayes_Theorem_Formula extends State<Bayes_Theorem_Formula> {
                               return Container(
                                 width: 120,
                                 height: 60,
-                                child: Text(placeHolder5),
+                                child: rejects.isNotEmpty
+                                    ? Text(
+                                        'not acceptable',
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(color: orangyRed),
+                                      )
+                                    : Text(placeHolder5),
                                 alignment: Alignment.center,
                                 decoration: BoxDecoration(
                                   border: Border.all(color: darkBlue),
@@ -215,7 +245,13 @@ class _Bayes_Theorem_Formula extends State<Bayes_Theorem_Formula> {
                               return Container(
                                 width: 120,
                                 height: 60,
-                                child: Text(placeHolder6),
+                                child: rejects.isNotEmpty
+                                    ? Text(
+                                        'not acceptable',
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(color: orangyRed),
+                                      )
+                                    : Text(placeHolder6),
                                 alignment: Alignment.center,
                                 decoration: BoxDecoration(
                                   border: Border.all(color: darkBlue),
