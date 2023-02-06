@@ -80,7 +80,7 @@ class Bayes_Theorem extends StatelessWidget {
                                 color: darkBlue,
                                 decoration: TextDecoration.underline,
                               ),
-                        ))
+                        )),
                   ],
                 ),
               ),

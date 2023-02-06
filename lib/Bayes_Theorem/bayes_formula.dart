@@ -314,6 +314,20 @@ class _Bayes_Theorem_Formula extends State<Bayes_Theorem_Formula> {
                     childWhenDragging: Text("")),
               ],
             ),
+            SizedBox(height: 120),
+            TextButton(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Homepage()));
+                },
+                child: Text(
+                  "back to home page",
+                  style: Theme.of(context).textTheme.bodySmall?.apply(
+                        fontWeightDelta: 20,
+                        color: darkBlue,
+                        decoration: TextDecoration.underline,
+                      ),
+                )),
           ],
         ),
       ),
