@@ -2,11 +2,13 @@ import 'dart:html';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_math_fork/flutter_math.dart';
+import 'package:probability_tutor/Bayes_Theorem/bayes_example.dart';
 import 'package:probability_tutor/homepage.dart';
 import 'package:probability_tutor/main_page_button.dart';
 import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/constants.dart';
 import 'package:probability_tutor/Monty_Hall_Problem/monty_hall_home.dart';
+import 'package:probability_tutor/titles.dart';
 
 class Bayes_Theorem_Formula extends StatefulWidget {
   @override
@@ -29,17 +31,33 @@ class _Bayes_Theorem_Formula extends State<Bayes_Theorem_Formula> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: lightYellow,
+      appBar:
+          AppBar(backgroundColor: Colors.transparent, elevation: 0, actions: [
+        Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Bayes_Theorem_Example()));
+              },
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: offWhite,
+                  padding: const EdgeInsets.all(10),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10))),
+              child: Text(
+                "example",
+                style: TextStyle(color: darkBlue),
+              )),
+        )
+      ]),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              "Bayes' Theorem",
-              style: Theme.of(context)
-                  .textTheme
-                  .headline2
-                  ?.apply(fontWeightDelta: 20, color: darkBlue),
-            ),
+            Titles(title: "Bayes' Theorem"),
             const SizedBox(height: 10),
             Text(
               "Recall the formula",
