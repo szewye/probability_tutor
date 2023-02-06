@@ -47,6 +47,15 @@ class _Bayes_Theorem_Formula extends State<Bayes_Theorem_Formula> {
                   Theme.of(context).textTheme.headline4?.apply(color: darkBlue),
               textAlign: TextAlign.center,
             ),
+            const SizedBox(height: 30),
+            Text(
+              "Drag and drop from parts of the formula from below to the respective boxes.",
+              style: Theme.of(context)
+                  .textTheme
+                  .bodyLarge
+                  ?.apply(color: orangyRed),
+              textAlign: TextAlign.center,
+            ),
             SizedBox(height: 80),
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -75,6 +84,9 @@ class _Bayes_Theorem_Formula extends State<Bayes_Theorem_Formula> {
                                 ),
                               );
                             },
+                            onWillAccept: (data) {
+                              return data == "P(F | E)" || data == "P(E)";
+                            },
                             onAccept: (data) {
                               setState(() {
                                 placeHolder1 = data;
@@ -96,6 +108,9 @@ class _Bayes_Theorem_Formula extends State<Bayes_Theorem_Formula> {
                                   border: Border.all(color: darkBlue),
                                 ),
                               );
+                            },
+                            onWillAccept: (data) {
+                              return data == "P(F | E)" || data == "P(E)";
                             },
                             onAccept: (data) {
                               setState(() {
@@ -126,6 +141,9 @@ class _Bayes_Theorem_Formula extends State<Bayes_Theorem_Formula> {
                                 ),
                               );
                             },
+                            onWillAccept: (data) {
+                              return data == "P(F | E)" || data == "P(E)";
+                            },
                             onAccept: (data) {
                               setState(() {
                                 placeHolder3 = data;
@@ -147,6 +165,9 @@ class _Bayes_Theorem_Formula extends State<Bayes_Theorem_Formula> {
                                   border: Border.all(color: darkBlue),
                                 ),
                               );
+                            },
+                            onWillAccept: (data) {
+                              return data == "P(F | E)" || data == "P(E)";
                             },
                             onAccept: (data) {
                               setState(() {
@@ -176,6 +197,9 @@ class _Bayes_Theorem_Formula extends State<Bayes_Theorem_Formula> {
                                 ),
                               );
                             },
+                            onWillAccept: (data) {
+                              return data == "P(F | ¬E)" || data == "P(¬E)";
+                            },
                             onAccept: (data) {
                               setState(() {
                                 placeHolder5 = data;
@@ -197,6 +221,9 @@ class _Bayes_Theorem_Formula extends State<Bayes_Theorem_Formula> {
                                   border: Border.all(color: darkBlue),
                                 ),
                               );
+                            },
+                            onWillAccept: (data) {
+                              return data == "P(F | ¬E)" || data == "P(¬E)";
                             },
                             onAccept: (data) {
                               setState(() {
