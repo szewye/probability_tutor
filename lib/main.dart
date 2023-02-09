@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:probability_tutor/Bayes_Theorem/bayes_formula.dart';
 import 'package:probability_tutor/Bayes_Theorem/bayes_home.dart';
+import 'package:probability_tutor/Bayes_Theorem/bayes_simulation.dart';
 import 'package:probability_tutor/homepage.dart';
 import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/Monty_Hall_Problem/monty_hall_home.dart';
@@ -26,7 +27,7 @@ class ProbabilityTutor extends StatelessWidget {
           ),
         ),
       ),
-      home: Bayes_Theorem_Formula(),
+      home: Bayes_Theorem_Simulation(),
     );
   }
 }

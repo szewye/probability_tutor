@@ -18,7 +18,7 @@ class Bayes_Theorem_Example extends StatelessWidget {
           child: Center(
             child: Column(
               children: [
-                Titles(title: "Bayes' Theorem"),
+                Titles(title: "Bayes' Theorem Example"),
                 TextButton(
                     onPressed: () {
                       Navigator.push(context,

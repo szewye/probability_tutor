@@ -8,6 +8,7 @@ import 'package:probability_tutor/main_page_button.dart';
 import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/constants.dart';
 import 'package:probability_tutor/Monty_Hall_Problem/monty_hall_home.dart';
+import 'package:probability_tutor/title_caption.dart';
 import 'package:probability_tutor/titles.dart';
 
 class Bayes_Theorem_Formula extends StatefulWidget {
@@ -66,14 +67,9 @@ class _Bayes_Theorem_Formula extends State<Bayes_Theorem_Formula> {
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 30),
-            Text(
-              "Drag and drop from parts of the formula from below to the respective boxes.",
-              style: Theme.of(context)
-                  .textTheme
-                  .bodyLarge
-                  ?.apply(color: orangyRed),
-              textAlign: TextAlign.center,
-            ),
+            Title_Caption(
+                caption:
+                    "Drag and drop from parts of the formula from below to the respective boxes."),
             SizedBox(height: 80),
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
