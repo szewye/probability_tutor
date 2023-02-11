@@ -1,15 +1,15 @@
 import 'dart:html';
 
 import 'package:flutter/material.dart';
-import 'package:probability_tutor/Bayes_Theorem/bayes_example.dart';
-import 'package:probability_tutor/back_home_button.dart';
+import 'package:probability_tutor/Bayes_Theorem/bayes_example/bayes_example.dart';
+import 'package:probability_tutor/buttons/back_home_button.dart';
 import 'package:probability_tutor/homepage.dart';
-import 'package:probability_tutor/main_page_button.dart';
+import 'package:probability_tutor/buttons/main_page_button.dart';
 import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/constants.dart';
 import 'package:probability_tutor/Monty_Hall_Problem/monty_hall_home.dart';
-import 'package:probability_tutor/title_caption.dart';
-import 'package:probability_tutor/titles.dart';
+import 'package:probability_tutor/font_style/title_caption.dart';
+import 'package:probability_tutor/font_style/heading.dart';
 
 class Bayes_Theorem_Formula extends StatefulWidget {
   @override
@@ -41,7 +41,8 @@ class _Bayes_Theorem_Formula extends State<Bayes_Theorem_Formula> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => Bayes_Theorem_Example()));
+                        builder: (context) =>
+                            Bayes_Theorem_Example_Quiz_One()));
               },
               style: ElevatedButton.styleFrom(
                   backgroundColor: offWhite,
@@ -58,7 +59,7 @@ class _Bayes_Theorem_Formula extends State<Bayes_Theorem_Formula> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Titles(title: "Bayes' Theorem"),
+            Heading(title: "Bayes' Theorem"),
             const SizedBox(height: 10),
             Text(
               "Recall the formula",

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:probability_tutor/Bayes_Theorem/bayes_example.dart';
+import 'package:probability_tutor/Bayes_Theorem/bayes_example/bayes_example.dart';
 import 'package:probability_tutor/Bayes_Theorem/bayes_formula.dart';
 import 'package:probability_tutor/Bayes_Theorem/bayes_simulation.dart';
-import 'package:probability_tutor/back_home_button.dart';
+import 'package:probability_tutor/buttons/back_home_button.dart';
 import 'package:probability_tutor/homepage.dart';
-import 'package:probability_tutor/main_page_button.dart';
+import 'package:probability_tutor/buttons/main_page_button.dart';
 import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/constants.dart';
 import 'package:probability_tutor/Monty_Hall_Problem/monty_hall_home.dart';
@@ -58,7 +58,7 @@ class Bayes_Theorem extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                   builder: (context) =>
-                                      Bayes_Theorem_Example()));
+                                      Bayes_Theorem_Example_Quiz_One()));
                         },
                         buttonColour: darkBlue,
                         textColour: offWhite,

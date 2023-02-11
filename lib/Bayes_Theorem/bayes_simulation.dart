@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_math_fork/flutter_math.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:probability_tutor/Bayes_Theorem/bayes_formula.dart';
-import 'package:probability_tutor/back_home_button.dart';
+import 'package:probability_tutor/buttons/back_home_button.dart';
 import 'package:probability_tutor/homepage.dart';
-import 'package:probability_tutor/main_page_button.dart';
+import 'package:probability_tutor/buttons/main_page_button.dart';
 import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/constants.dart';
 import 'package:probability_tutor/Monty_Hall_Problem/monty_hall_home.dart';
-import 'package:probability_tutor/title_caption.dart';
-import 'package:probability_tutor/titles.dart';
+import 'package:probability_tutor/font_style/title_caption.dart';
+import 'package:probability_tutor/font_style/heading.dart';
 
 class Bayes_Theorem_Simulation extends StatefulWidget {
   const Bayes_Theorem_Simulation({super.key});
@@ -51,7 +51,7 @@ class _SliderState extends State<Bayes_Theorem_Simulation> {
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Titles(title: "Bayes' Theorem Simulation"),
+                Heading(title: "Bayes' Theorem Simulation"),
                 const SizedBox(height: 30),
                 Container(
                   decoration: BoxDecoration(color: offWhite),

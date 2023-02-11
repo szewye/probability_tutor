@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/constants.dart';
 
-class Titles extends StatelessWidget {
-  const Titles({
+class Heading extends StatelessWidget {
+  const Heading({
     Key? key,
     required this.title,
     this.textColour = darkBlue,

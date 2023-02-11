@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:probability_tutor/Bayes_Theorem/bayes_home.dart';
-import 'package:probability_tutor/main_page_button.dart';
+import 'package:probability_tutor/buttons/main_page_button.dart';
 import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/constants.dart';
 import 'package:probability_tutor/Monty_Hall_Problem/monty_hall_home.dart';

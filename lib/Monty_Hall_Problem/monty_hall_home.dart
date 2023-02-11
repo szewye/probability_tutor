@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:probability_tutor/back_home_button.dart';
-import 'package:probability_tutor/main_page_button.dart';
+import 'package:probability_tutor/buttons/back_home_button.dart';
+import 'package:probability_tutor/buttons/main_page_button.dart';
 import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/constants.dart';
 import 'package:probability_tutor/homepage.dart';
