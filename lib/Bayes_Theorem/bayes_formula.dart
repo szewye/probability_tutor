@@ -1,8 +1,8 @@
 import 'dart:html';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_math_fork/flutter_math.dart';
 import 'package:probability_tutor/Bayes_Theorem/bayes_example.dart';
+import 'package:probability_tutor/back_home_button.dart';
 import 'package:probability_tutor/homepage.dart';
 import 'package:probability_tutor/main_page_button.dart';
 import 'package:probability_tutor/colours.dart';
@@ -329,19 +329,7 @@ class _Bayes_Theorem_Formula extends State<Bayes_Theorem_Formula> {
               ],
             ),
             SizedBox(height: 120),
-            TextButton(
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Homepage()));
-                },
-                child: Text(
-                  "back to home page",
-                  style: Theme.of(context).textTheme.bodySmall?.apply(
-                        fontWeightDelta: 20,
-                        color: darkBlue,
-                        decoration: TextDecoration.underline,
-                      ),
-                )),
+            BackHomeButton(),
           ],
         ),
       ),
