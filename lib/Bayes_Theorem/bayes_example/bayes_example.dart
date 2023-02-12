@@ -25,107 +25,109 @@ class _Bayes_Theorem_Example_Quiz_One_State
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: lightYellow,
-      body: Center(
-        child: Container(
-          padding: EdgeInsets.all(50),
-          constraints: BoxConstraints(maxWidth: 1200),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Heading(title: "Bayes' Theorem Example"),
-              SizedBox(height: 30),
-              Container(
-                decoration: BoxDecoration(color: offWhite),
-                padding: EdgeInsets.all(15),
-                child: Text(
-                    "Suppose that 1 person in 100 000 has a particular rare disease for which there is a quite accurate diagnostic test: \n • It is correct 99% of the time when given to someone with the disease. \n • It is correct 99.5% of the time when given to someone who does not have the disease. \n\n What is the probability that someone who tests positive for the disease actually has the disease?",
-                    textAlign: TextAlign.left,
-                    style: Theme.of(context).textTheme.bodyLarge),
-              ),
-              SizedBox(height: 20),
-              Text.rich(
-                TextSpan(
-                  text: 'Let D be the event of be the event that a person ',
-                  style: Theme.of(context).textTheme.bodyLarge,
-                  children: <TextSpan>[
-                    TextSpan(
-                        text: 'has the disease',
-                        style: TextStyle(
-                          decoration: TextDecoration.underline,
-                        )),
-                  ],
+      body: SingleChildScrollView(
+        child: Center(
+          child: Container(
+            padding: EdgeInsets.all(50),
+            constraints: BoxConstraints(maxWidth: 1200),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Heading(title: "Bayes' Theorem Example"),
+                SizedBox(height: 30),
+                Container(
+                  decoration: BoxDecoration(color: offWhite),
+                  padding: EdgeInsets.all(15),
+                  child: Text(
+                      "Suppose that 1 person in 100 000 has a particular rare disease for which there is a quite accurate diagnostic test: \n • It is correct 99% of the time when given to someone with the disease. \n • It is correct 99.5% of the time when given to someone who does not have the disease. \n\n What is the probability that someone who tests positive for the disease actually has the disease?",
+                      textAlign: TextAlign.left,
+                      style: Theme.of(context).textTheme.bodyLarge),
                 ),
-              ),
-              Text.rich(
-                TextSpan(
-                  text: 'Let T be the event that a person ',
-                  style: Theme.of(context).textTheme.bodyLarge,
-                  children: <TextSpan>[
-                    TextSpan(
-                        text: 'tests positive for the disease',
-                        style: TextStyle(
-                          decoration: TextDecoration.underline,
-                        )),
-                  ],
+                SizedBox(height: 20),
+                Text.rich(
+                  TextSpan(
+                    text: 'Let D be the event of be the event that a person ',
+                    style: Theme.of(context).textTheme.bodyLarge,
+                    children: <TextSpan>[
+                      TextSpan(
+                          text: 'has the disease',
+                          style: TextStyle(
+                            decoration: TextDecoration.underline,
+                          )),
+                    ],
+                  ),
                 ),
-              ),
-              SizedBox(height: 200),
-              Text(
-                "Identify what the question is asking for?",
-                style: Theme.of(context).textTheme.headlineSmall,
-              ),
-              SizedBox(height: 8),
-              Title_Caption(caption: "select the correct answer"),
-              SizedBox(height: 20),
-              Container(
-                constraints: BoxConstraints(maxWidth: 300),
-                child: Column(
-                  children: [
-                    CheckboxListTile(
-                      title: Text("P (D | T)"),
-                      checkColor: darkBlue,
-                      activeColor: offWhite,
-                      checkboxShape: CircleBorder(),
-                      value: _DGivenT,
-                      onChanged: (bool? value) {
-                        setState(() {
-                          _DGivenT = value!;
-                          _TGivenD = false;
-                          mistake = false;
-                        });
-                      },
-                    ),
-                    CheckboxListTile(
-                      title: Text("P (T | D)"),
-                      checkColor: offWhite,
-                      activeColor: _TGivenD ? orangyRed : offWhite,
-                      checkboxShape: CircleBorder(),
-                      value: _TGivenD,
-                      onChanged: (bool? value) {
-                        setState(() {
-                          _DGivenT = false;
-                          _TGivenD = value!;
-                          mistake = true;
-                        });
-                      },
-                    ),
-                    SizedBox(height: 10),
-                    (mistake)
-                        ? Container(
-                            padding: EdgeInsets.all(10),
-                            decoration: BoxDecoration(
-                                color: orangyRed.withOpacity(0.8),
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(10))),
-                            child: Text("Try again?",
-                                style: TextStyle(color: offWhite)))
-                        : Container(),
-                  ],
+                Text.rich(
+                  TextSpan(
+                    text: 'Let T be the event that a person ',
+                    style: Theme.of(context).textTheme.bodyLarge,
+                    children: <TextSpan>[
+                      TextSpan(
+                          text: 'tests positive for the disease',
+                          style: TextStyle(
+                            decoration: TextDecoration.underline,
+                          )),
+                    ],
+                  ),
                 ),
-              ),
-              SizedBox(height: 150),
-              BackHomeButton(),
-            ],
+                SizedBox(height: 200),
+                Text(
+                  "Identify what the question is asking for?",
+                  style: Theme.of(context).textTheme.headlineSmall,
+                ),
+                SizedBox(height: 8),
+                Title_Caption(caption: "select the correct answer"),
+                SizedBox(height: 20),
+                Container(
+                  constraints: BoxConstraints(maxWidth: 300),
+                  child: Column(
+                    children: [
+                      CheckboxListTile(
+                        title: Text("P (D | T)"),
+                        checkColor: darkBlue,
+                        activeColor: offWhite,
+                        checkboxShape: CircleBorder(),
+                        value: _DGivenT,
+                        onChanged: (bool? value) {
+                          setState(() {
+                            _DGivenT = value!;
+                            _TGivenD = false;
+                            mistake = false;
+                          });
+                        },
+                      ),
+                      CheckboxListTile(
+                        title: Text("P (T | D)"),
+                        checkColor: offWhite,
+                        activeColor: _TGivenD ? orangyRed : offWhite,
+                        checkboxShape: CircleBorder(),
+                        value: _TGivenD,
+                        onChanged: (bool? value) {
+                          setState(() {
+                            _DGivenT = false;
+                            _TGivenD = value!;
+                            mistake = true;
+                          });
+                        },
+                      ),
+                      SizedBox(height: 10),
+                      (mistake)
+                          ? Container(
+                              padding: EdgeInsets.all(10),
+                              decoration: BoxDecoration(
+                                  color: orangyRed.withOpacity(0.8),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10))),
+                              child: Text("Try again?",
+                                  style: TextStyle(color: offWhite)))
+                          : Container(),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 150),
+                BackHomeButton(),
+              ],
+            ),
           ),
         ),
       ),

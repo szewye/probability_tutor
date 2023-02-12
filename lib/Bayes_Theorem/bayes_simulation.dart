@@ -42,8 +42,8 @@ class _SliderState extends State<Bayes_Theorem_Simulation> {
 
     return Scaffold(
       backgroundColor: lightYellow,
-      body: Center(
-        child: SingleChildScrollView(
+      body: SingleChildScrollView(
+        child: Center(
           child: Container(
             padding: EdgeInsets.all(50),
             constraints: BoxConstraints(maxWidth: 1200),
