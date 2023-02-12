@@ -21,10 +21,17 @@ class _Bayes_Theorem_Example_Quiz_One_State
   bool _TGivenD = false;
   bool mistake = false;
 
+  Color _backgroundColor = Colors.transparent;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: lightYellow,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        iconTheme: IconThemeData(color: darkBlue),
+      ),
       body: SingleChildScrollView(
         child: Center(
           child: Container(
@@ -43,7 +50,7 @@ class _Bayes_Theorem_Example_Quiz_One_State
                       textAlign: TextAlign.left,
                       style: Theme.of(context).textTheme.bodyLarge),
                 ),
-                SizedBox(height: 20),
+                SizedBox(height: 15),
                 Text.rich(
                   TextSpan(
                     text: 'Let D be the event of be the event that a person ',
@@ -51,9 +58,8 @@ class _Bayes_Theorem_Example_Quiz_One_State
                     children: <TextSpan>[
                       TextSpan(
                           text: 'has the disease',
-                          style: TextStyle(
-                            decoration: TextDecoration.underline,
-                          )),
+                          style:
+                              TextStyle(decoration: TextDecoration.underline)),
                     ],
                   ),
                 ),
@@ -64,19 +70,17 @@ class _Bayes_Theorem_Example_Quiz_One_State
                     children: <TextSpan>[
                       TextSpan(
                           text: 'tests positive for the disease',
-                          style: TextStyle(
-                            decoration: TextDecoration.underline,
-                          )),
+                          style:
+                              TextStyle(decoration: TextDecoration.underline)),
                     ],
                   ),
                 ),
-                SizedBox(height: 200),
-                Text(
-                  "Identify what the question is asking for?",
-                  style: Theme.of(context).textTheme.headlineSmall,
-                ),
+                SizedBox(height: 150),
+                Text("Identify what the question is asking for?",
+                    style: Theme.of(context).textTheme.headlineSmall),
                 SizedBox(height: 8),
-                Title_Caption(caption: "select the correct answer"),
+                Text("select the correct answer",
+                    style: Theme.of(context).textTheme.bodyLarge),
                 SizedBox(height: 20),
                 Container(
                   constraints: BoxConstraints(maxWidth: 300),
@@ -96,35 +100,30 @@ class _Bayes_Theorem_Example_Quiz_One_State
                           });
                         },
                       ),
-                      CheckboxListTile(
-                        title: Text("P (T | D)"),
-                        checkColor: offWhite,
-                        activeColor: _TGivenD ? orangyRed : offWhite,
-                        checkboxShape: CircleBorder(),
-                        value: _TGivenD,
-                        onChanged: (bool? value) {
-                          setState(() {
-                            _DGivenT = false;
-                            _TGivenD = value!;
-                            mistake = true;
-                          });
-                        },
+                      Container(
+                        color: mistake
+                            ? orangyRed.withOpacity(0.9)
+                            : Colors.transparent,
+                        child: CheckboxListTile(
+                          title: Text("P (T | D)"),
+                          checkColor: darkBlue,
+                          activeColor: offWhite,
+                          checkboxShape: CircleBorder(),
+                          value: _TGivenD,
+                          onChanged: (bool? value) {
+                            setState(() {
+                              _TGivenD = value!;
+                              _DGivenT = false;
+                              mistake = value;
+                            });
+                          },
+                        ),
                       ),
-                      SizedBox(height: 10),
-                      (mistake)
-                          ? Container(
-                              padding: EdgeInsets.all(10),
-                              decoration: BoxDecoration(
-                                  color: orangyRed.withOpacity(0.8),
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10))),
-                              child: Text("Try again?",
-                                  style: TextStyle(color: offWhite)))
-                          : Container(),
+                      SizedBox(height: 10)
                     ],
                   ),
                 ),
-                SizedBox(height: 150),
+                SizedBox(height: 80),
                 BackHomeButton(),
               ],
             ),

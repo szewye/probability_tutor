@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_math_fork/flutter_math.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:probability_tutor/Bayes_Theorem/bayes_example/bayes_example.dart';
 import 'package:probability_tutor/Bayes_Theorem/bayes_formula.dart';
 import 'package:probability_tutor/buttons/back_home_button.dart';
 import 'package:probability_tutor/homepage.dart';
@@ -22,13 +23,13 @@ class Bayes_Theorem_Simulation extends StatefulWidget {
 
 class _SliderState extends State<Bayes_Theorem_Simulation> {
   double _sliderTGivenD = 0.99;
-  double _sliderD = 0.01;
+  double _sliderD = 0.00001;
   double _sliderTGivenNotD = 0.005;
 
   @override
   Widget build(BuildContext context) {
     String TgivenD = "${_sliderTGivenD.toStringAsFixed(3)}";
-    String D = "${_sliderD.toStringAsFixed(3)}";
+    String D = "${_sliderD.toStringAsFixed(5)}";
     String TgivenNotD = "${_sliderTGivenNotD.toStringAsFixed(3)}";
     String notD = "${(1 - _sliderD).toStringAsFixed(3)}";
 
@@ -42,6 +43,32 @@ class _SliderState extends State<Bayes_Theorem_Simulation> {
 
     return Scaffold(
       backgroundColor: lightYellow,
+      appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          iconTheme: IconThemeData(color: darkBlue),
+          actions: [
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                Bayes_Theorem_Example_Quiz_One()));
+                  },
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: offWhite,
+                      padding: const EdgeInsets.all(10),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10))),
+                  child: Text(
+                    "example",
+                    style: TextStyle(color: darkBlue),
+                  )),
+            )
+          ]),
       body: SingleChildScrollView(
         child: Center(
           child: Container(
@@ -157,7 +184,7 @@ class _SliderState extends State<Bayes_Theorem_Simulation> {
                                 textStyle:
                                     Theme.of(context).textTheme.headlineSmall),
                             SizedBox(height: 50),
-                            Math.tex("= ${bayes.toStringAsFixed(4)}",
+                            Math.tex("= ${bayes.toStringAsFixed(5)}",
                                 textStyle:
                                     Theme.of(context).textTheme.headlineSmall),
                           ],
