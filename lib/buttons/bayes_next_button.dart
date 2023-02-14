@@ -20,11 +20,6 @@ class BayesNextButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
         onPressed: onPress,
-        // style: ElevatedButton.styleFrom(
-        //     backgroundColor: offWhite,
-        //     padding: const EdgeInsets.all(10),
-        //     shape: RoundedRectangleBorder(
-        //         borderRadius: BorderRadius.circular(10)),),
         child: Text(
           title,
           style: Theme.of(context).textTheme.bodyMedium?.apply(
