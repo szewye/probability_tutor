@@ -17,7 +17,7 @@ class Title_Caption extends StatelessWidget {
     return Text(
       caption,
       style:
-          Theme.of(context).textTheme.labelLarge?.apply(color: captionColour),
+          Theme.of(context).textTheme.titleLarge?.apply(color: captionColour),
       textAlign: TextAlign.center,
     );
   }

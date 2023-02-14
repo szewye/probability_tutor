@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:probability_tutor/Bayes_Theorem/bayes_example/bayes_example.dart';
+import 'package:probability_tutor/Bayes_Theorem/bayes_example/bayes_example_data.dart';
+import 'package:probability_tutor/Bayes_Theorem/bayes_example/bayes_example_quiz_one.dart';
 import 'package:probability_tutor/Bayes_Theorem/bayes_formula.dart';
 import 'package:probability_tutor/Bayes_Theorem/bayes_home.dart';
 import 'package:probability_tutor/Bayes_Theorem/bayes_simulation.dart';
@@ -28,7 +29,7 @@ class ProbabilityTutor extends StatelessWidget {
           ),
         ),
       ),
-      home: Bayes_Theorem_Example_Quiz_One(),
+      home: Bayes_Theorem_Example_Data(),
     );
   }
 }

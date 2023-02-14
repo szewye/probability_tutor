@@ -1,16 +1,11 @@
-// ignore_for_file: unnecessary_brace_in_string_interps
+// ignore_for_file: unnecessary_string_interpolations
 
 import 'package:flutter/material.dart';
 import 'package:flutter_math_fork/flutter_math.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:probability_tutor/Bayes_Theorem/bayes_example/bayes_example.dart';
-import 'package:probability_tutor/Bayes_Theorem/bayes_formula.dart';
+import 'package:probability_tutor/Bayes_Theorem/bayes_example/bayes_example_quiz_one.dart';
 import 'package:probability_tutor/buttons/back_home_button.dart';
-import 'package:probability_tutor/homepage.dart';
-import 'package:probability_tutor/buttons/main_page_button.dart';
 import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/constants.dart';
-import 'package:probability_tutor/Monty_Hall_Problem/monty_hall_home.dart';
 import 'package:probability_tutor/font_style/title_caption.dart';
 import 'package:probability_tutor/font_style/heading.dart';
 
@@ -34,7 +29,7 @@ class _SliderState extends State<Bayes_Theorem_Simulation> {
     String notD = "${(1 - _sliderD).toStringAsFixed(3)}";
 
     String formula =
-        '= \\frac{${TgivenD} × ${D}}{(${TgivenD} × ${D}) + (${TgivenNotD} × ${notD})}';
+        '= \\frac{$TgivenD × $D}{($TgivenD × $D) + ($TgivenNotD × $notD)}';
 
     double top = _sliderTGivenD * _sliderD;
     double bottom =
@@ -72,8 +67,8 @@ class _SliderState extends State<Bayes_Theorem_Simulation> {
       body: SingleChildScrollView(
         child: Center(
           child: Container(
-            padding: EdgeInsets.all(50),
-            constraints: BoxConstraints(maxWidth: 1200),
+            padding: EdgeInsets.all(pagePadding),
+            constraints: BoxConstraints(maxWidth: pageConstraint),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -176,7 +171,7 @@ class _SliderState extends State<Bayes_Theorem_Simulation> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Math.tex(
-                                "= \\frac{P(T \\vert D) P(D)}{P(T | D) P(D) + P(T | ¬D)P(¬D)}",
+                                "= \\frac{P(T | D) P(D)}{P(T | D) P(D) + P(T | ¬D)P(¬D)}",
                                 textStyle:
                                     Theme.of(context).textTheme.headlineSmall),
                             SizedBox(height: 50),

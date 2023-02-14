@@ -1,13 +1,9 @@
 import 'dart:html';
 
 import 'package:flutter/material.dart';
-import 'package:probability_tutor/Bayes_Theorem/bayes_example/bayes_example.dart';
+import 'package:probability_tutor/Bayes_Theorem/bayes_example/bayes_example_quiz_one.dart';
 import 'package:probability_tutor/buttons/back_home_button.dart';
-import 'package:probability_tutor/homepage.dart';
-import 'package:probability_tutor/buttons/main_page_button.dart';
 import 'package:probability_tutor/colours.dart';
-import 'package:probability_tutor/constants.dart';
-import 'package:probability_tutor/Monty_Hall_Problem/monty_hall_home.dart';
 import 'package:probability_tutor/font_style/title_caption.dart';
 import 'package:probability_tutor/font_style/heading.dart';
 
@@ -21,6 +17,7 @@ class _Bayes_Theorem_Formula extends State<Bayes_Theorem_Formula> {
   String _FGivenNotE = "P(F | ¬E)";
   String _E = "P(E)";
   String _notE = "P(¬E)";
+
   String placeHolder1 = "";
   String placeHolder2 = "";
   String placeHolder3 = "";

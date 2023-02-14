@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:probability_tutor/colours.dart';
-import 'package:probability_tutor/constants.dart';
 import 'package:probability_tutor/homepage.dart';
 
 class BackHomeButton extends StatelessWidget {
   const BackHomeButton({
     Key? key,
-    this.title = "back to home page",
+    this.title = "home",
     this.textColour = darkBlue,
   }) : super(key: key);
 

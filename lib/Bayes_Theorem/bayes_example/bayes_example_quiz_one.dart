@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:probability_tutor/Bayes_Theorem/bayes_formula.dart';
+import 'package:probability_tutor/Bayes_Theorem/bayes_example/bayes_example_data.dart';
 import 'package:probability_tutor/buttons/back_home_button.dart';
-import 'package:probability_tutor/font_style/title_caption.dart';
-import 'package:probability_tutor/homepage.dart';
-import 'package:probability_tutor/buttons/main_page_button.dart';
+import 'package:probability_tutor/buttons/bayes_next_button.dart';
 import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/constants.dart';
-import 'package:probability_tutor/Monty_Hall_Problem/monty_hall_home.dart';
 import 'package:probability_tutor/font_style/heading.dart';
 
 class Bayes_Theorem_Example_Quiz_One extends StatefulWidget {
@@ -31,12 +28,18 @@ class _Bayes_Theorem_Example_Quiz_One_State
         backgroundColor: Colors.transparent,
         elevation: 0,
         iconTheme: IconThemeData(color: darkBlue),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: BackHomeButton(),
+          )
+        ],
       ),
       body: SingleChildScrollView(
         child: Center(
           child: Container(
-            padding: EdgeInsets.all(50),
-            constraints: BoxConstraints(maxWidth: 1200),
+            padding: EdgeInsets.all(pagePadding),
+            constraints: BoxConstraints(maxWidth: pageConstraint),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -45,19 +48,18 @@ class _Bayes_Theorem_Example_Quiz_One_State
                 Container(
                   decoration: BoxDecoration(color: offWhite),
                   padding: EdgeInsets.all(15),
-                  child: Text(
-                      "Suppose that 1 person in 100 000 has a particular rare disease for which there is a quite accurate diagnostic test: \n • It is correct 99% of the time when given to someone with the disease. \n • It is correct 99.5% of the time when given to someone who does not have the disease. \n\n What is the probability that someone who tests positive for the disease actually has the disease?",
+                  child: Text(exampleContext,
                       textAlign: TextAlign.left,
                       style: Theme.of(context).textTheme.bodyLarge),
                 ),
                 SizedBox(height: 15),
                 Text.rich(
                   TextSpan(
-                    text: 'Let D be the event of be the event that a person ',
+                    text: DFirstHalf,
                     style: Theme.of(context).textTheme.bodyLarge,
                     children: <TextSpan>[
                       TextSpan(
-                          text: 'has the disease',
+                          text: DSecondHalf,
                           style:
                               TextStyle(decoration: TextDecoration.underline)),
                     ],
@@ -65,11 +67,11 @@ class _Bayes_Theorem_Example_Quiz_One_State
                 ),
                 Text.rich(
                   TextSpan(
-                    text: 'Let T be the event that a person ',
+                    text: TFirstHalf,
                     style: Theme.of(context).textTheme.bodyLarge,
                     children: <TextSpan>[
                       TextSpan(
-                          text: 'tests positive for the disease',
+                          text: TSecondHalf,
                           style:
                               TextStyle(decoration: TextDecoration.underline)),
                     ],
@@ -119,12 +121,23 @@ class _Bayes_Theorem_Example_Quiz_One_State
                           },
                         ),
                       ),
+                      // (mistake)
+                      //     ? Container()
+                      //     : Text("Congrats! Proceed to the next page"),
                       SizedBox(height: 10)
                     ],
                   ),
                 ),
                 SizedBox(height: 80),
-                BackHomeButton(),
+                BayesNextButton(
+                  onPress: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                Bayes_Theorem_Example_Data()));
+                  },
+                ),
               ],
             ),
           ),

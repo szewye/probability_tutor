@@ -42,7 +42,7 @@ class Monty_Hall extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 20),
-                    BackHomeButton(),
+                    BackHomeButton(title: "back to home page"),
                   ],
                 ),
               ),
