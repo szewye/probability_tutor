@@ -10,3 +10,10 @@ const String DFirstHalf = 'Let D be the event of be the event that a person ';
 const String DSecondHalf = 'has the disease';
 const String TFirstHalf = 'Let T be the event that a person ';
 const String TSecondHalf = 'tests positive for the disease';
+
+const String pOfDGivenT = "P (D | T)";
+const String pOfTGivenD = "P (T | D)";
+const String pOfD = "P(D)";
+const String pOfTGivenNotD = "P(T | ¬D)";
+const String pOfNotD = "P(¬D)";
+const String pOfNotTGivenNotD = "P(¬T | ¬D)";

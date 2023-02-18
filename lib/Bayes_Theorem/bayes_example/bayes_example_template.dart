@@ -27,13 +27,13 @@ class Bayes_Theorem_Example_Template extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String TgivenD = "P (T | D)";
-    String D = "P(D)";
-    String TgivenNotD = "(P(T | ¬D)";
-    String notD = "P(¬D)";
+    // String TgivenD = "P (T | D)";
+    // String D = "P(D)";
+    // String TgivenNotD = "(P(T | ¬D)";
+    // String notD = "P(¬D)";
 
-    String formula =
-        '= \\frac{$TgivenD × $D}{($TgivenD × $D) + ($TgivenNotD × $notD)}';
+    // String formula =
+    //     '= \\frac{$TgivenD × $D}{($TgivenD × $D) + ($TgivenNotD × $notD)}';
 
     return Builder(builder: (context) {
       return Scaffold(
@@ -126,15 +126,15 @@ class Bayes_Theorem_Example_Template extends StatelessWidget {
                       children: [
                         TextSpan(text: "From the scenario given: \n"),
                         TextSpan(
-                            text: "P(D) = 0.00001",
+                            text: "$pOfD = 0.00001",
                             style: TextStyle(color: Colors.blue)),
                         TextSpan(text: ", "),
                         TextSpan(
-                            text: "P(T | D) = 0.99",
+                            text: "$pOfTGivenD = 0.99",
                             style: TextStyle(color: Colors.red)),
                         TextSpan(text: " and "),
                         TextSpan(
-                            text: "P(¬T | ¬D) = 0.995",
+                            text: "$pOfNotTGivenNotD = 0.995",
                             style: TextStyle(color: Colors.green)),
                       ],
                     ),
@@ -156,7 +156,7 @@ class Bayes_Theorem_Example_Template extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                "P(T | D)",
+                                pOfTGivenD,
                                 style: Theme.of(context)
                                     .textTheme
                                     .bodyLarge
@@ -165,7 +165,7 @@ class Bayes_Theorem_Example_Template extends StatelessWidget {
                               Text(" × ",
                                   style: Theme.of(context).textTheme.bodyLarge),
                               Text(
-                                "P(D)",
+                                pOfD,
                                 style: Theme.of(context)
                                     .textTheme
                                     .bodyLarge
@@ -183,7 +183,7 @@ class Bayes_Theorem_Example_Template extends StatelessWidget {
                             children: [
                               Text("[ "),
                               Text(
-                                "P(T | D)",
+                                pOfTGivenD,
                                 style: Theme.of(context)
                                     .textTheme
                                     .bodyLarge
@@ -192,14 +192,14 @@ class Bayes_Theorem_Example_Template extends StatelessWidget {
                               Text(" × ",
                                   style: Theme.of(context).textTheme.bodyLarge),
                               Text(
-                                "P(D)",
+                                pOfD,
                                 style: Theme.of(context)
                                     .textTheme
                                     .bodyLarge
                                     ?.apply(color: Colors.blue),
                               ),
                               Text(
-                                " ] + [ P(T | ¬D) × P(¬D) ]",
+                                " ] + [ $pOfTGivenNotD × $pOfNotD ]",
                                 style: Theme.of(context).textTheme.bodyLarge,
                               ),
                             ],
@@ -208,7 +208,7 @@ class Bayes_Theorem_Example_Template extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(height: 80),
+                  SizedBox(height: 50),
                   content,
                   SizedBox(height: 50),
                   BayesNextButton(onPress: onPress),

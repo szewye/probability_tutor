@@ -25,14 +25,6 @@ class Bayes_Theorem_Example_Final extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String TgivenD = "P (T | D)";
-    String D = "P(D)";
-    String TgivenNotD = "(P(T | ¬D)";
-    String notD = "P(¬D)";
-
-    String formula =
-        '= \\frac{$TgivenD × $D}{($TgivenD × $D) + ($TgivenNotD × $notD)}';
-
     return Builder(builder: (context) {
       return Scaffold(
         backgroundColor: lightYellow,
@@ -125,7 +117,7 @@ class Bayes_Theorem_Example_Final extends StatelessWidget {
                     children: [
                       Column(
                         children: [
-                          Text("P(D | T) =",
+                          Text("$pOfDGivenT =",
                               style: Theme.of(context).textTheme.bodyLarge)
                         ],
                       ),
@@ -136,7 +128,7 @@ class Bayes_Theorem_Example_Final extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                "P(T | D)",
+                                pOfTGivenD,
                                 style: Theme.of(context)
                                     .textTheme
                                     .bodyLarge
@@ -145,7 +137,7 @@ class Bayes_Theorem_Example_Final extends StatelessWidget {
                               Text(" × ",
                                   style: Theme.of(context).textTheme.bodyLarge),
                               Text(
-                                "P(D)",
+                                pOfD,
                                 style: Theme.of(context)
                                     .textTheme
                                     .bodyLarge
@@ -163,7 +155,7 @@ class Bayes_Theorem_Example_Final extends StatelessWidget {
                             children: [
                               Text("[ "),
                               Text(
-                                "P(T | D)",
+                                pOfTGivenD,
                                 style: Theme.of(context)
                                     .textTheme
                                     .bodyLarge
@@ -172,7 +164,7 @@ class Bayes_Theorem_Example_Final extends StatelessWidget {
                               Text(" × ",
                                   style: Theme.of(context).textTheme.bodyLarge),
                               Text(
-                                "P(D)",
+                                pOfD,
                                 style: Theme.of(context)
                                     .textTheme
                                     .bodyLarge
@@ -181,7 +173,7 @@ class Bayes_Theorem_Example_Final extends StatelessWidget {
                               Text(" ] + [ ",
                                   style: Theme.of(context).textTheme.bodyLarge),
                               Text(
-                                "P(T | ¬D)",
+                                pOfTGivenNotD,
                                 style: Theme.of(context)
                                     .textTheme
                                     .bodyLarge
@@ -190,7 +182,7 @@ class Bayes_Theorem_Example_Final extends StatelessWidget {
                               Text(" × ",
                                   style: Theme.of(context).textTheme.bodyLarge),
                               Text(
-                                "P(¬D)",
+                                pOfNotD,
                                 style: Theme.of(context)
                                     .textTheme
                                     .bodyLarge
@@ -211,11 +203,13 @@ class Bayes_Theorem_Example_Final extends StatelessWidget {
                   Container(
                     constraints: BoxConstraints(maxWidth: 500),
                     padding: EdgeInsets.all(10),
-                    decoration: BoxDecoration(border: Border.all()),
+                    decoration:
+                        BoxDecoration(border: Border.all(color: darkBlue)),
                     child: Container(
                       constraints: BoxConstraints(maxWidth: 450),
                       padding: EdgeInsets.all(20),
-                      decoration: BoxDecoration(border: Border.all()),
+                      decoration:
+                          BoxDecoration(border: Border.all(color: darkBlue)),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [

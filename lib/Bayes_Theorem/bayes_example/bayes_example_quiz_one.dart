@@ -77,7 +77,7 @@ class _Bayes_Theorem_Example_Quiz_One_State
                     ],
                   ),
                 ),
-                SizedBox(height: 150),
+                SizedBox(height: 120),
                 Text("Identify what the question is asking for?",
                     style: Theme.of(context).textTheme.headlineSmall),
                 SizedBox(height: 8),
@@ -124,7 +124,6 @@ class _Bayes_Theorem_Example_Quiz_One_State
                       // (mistake)
                       //     ? Container()
                       //     : Text("Congrats! Proceed to the next page"),
-                      SizedBox(height: 10)
                     ],
                   ),
                 ),

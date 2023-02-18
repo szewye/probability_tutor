@@ -95,7 +95,7 @@ class _SliderState extends State<Bayes_Theorem_Simulation> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("P(T | D) = ",
+                          Text(pOfTGivenD,
                               style: Theme.of(context).textTheme.headlineSmall),
                           SliderTheme(
                             data: SliderThemeData(
@@ -115,7 +115,7 @@ class _SliderState extends State<Bayes_Theorem_Simulation> {
                               },
                             ),
                           ),
-                          Text("P(D) = ",
+                          Text(pOfD,
                               style: Theme.of(context).textTheme.headlineSmall),
                           SliderTheme(
                             data: SliderThemeData(
@@ -135,7 +135,7 @@ class _SliderState extends State<Bayes_Theorem_Simulation> {
                               },
                             ),
                           ),
-                          Text("P(T | ¬D) = ",
+                          Text(pOfTGivenNotD,
                               style: Theme.of(context).textTheme.headlineSmall),
                           SliderTheme(
                             data: SliderThemeData(
@@ -162,16 +162,17 @@ class _SliderState extends State<Bayes_Theorem_Simulation> {
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          "P (D | T) ",
-                          style: Theme.of(context).textTheme.headlineSmall,
+                        Math.tex(
+                          pOfDGivenT,
+                          textStyle: Theme.of(context).textTheme.headlineSmall,
                         ),
+                        SizedBox(width: 10),
                         SizedBox(height: 50),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Math.tex(
-                                "= \\frac{P(T | D) P(D)}{P(T | D) P(D) + P(T | ¬D)P(¬D)}",
+                                "= \\frac{$pOfTGivenD $pOfD}{$pOfTGivenD $pOfD + $pOfTGivenNotD $pOfNotD}",
                                 textStyle:
                                     Theme.of(context).textTheme.headlineSmall),
                             SizedBox(height: 50),
@@ -188,8 +189,10 @@ class _SliderState extends State<Bayes_Theorem_Simulation> {
                     ),
                   ],
                 ),
-                SizedBox(height: 150),
-                BackHomeButton(),
+                SizedBox(height: 110),
+                BackHomeButton(
+                  title: "back to home page",
+                ),
               ],
             ),
           ),
