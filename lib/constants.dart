@@ -1,8 +1,10 @@
+// Set page margin/padding
 const double buttonsDistance = 45;
 const double mainPageRoundedButton = 20;
 const double pagePadding = 50;
 const double pageConstraint = 1200;
 
+// Bayes' theorem part constants
 const String exampleContext =
     "Suppose that 1 person in 100 000 has a particular rare disease for which there is a quite accurate diagnostic test: \n • It is correct 99% of the time when given to someone with the disease. \n • It is correct 99.5% of the time when given to someone who does not have the disease. \n\n What is the probability that someone who tests positive for the disease actually has the disease?";
 
@@ -17,3 +19,11 @@ const String pOfD = "P(D)";
 const String pOfTGivenNotD = "P(T | ¬D)";
 const String pOfNotD = "P(¬D)";
 const String pOfNotTGivenNotD = "P(¬T | ¬D)";
+
+const String DTValue = "0.00198";
+const String TDValue = "0.99";
+const String notTDValue = "0.01";
+const String DValue = "0.00001";
+const String TNotDValue = "0.005";
+const String notDValue = "0.99999";
+const String notTNotDValue = "0.995";

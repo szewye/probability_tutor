@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:probability_tutor/Bayes_Theorem/bayes_example/bayes_example_final.dart';
 import 'package:probability_tutor/Bayes_Theorem/bayes_example/bayes_example_template.dart';
+import 'package:probability_tutor/Bayes_Theorem/bayes_example/bayes_example_tree_first_question.dart';
+import 'package:probability_tutor/constants.dart';
 import 'package:probability_tutor/font_style/title_caption.dart';
 
 class Bayes_Theorem_Example_Data extends StatelessWidget {
@@ -12,7 +13,8 @@ class Bayes_Theorem_Example_Data extends StatelessWidget {
       return Bayes_Theorem_Example_Template(
         content: Column(
           children: [
-            Title_Caption(caption: "How do we get P(T | ¬D) and P(¬D)?"),
+            Title_Caption(
+                caption: "How do we get $pOfTGivenNotD and $pOfNotD?"),
             SizedBox(height: 10),
             Text(
               "Click next to compute a tree using the data given from the scenario!",
@@ -24,7 +26,7 @@ class Bayes_Theorem_Example_Data extends StatelessWidget {
           Navigator.push(
               context,
               MaterialPageRoute(
-                  builder: (context) => Bayes_Theorem_Example_Final()));
+                  builder: (context) => Bayes_Theorem_Example_Tree_First()));
         },
       );
     });

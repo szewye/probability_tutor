@@ -89,7 +89,7 @@ class _Bayes_Theorem_Example_Quiz_One_State
                   child: Column(
                     children: [
                       CheckboxListTile(
-                        title: Text("P (D | T)"),
+                        title: Text(pOfDGivenT),
                         checkColor: darkBlue,
                         activeColor: offWhite,
                         checkboxShape: CircleBorder(),
@@ -107,7 +107,7 @@ class _Bayes_Theorem_Example_Quiz_One_State
                             ? orangyRed.withOpacity(0.9)
                             : Colors.transparent,
                         child: CheckboxListTile(
-                          title: Text("P (T | D)"),
+                          title: Text(pOfTGivenD),
                           checkColor: darkBlue,
                           activeColor: offWhite,
                           checkboxShape: CircleBorder(),
@@ -121,9 +121,8 @@ class _Bayes_Theorem_Example_Quiz_One_State
                           },
                         ),
                       ),
-                      // (mistake)
-                      //     ? Container()
-                      //     : Text("Congrats! Proceed to the next page"),
+                      SizedBox(height: 10),
+                      (mistake) ? Text("Try again?") : Container(),
                     ],
                   ),
                 ),

@@ -1,19 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:probability_tutor/Bayes_Theorem/bayes_example/bayes_example_quiz_one.dart';
-import 'package:probability_tutor/Bayes_Theorem/bayes_example/bayes_example_template.dart';
-import 'package:probability_tutor/Bayes_Theorem/bayes_formula.dart';
+import 'package:probability_tutor/Bayes_Theorem/bayes_example/bayes_tree.dart';
 import 'package:probability_tutor/Bayes_Theorem/bayes_simulation.dart';
 import 'package:probability_tutor/buttons/back_home_button.dart';
 import 'package:probability_tutor/buttons/bayes_next_button.dart';
 import 'package:probability_tutor/font_style/heading.dart';
-import 'package:probability_tutor/font_style/title_caption.dart';
-import 'package:probability_tutor/homepage.dart';
 import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/constants.dart';
-import 'package:flutter_math_fork/flutter_math.dart';
 
 class Bayes_Theorem_Example_Final extends StatelessWidget {
-  Bayes_Theorem_Example_Final({
+  const Bayes_Theorem_Example_Final({
     Key? key,
   }) : super(key: key);
 
@@ -199,119 +194,130 @@ class Bayes_Theorem_Example_Final extends StatelessWidget {
                     ],
                   ),
                   SizedBox(height: 50),
-                  Text("solution:"),
-                  Container(
-                    constraints: BoxConstraints(maxWidth: 500),
-                    padding: EdgeInsets.all(10),
-                    decoration:
-                        BoxDecoration(border: Border.all(color: darkBlue)),
-                    child: Container(
-                      constraints: BoxConstraints(maxWidth: 450),
-                      padding: EdgeInsets.all(20),
-                      decoration:
-                          BoxDecoration(border: Border.all(color: darkBlue)),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                  Row(
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Column(
-                            children: [
-                              Text("P(D | T) =",
-                                  style: Theme.of(context).textTheme.bodyLarge)
-                            ],
-                          ),
-                          SizedBox(width: 10),
-                          Column(
-                            children: [
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
+                          Text("solution:"),
+                          Container(
+                            constraints: BoxConstraints(maxWidth: 460),
+                            padding: EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                                border: Border.all(color: darkBlue)),
+                            child: Container(
+                              constraints: BoxConstraints(maxWidth: 450),
+                              padding: EdgeInsets.all(20),
+                              decoration: BoxDecoration(
+                                  border: Border.all(color: darkBlue)),
+                              child: Row(
                                 children: [
-                                  Text(
-                                    "0.99",
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .bodyLarge
-                                        ?.apply(color: Colors.red),
+                                  Column(
+                                    children: [
+                                      Text("$pOfDGivenT =",
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodyLarge)
+                                    ],
                                   ),
-                                  Text(" × ",
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .bodyLarge),
-                                  Text(
-                                    "0.00001",
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .bodyLarge
-                                        ?.apply(color: Colors.blue),
+                                  SizedBox(width: 10),
+                                  Column(
+                                    children: [
+                                      Row(
+                                        children: [
+                                          Text(
+                                            TDValue,
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .bodyLarge
+                                                ?.apply(color: Colors.red),
+                                          ),
+                                          Text(" × ",
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .bodyLarge),
+                                          Text(
+                                            DValue,
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .bodyLarge
+                                                ?.apply(color: Colors.blue),
+                                          ),
+                                        ],
+                                      ),
+                                      Container(
+                                        height: 1,
+                                        color: darkBlue,
+                                        constraints:
+                                            BoxConstraints(maxWidth: 300),
+                                      ),
+                                      Row(
+                                        children: [
+                                          Text("[ "),
+                                          Text(
+                                            TDValue,
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .bodyLarge
+                                                ?.apply(color: Colors.red),
+                                          ),
+                                          Text(" × ",
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .bodyLarge),
+                                          Text(
+                                            DValue,
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .bodyLarge
+                                                ?.apply(color: Colors.blue),
+                                          ),
+                                          Text(" ] + [ ",
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .bodyLarge),
+                                          Text(
+                                            TNotDValue,
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .bodyLarge
+                                                ?.apply(color: Colors.purple),
+                                          ),
+                                          Text(" × ",
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .bodyLarge),
+                                          Text(
+                                            notDValue,
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .bodyLarge
+                                                ?.apply(color: Colors.teal),
+                                          ),
+                                          Text(
+                                            " ]",
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .bodyLarge,
+                                          ),
+                                        ],
+                                      ),
+                                      SizedBox(height: 8),
+                                      Row(
+                                        children: [
+                                          Text("= $DTValue"),
+                                        ],
+                                      ),
+                                    ],
                                   ),
                                 ],
                               ),
-                              Container(
-                                height: 1,
-                                color: darkBlue,
-                                constraints: BoxConstraints(maxWidth: 300),
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text("[ "),
-                                  Text(
-                                    "0.99",
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .bodyLarge
-                                        ?.apply(color: Colors.red),
-                                  ),
-                                  Text(" × ",
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .bodyLarge),
-                                  Text(
-                                    "0.00001",
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .bodyLarge
-                                        ?.apply(color: Colors.blue),
-                                  ),
-                                  Text(" ] + [ ",
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .bodyLarge),
-                                  Text(
-                                    "0.005",
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .bodyLarge
-                                        ?.apply(color: Colors.purple),
-                                  ),
-                                  Text(" × ",
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .bodyLarge),
-                                  Text(
-                                    "0.99999",
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .bodyLarge
-                                        ?.apply(color: Colors.teal),
-                                  ),
-                                  Text(
-                                    " ]",
-                                    style:
-                                        Theme.of(context).textTheme.bodyLarge,
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  Text("= 0.00198"),
-                                ],
-                              ),
-                            ],
+                            ),
                           ),
                         ],
                       ),
-                    ),
+                      Flexible(fit: FlexFit.tight, child: BinaryTreeView()),
+                    ],
                   ),
                   SizedBox(height: 50),
                   BayesNextButton(

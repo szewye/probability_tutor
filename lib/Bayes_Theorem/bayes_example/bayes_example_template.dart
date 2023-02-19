@@ -19,7 +19,7 @@ class Bayes_Theorem_Example_Template extends StatelessWidget {
       {Key? key, required this.content, required this.onPress})
       : super(key: key);
 
-  final String D = "1 person in 100 000 has a particular rare disease";
+  final String D = "1 person in 100000 has a particular rare disease";
   final String TGivenD = "correct 99%";
   final String TGivenDContext = "someone with the disease";
   final String notTGivenNotD = "correct 99.5%";
@@ -27,14 +27,6 @@ class Bayes_Theorem_Example_Template extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // String TgivenD = "P (T | D)";
-    // String D = "P(D)";
-    // String TgivenNotD = "(P(T | ¬D)";
-    // String notD = "P(¬D)";
-
-    // String formula =
-    //     '= \\frac{$TgivenD × $D}{($TgivenD × $D) + ($TgivenNotD × $notD)}';
-
     return Builder(builder: (context) {
       return Scaffold(
         backgroundColor: lightYellow,
@@ -126,15 +118,15 @@ class Bayes_Theorem_Example_Template extends StatelessWidget {
                       children: [
                         TextSpan(text: "From the scenario given: \n"),
                         TextSpan(
-                            text: "$pOfD = 0.00001",
+                            text: "$pOfD = $DValue",
                             style: TextStyle(color: Colors.blue)),
                         TextSpan(text: ", "),
                         TextSpan(
-                            text: "$pOfTGivenD = 0.99",
+                            text: "$pOfTGivenD = $TDValue",
                             style: TextStyle(color: Colors.red)),
                         TextSpan(text: " and "),
                         TextSpan(
-                            text: "$pOfNotTGivenNotD = 0.995",
+                            text: "$pOfNotTGivenNotD = $notTNotDValue",
                             style: TextStyle(color: Colors.green)),
                       ],
                     ),
