@@ -195,6 +195,7 @@ class Bayes_Theorem_Example_Final extends StatelessWidget {
                   ),
                   SizedBox(height: 50),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -316,7 +317,7 @@ class Bayes_Theorem_Example_Final extends StatelessWidget {
                           ),
                         ],
                       ),
-                      Flexible(fit: FlexFit.tight, child: BinaryTreeView()),
+                      BinaryTreeView(),
                     ],
                   ),
                   SizedBox(height: 50),
