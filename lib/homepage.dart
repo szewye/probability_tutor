@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:probability_tutor/Bayes_Theorem/bayes_home.dart';
+import 'package:probability_tutor/Conditional_Probability/cp_home.dart';
 import 'package:probability_tutor/buttons/main_page_button.dart';
 import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/constants.dart';
@@ -44,7 +45,14 @@ class Homepage extends StatelessWidget {
                     SizedBox(
                       width: double.infinity,
                       child: MainPageButton(
-                          title: "Conditional Probability", onPress: () {}),
+                          title: "Conditional Probability",
+                          onPress: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        Conditional_Probability_Home()));
+                          }),
                     ),
                     const SizedBox(height: buttonsDistance),
                     SizedBox(

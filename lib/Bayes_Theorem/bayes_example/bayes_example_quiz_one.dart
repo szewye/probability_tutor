@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:probability_tutor/Bayes_Theorem/bayes_example/bayes_example_data.dart';
 import 'package:probability_tutor/buttons/back_home_button.dart';
-import 'package:probability_tutor/buttons/bayes_next_button.dart';
+import 'package:probability_tutor/buttons/next_button.dart';
 import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/constants.dart';
 import 'package:probability_tutor/font_style/heading.dart';
@@ -48,7 +48,7 @@ class _Bayes_Theorem_Example_Quiz_One_State
                 Container(
                   decoration: BoxDecoration(color: offWhite),
                   padding: EdgeInsets.all(15),
-                  child: Text(exampleContext,
+                  child: Text(bayesExampleContext,
                       textAlign: TextAlign.left,
                       style: Theme.of(context).textTheme.bodyLarge),
                 ),
@@ -127,7 +127,7 @@ class _Bayes_Theorem_Example_Quiz_One_State
                   ),
                 ),
                 SizedBox(height: 80),
-                BayesNextButton(
+                NextButton(
                   onPress: () {
                     Navigator.push(
                         context,

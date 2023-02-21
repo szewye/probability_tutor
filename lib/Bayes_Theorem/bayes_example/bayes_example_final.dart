@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:probability_tutor/Bayes_Theorem/bayes_example/bayes_tree.dart';
 import 'package:probability_tutor/Bayes_Theorem/bayes_simulation.dart';
 import 'package:probability_tutor/buttons/back_home_button.dart';
-import 'package:probability_tutor/buttons/bayes_next_button.dart';
+import 'package:probability_tutor/buttons/next_button.dart';
 import 'package:probability_tutor/font_style/heading.dart';
 import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/constants.dart';
@@ -321,7 +321,7 @@ class Bayes_Theorem_Example_Final extends StatelessWidget {
                     ],
                   ),
                   SizedBox(height: 50),
-                  BayesNextButton(
+                  NextButton(
                       title: "continue to the interactive simulation?",
                       onPress: () {
                         Navigator.push(

@@ -1,5 +1,3 @@
-// ignore_for_file: unnecessary_string_interpolations
-
 import 'package:flutter/material.dart';
 import 'package:flutter_math_fork/flutter_math.dart';
 import 'package:probability_tutor/Bayes_Theorem/bayes_example/bayes_example_quiz_one.dart';

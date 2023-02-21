@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/constants.dart';
 
-class BayesNextButton extends StatelessWidget {
-  const BayesNextButton({
+class NextButton extends StatelessWidget {
+  const NextButton({
     Key? key,
     this.title = "next",
     this.buttonColour = offWhite,

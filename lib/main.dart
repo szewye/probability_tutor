@@ -8,6 +8,10 @@ import 'package:probability_tutor/Bayes_Theorem/bayes_example/bayes_example_tree
 import 'package:probability_tutor/Bayes_Theorem/bayes_formula.dart';
 import 'package:probability_tutor/Bayes_Theorem/bayes_home.dart';
 import 'package:probability_tutor/Bayes_Theorem/bayes_simulation.dart';
+import 'package:probability_tutor/Conditional_Probability/conditional_probability_template.dart';
+import 'package:probability_tutor/Conditional_Probability/cp_condition_event.dart';
+import 'package:probability_tutor/Conditional_Probability/cp_home.dart';
+import 'package:probability_tutor/Conditional_Probability/cp_main_event.dart';
 import 'package:probability_tutor/homepage.dart';
 import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/Monty_Hall_Problem/monty_hall_home.dart';
@@ -31,7 +35,7 @@ class ProbabilityTutor extends StatelessWidget {
           ),
         ),
       ),
-      home: Bayes_Theorem_Example_Final(),
+      home: Conditional_Probability_Home(),
     );
   }
 }
