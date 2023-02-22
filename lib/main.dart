@@ -12,6 +12,7 @@ import 'package:probability_tutor/Conditional_Probability/conditional_probabilit
 import 'package:probability_tutor/Conditional_Probability/cp_condition_event.dart';
 import 'package:probability_tutor/Conditional_Probability/cp_home.dart';
 import 'package:probability_tutor/Conditional_Probability/cp_main_event.dart';
+import 'package:probability_tutor/Conditional_Probability/cp_main_sample_space.dart';
 import 'package:probability_tutor/homepage.dart';
 import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/Monty_Hall_Problem/monty_hall_home.dart';
@@ -35,7 +36,7 @@ class ProbabilityTutor extends StatelessWidget {
           ),
         ),
       ),
-      home: Conditional_Probability_Home(),
+      home: Conditional_Probability_Main_Sample_Space(),
     );
   }
 }

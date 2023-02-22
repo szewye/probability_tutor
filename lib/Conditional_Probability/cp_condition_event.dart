@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:probability_tutor/Conditional_Probability/cp_main_sample_space.dart';
+import 'package:probability_tutor/Conditional_Probability/event_checkbox.dart';
 import 'package:probability_tutor/Conditional_Probability/conditional_probability_template.dart';
+import 'package:probability_tutor/Conditional_Probability/cp_condition_event.dart';
 import 'package:probability_tutor/Conditional_Probability/cp_home.dart';
 import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/font_style/title_caption.dart';
@@ -12,9 +15,7 @@ class Conditional_Probability_Condition_Event extends StatefulWidget {
 
 class _Conditional_Probability_Condition_Event
     extends State<Conditional_Probability_Condition_Event> {
-  bool _E = false;
-  bool _F = false;
-  bool _G = false;
+  int? selected;
 
   @override
   Widget build(BuildContext context) {
@@ -45,58 +46,49 @@ class _Conditional_Probability_Condition_Event
               constraints: BoxConstraints(maxWidth: 100),
               child: Column(
                 children: [
-                  CheckboxListTile(
-                    title: Text("E"),
-                    checkColor: offWhite,
-                    activeColor: Colors.orange,
-                    checkboxShape: CircleBorder(),
-                    controlAffinity: ListTileControlAffinity.leading,
-                    value: _E,
-                    onChanged: (bool? value) {
-                      setState(() {
-                        _E = value!;
-                        _F = false;
-                        _G = false;
-                      });
-                    },
+                  EventCheckBox(
+                    id: 0,
+                    selection: selected,
+                    onSelected: onSelection,
+                    page: Conditional_Probability_Main_Sample_Space(),
+                    value: "E",
+                    circleColour: Colors.orange,
                   ),
-                  CheckboxListTile(
-                    title: Text("F"),
-                    checkColor: offWhite,
-                    activeColor: Colors.orange,
-                    checkboxShape: CircleBorder(),
-                    controlAffinity: ListTileControlAffinity.leading,
-                    value: _F,
-                    onChanged: (bool? value) {
-                      setState(() {
-                        _E = false;
-                        _F = value!;
-                        _G = false;
-                      });
-                    },
+                  EventCheckBox(
+                    id: 1,
+                    selection: selected,
+                    onSelected: onSelection,
+                    page: Conditional_Probability_Main_Sample_Space(),
+                    value: "F",
+                    circleColour: Colors.orange,
                   ),
-                  CheckboxListTile(
-                    title: Text("G"),
-                    checkColor: offWhite,
-                    activeColor: Colors.orange,
-                    checkboxShape: CircleBorder(),
-                    controlAffinity: ListTileControlAffinity.leading,
-                    value: _G,
-                    onChanged: (bool? value) {
-                      setState(() {
-                        _E = false;
-                        _F = false;
-                        _G = value!;
-                      });
-                    },
+                  EventCheckBox(
+                    id: 2,
+                    selection: selected,
+                    onSelected: onSelection,
+                    page: Conditional_Probability_Main_Sample_Space(),
+                    value: "G",
+                    circleColour: Colors.orange,
                   ),
                 ],
               ),
             ),
           ],
         ),
-        onPress: () {},
+        onPress: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) =>
+                      Conditional_Probability_Main_Sample_Space()));
+        },
       );
+    });
+  }
+
+  void onSelection(int? new_selected) {
+    setState(() {
+      selected = new_selected;
     });
   }
 }
