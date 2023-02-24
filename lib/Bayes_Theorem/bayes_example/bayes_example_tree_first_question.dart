@@ -4,6 +4,7 @@ import 'package:probability_tutor/Bayes_Theorem/bayes_example/bayes_example_tree
 import 'package:probability_tutor/Bayes_Theorem/bayes_example/bayes_tree.dart';
 import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/constants.dart';
+import 'package:probability_tutor/helpers/navigation_helper.dart';
 
 class Bayes_Theorem_Example_Tree_First extends StatefulWidget {
   const Bayes_Theorem_Example_Tree_First({super.key});
@@ -82,6 +83,8 @@ class _Bayes_Theorem_Example_Tree_First
                         _TGivenNotD = value!;
                         _notTGivenD = false;
                         mistake = false;
+                        getNavigation(duration: 800)(
+                            context, Bayes_Theorem_Example_Tree_Second());
                       });
                     },
                   ),
@@ -113,10 +116,7 @@ class _Bayes_Theorem_Example_Tree_First
           ],
         ),
         onPress: () {
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => Bayes_Theorem_Example_Tree_Second()));
+          getNavigation()(context, Bayes_Theorem_Example_Tree_Second());
         },
       );
     });

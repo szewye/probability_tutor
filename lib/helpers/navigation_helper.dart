@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-Function(BuildContext, Widget) getNavigation({int duration = 200}) {
+Function(BuildContext, Widget) getNavigation({int duration = 300}) {
   return (context, page) => Navigator.push(
         context,
         PageRouteBuilder(

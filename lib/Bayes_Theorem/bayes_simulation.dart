@@ -6,6 +6,7 @@ import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/constants.dart';
 import 'package:probability_tutor/font_style/title_caption.dart';
 import 'package:probability_tutor/font_style/heading.dart';
+import 'package:probability_tutor/helpers/navigation_helper.dart';
 
 class Bayes_Theorem_Simulation extends StatefulWidget {
   const Bayes_Theorem_Simulation({super.key});
@@ -45,11 +46,7 @@ class _SliderState extends State<Bayes_Theorem_Simulation> {
               padding: const EdgeInsets.all(10.0),
               child: ElevatedButton(
                   onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) =>
-                                Bayes_Theorem_Example_Quiz_One()));
+                    getNavigation()(context, Bayes_Theorem_Example_Quiz_One());
                   },
                   style: ElevatedButton.styleFrom(
                       backgroundColor: offWhite,

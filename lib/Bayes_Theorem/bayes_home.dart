@@ -3,6 +3,7 @@ import 'package:probability_tutor/Bayes_Theorem/bayes_example/bayes_example_quiz
 import 'package:probability_tutor/Bayes_Theorem/bayes_formula.dart';
 import 'package:probability_tutor/Bayes_Theorem/bayes_simulation.dart';
 import 'package:probability_tutor/buttons/back_home_button.dart';
+import 'package:probability_tutor/helpers/navigation_helper.dart';
 import 'package:probability_tutor/homepage.dart';
 import 'package:probability_tutor/buttons/main_page_button.dart';
 import 'package:probability_tutor/colours.dart';
@@ -38,11 +39,7 @@ class Bayes_Theorem extends StatelessWidget {
                       child: MainPageButton(
                         title: "Formula",
                         onPress: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      Bayes_Theorem_Formula()));
+                          getNavigation()(context, Bayes_Theorem_Formula());
                         },
                         buttonColour: darkBlue,
                         textColour: offWhite,
@@ -54,11 +51,8 @@ class Bayes_Theorem extends StatelessWidget {
                       child: MainPageButton(
                         title: "Example",
                         onPress: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      Bayes_Theorem_Example_Quiz_One()));
+                          getNavigation()(
+                              context, Bayes_Theorem_Example_Quiz_One());
                         },
                         buttonColour: darkBlue,
                         textColour: offWhite,
@@ -70,11 +64,7 @@ class Bayes_Theorem extends StatelessWidget {
                       child: MainPageButton(
                         title: "Simulation",
                         onPress: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      Bayes_Theorem_Simulation()));
+                          getNavigation()(context, Bayes_Theorem_Simulation());
                         },
                         buttonColour: darkBlue,
                         textColour: offWhite,

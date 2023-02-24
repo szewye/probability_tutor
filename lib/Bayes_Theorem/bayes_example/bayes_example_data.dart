@@ -3,6 +3,7 @@ import 'package:probability_tutor/Bayes_Theorem/bayes_example/bayes_example_temp
 import 'package:probability_tutor/Bayes_Theorem/bayes_example/bayes_example_tree_first_question.dart';
 import 'package:probability_tutor/constants.dart';
 import 'package:probability_tutor/font_style/title_caption.dart';
+import 'package:probability_tutor/helpers/navigation_helper.dart';
 
 class Bayes_Theorem_Example_Data extends StatelessWidget {
   Bayes_Theorem_Example_Data({Key? key}) : super(key: key);
@@ -20,13 +21,11 @@ class Bayes_Theorem_Example_Data extends StatelessWidget {
               "Click next to compute a tree using the data given from the scenario!",
               style: Theme.of(context).textTheme.titleSmall,
             ),
+            SizedBox(height: 50),
           ],
         ),
         onPress: () {
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => Bayes_Theorem_Example_Tree_First()));
+          getNavigation()(context, Bayes_Theorem_Example_Tree_First());
         },
       );
     });
