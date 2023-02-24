@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:probability_tutor/colours.dart';
-import 'package:probability_tutor/navigation_helper.dart';
+import 'package:probability_tutor/helpers/navigation_helper.dart';
 
 class EventCheckBox extends StatefulWidget {
   EventCheckBox({

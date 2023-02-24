@@ -5,7 +5,7 @@ import 'package:probability_tutor/buttons/main_page_button.dart';
 import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/constants.dart';
 import 'package:probability_tutor/Monty_Hall_Problem/monty_hall_home.dart';
-import 'package:probability_tutor/navigation_helper.dart';
+import 'package:probability_tutor/helpers/navigation_helper.dart';
 
 class Homepage extends StatelessWidget {
   const Homepage({Key? key}) : super(key: key);
