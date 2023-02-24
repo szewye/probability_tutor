@@ -115,9 +115,6 @@ class _Bayes_Theorem_Example_Tree_First
             ),
           ],
         ),
-        onPress: () {
-          getNavigation()(context, Bayes_Theorem_Example_Tree_Second());
-        },
       );
     });
   }

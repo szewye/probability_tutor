@@ -13,10 +13,8 @@ import 'package:flutter_math_fork/flutter_math.dart';
 
 class Bayes_Theorem_Example_Template extends StatelessWidget {
   final Widget content;
-  final onPress;
 
-  Bayes_Theorem_Example_Template(
-      {Key? key, required this.content, required this.onPress})
+  Bayes_Theorem_Example_Template({Key? key, required this.content})
       : super(key: key);
 
   final String D = "1 person in 100000 has a particular rare disease";
@@ -202,8 +200,6 @@ class Bayes_Theorem_Example_Template extends StatelessWidget {
                   ),
                   SizedBox(height: 50),
                   content,
-                  SizedBox(height: 50),
-                  NextButton(onPress: onPress),
                 ],
               ),
             ),

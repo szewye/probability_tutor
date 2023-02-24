@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:probability_tutor/Bayes_Theorem/bayes_example/bayes_example_template.dart';
 import 'package:probability_tutor/Bayes_Theorem/bayes_example/bayes_example_tree_first_question.dart';
+import 'package:probability_tutor/buttons/next_button.dart';
 import 'package:probability_tutor/constants.dart';
 import 'package:probability_tutor/font_style/title_caption.dart';
 import 'package:probability_tutor/helpers/navigation_helper.dart';
@@ -22,11 +23,11 @@ class Bayes_Theorem_Example_Data extends StatelessWidget {
               style: Theme.of(context).textTheme.titleSmall,
             ),
             SizedBox(height: 50),
+            NextButton(onPress: () {
+              getNavigation()(context, Bayes_Theorem_Example_Tree_First());
+            }),
           ],
         ),
-        onPress: () {
-          getNavigation()(context, Bayes_Theorem_Example_Tree_First());
-        },
       );
     });
   }
