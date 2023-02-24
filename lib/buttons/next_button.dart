@@ -14,7 +14,7 @@ class NextButton extends StatelessWidget {
   final String title;
   final Color buttonColour;
   final Color textColour;
-  final onPress;
+  final Function() onPress;
 
   @override
   Widget build(BuildContext context) {

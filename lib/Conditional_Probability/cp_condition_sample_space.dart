@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:probability_tutor/Conditional_Probability/conditional_probability_template.dart';
 import 'package:probability_tutor/Conditional_Probability/cp_condition_event.dart';
-import 'package:probability_tutor/Conditional_Probability/cp_condition_sample_space.dart';
 import 'package:probability_tutor/Conditional_Probability/cp_home.dart';
 import 'package:probability_tutor/Conditional_Probability/sample_space_button.dart';
 import 'package:probability_tutor/Conditional_Probability/venn_diagram.dart';
@@ -12,19 +11,19 @@ import 'package:probability_tutor/helpers/sub_sample_space_helper.dart';
 import 'package:probability_tutor/models/prob_query.dart';
 import 'package:probability_tutor/helpers/navigation_helper.dart';
 
-class Conditional_Probability_Main_Sample_Space extends StatefulWidget {
-  Conditional_Probability_Main_Sample_Space(
+class Conditional_Probability_Condition_Sample_Space extends StatefulWidget {
+  Conditional_Probability_Condition_Sample_Space(
       {super.key, required this.probQuery});
 
   @override
-  _Conditional_Probability_Main_Sample_Space createState() =>
-      _Conditional_Probability_Main_Sample_Space();
+  _Conditional_Probability_Condition_Sample_Space createState() =>
+      _Conditional_Probability_Condition_Sample_Space();
 
   ProbQuery probQuery;
 }
 
-class _Conditional_Probability_Main_Sample_Space
-    extends State<Conditional_Probability_Main_Sample_Space> {
+class _Conditional_Probability_Condition_Sample_Space
+    extends State<Conditional_Probability_Condition_Sample_Space> {
   Set<String> subSampleSpace = {};
 
   @override
@@ -46,11 +45,11 @@ class _Conditional_Probability_Main_Sample_Space
                   caption: "select all the sub sample spaces for the ",
                   captionColour: darkBlue,
                 ),
-                Text("main event (${widget.probQuery.mainEvent})",
+                Text("condition event (${widget.probQuery.conditionEvent})",
                     style: Theme.of(context)
                         .textTheme
                         .titleLarge
-                        ?.apply(color: orangyRed)),
+                        ?.apply(color: Colors.orange)),
               ],
             ),
             SizedBox(height: 10),
@@ -81,17 +80,15 @@ class _Conditional_Probability_Main_Sample_Space
 
   // sample space button is clickable in this page
   void sampleOnPress(String sample, BuildContext context) {
-    if (widget.probQuery.mainEvent != null) {
-      if (rightSample(sample, widget.probQuery.mainEvent!)) {
+    if (widget.probQuery.conditionEvent != null) {
+      if (rightSample(sample, widget.probQuery.conditionEvent!)) {
         setState(() {
           subSampleSpace.add(sample);
 
           if (completeSubSampleSpace(
-              subSampleSpace, widget.probQuery.mainEvent!)) {
+              subSampleSpace, widget.probQuery.conditionEvent!)) {
             getNavigation(duration: 800)(
-                context,
-                Conditional_Probability_Condition_Sample_Space(
-                    probQuery: widget.probQuery));
+                context, Conditional_Probability_Home());
           }
         });
       }

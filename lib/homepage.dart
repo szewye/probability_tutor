@@ -5,6 +5,7 @@ import 'package:probability_tutor/buttons/main_page_button.dart';
 import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/constants.dart';
 import 'package:probability_tutor/Monty_Hall_Problem/monty_hall_home.dart';
+import 'package:probability_tutor/navigation_helper.dart';
 
 class Homepage extends StatelessWidget {
   const Homepage({Key? key}) : super(key: key);
@@ -35,10 +36,7 @@ class Homepage extends StatelessWidget {
                       child: MainPageButton(
                           title: "Monty Hall Problem",
                           onPress: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => Monty_Hall()));
+                            getNavigation()(context, Monty_Hall());
                           }),
                     ),
                     const SizedBox(height: buttonsDistance),
@@ -47,11 +45,8 @@ class Homepage extends StatelessWidget {
                       child: MainPageButton(
                           title: "Conditional Probability",
                           onPress: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        Conditional_Probability_Home()));
+                            getNavigation()(
+                                context, Conditional_Probability_Home());
                           }),
                     ),
                     const SizedBox(height: buttonsDistance),
@@ -60,10 +55,7 @@ class Homepage extends StatelessWidget {
                       child: MainPageButton(
                           title: "Bayes\' Theorem",
                           onPress: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => Bayes_Theorem()));
+                            getNavigation()(context, Bayes_Theorem());
                           }),
                     ),
                   ],

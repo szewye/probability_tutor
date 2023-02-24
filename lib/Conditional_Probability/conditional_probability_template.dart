@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:probability_tutor/Conditional_Probability/sample_space_button.dart';
 import 'package:probability_tutor/buttons/back_home_button.dart';
 import 'package:probability_tutor/buttons/next_button.dart';
 import 'package:probability_tutor/font_style/heading.dart';
@@ -7,12 +8,12 @@ import 'package:probability_tutor/constants.dart';
 
 class Conditional_Probability_Template extends StatelessWidget {
   final Widget content;
-  final onPress;
+  final Widget samples;
 
   const Conditional_Probability_Template({
     Key? key,
     required this.content,
-    required this.onPress,
+    required this.samples,
   }) : super(key: key);
 
   @override
@@ -85,72 +86,17 @@ class Conditional_Probability_Template extends StatelessWidget {
                       Container(
                         padding: EdgeInsets.all(10),
                         constraints: BoxConstraints(maxWidth: 500),
-                        decoration:
-                            BoxDecoration(border: Border.all(color: darkBlue)),
+                        decoration: BoxDecoration(
+                            // border: Border.all(color: darkBlue),
+                            color: lightBlue.withOpacity(0.8)),
                         child: Column(
-                          children: [
-                            Text("Sample space, S"),
-                            Row(
-                              children: [
-                                TextButton(
-                                    onPressed: () {},
-                                    child: Text("HHH",
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .bodyLarge)),
-                                TextButton(
-                                    onPressed: () {},
-                                    child: Text("HHT",
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .bodyLarge)),
-                                TextButton(
-                                    onPressed: () {},
-                                    child: Text("HTT",
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .bodyLarge)),
-                                TextButton(
-                                    onPressed: () {},
-                                    child: Text("HTH",
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .bodyLarge)),
-                                TextButton(
-                                    onPressed: () {},
-                                    child: Text("TTT",
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .bodyLarge)),
-                                TextButton(
-                                    onPressed: () {},
-                                    child: Text("TTH",
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .bodyLarge)),
-                                TextButton(
-                                    onPressed: () {},
-                                    child: Text("THH",
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .bodyLarge)),
-                                TextButton(
-                                    onPressed: () {},
-                                    child: Text("THT",
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .bodyLarge)),
-                              ],
-                            )
-                          ],
+                          children: [Text("Sample space, S"), samples],
                         ),
                       ),
                     ],
                   ),
-                  SizedBox(height: 70),
+                  SizedBox(height: 45),
                   content,
-                  SizedBox(height: 20),
-                  NextButton(onPress: onPress),
                 ],
               ),
             ),

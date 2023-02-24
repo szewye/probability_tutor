@@ -31,9 +31,25 @@ const String notTNotDValue = "0.995";
 // Conditional probability part constants
 const String conditionalProbabilityContext =
     "We flip a fair coin 3 times. A couple of events can be observed through this:";
+
 const String EFirstHalf = "Let E be the event of that ";
 const String ESecondHalf = "at least 2 heads come up in a row";
 const String FFirstHalf = "Let F be the event of ";
 const String FSecondHalf = "the first flip comes up heads";
 const String GFirstHalf = "Let G be the event of ";
 const String GSecondHalf = "the first flip comes up tails";
+
+final Set<String> coinsSampleSpace = {
+  "HHH",
+  "HHT",
+  "HTT",
+  "HTH",
+  "TTT",
+  "TTH",
+  "THH",
+  "THT"
+};
+
+final Set<String> eSubSampleSpace = {"HHH", "HHT", "THH"};
+final Set<String> fSubSampleSpace = {"HHH", "HHT", "HTT", "HTH"};
+final Set<String> gSubSampleSpace = {"TTT", "TTH", "THH", "THT"};

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:probability_tutor/colours.dart';
+import 'package:probability_tutor/navigation_helper.dart';
 
 class EventCheckBox extends StatefulWidget {
   EventCheckBox({
@@ -43,7 +44,6 @@ class _EventCheckBox extends State<EventCheckBox> {
   }
 
   void navigate() {
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => widget.page));
+    getNavigation()(context, widget.page);
   }
 }

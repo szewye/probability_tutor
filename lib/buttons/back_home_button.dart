@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:probability_tutor/colours.dart';
+import 'package:probability_tutor/navigation_helper.dart';
 import 'package:probability_tutor/homepage.dart';
 
 class BackHomeButton extends StatelessWidget {
@@ -16,8 +17,8 @@ class BackHomeButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
         onPressed: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => Homepage()));
+          Navigator.popUntil(context, (route) => true);
+          getNavigation()(context, Homepage());
         },
         child: Text(
           title,

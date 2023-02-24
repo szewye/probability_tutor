@@ -3,13 +3,19 @@ import 'package:probability_tutor/Conditional_Probability/event_checkbox.dart';
 import 'package:probability_tutor/Conditional_Probability/conditional_probability_template.dart';
 import 'package:probability_tutor/Conditional_Probability/cp_condition_event.dart';
 import 'package:probability_tutor/Conditional_Probability/cp_home.dart';
+import 'package:probability_tutor/Conditional_Probability/sample_space_button.dart';
 import 'package:probability_tutor/colours.dart';
+import 'package:probability_tutor/constants.dart';
 import 'package:probability_tutor/font_style/title_caption.dart';
+import 'package:probability_tutor/navigation_helper.dart';
+import 'package:probability_tutor/models/prob_query.dart';
 
 class Conditional_Probability_Main_Event extends StatefulWidget {
   @override
   _Conditional_Probability_Main_Event createState() =>
       _Conditional_Probability_Main_Event();
+
+  ProbQuery probQuery = ProbQuery();
 }
 
 class _Conditional_Probability_Main_Event
@@ -20,6 +26,11 @@ class _Conditional_Probability_Main_Event
   Widget build(BuildContext context) {
     return Builder(builder: (context) {
       return Conditional_Probability_Template(
+        samples: Row(
+          children: coinsSampleSpace
+              .map<Widget>((String sample) => SampleSpaceButton(text: sample))
+              .toList(),
+        ),
         content: Column(
           children: [
             Title_Caption(
@@ -35,7 +46,7 @@ class _Conditional_Probability_Main_Event
                   style: Theme.of(context)
                       .textTheme
                       .bodyLarge
-                      ?.apply(color: orangyRed, fontWeightDelta: 2),
+                      ?.apply(color: orangyRed, fontWeightDelta: 3),
                 ),
                 Text(" | Y)"),
               ],
@@ -49,21 +60,27 @@ class _Conditional_Probability_Main_Event
                     id: 0,
                     selection: selected,
                     onSelected: onSelection,
-                    page: Conditional_Probability_Condition_Event(),
+                    page: Conditional_Probability_Condition_Event(
+                      probQuery: widget.probQuery,
+                    ),
                     value: "E",
                   ),
                   EventCheckBox(
                     id: 1,
                     selection: selected,
                     onSelected: onSelection,
-                    page: Conditional_Probability_Condition_Event(),
+                    page: Conditional_Probability_Condition_Event(
+                      probQuery: widget.probQuery,
+                    ),
                     value: "F",
                   ),
                   EventCheckBox(
                     id: 2,
                     selection: selected,
                     onSelected: onSelection,
-                    page: Conditional_Probability_Condition_Event(),
+                    page: Conditional_Probability_Condition_Event(
+                      probQuery: widget.probQuery,
+                    ),
                     value: "G",
                   ),
                 ],
@@ -71,13 +88,6 @@ class _Conditional_Probability_Main_Event
             ),
           ],
         ),
-        onPress: () {
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) =>
-                      Conditional_Probability_Condition_Event()));
-        },
       );
     });
   }
@@ -85,6 +95,13 @@ class _Conditional_Probability_Main_Event
   void onSelection(int? new_selected) {
     setState(() {
       selected = new_selected;
+      if (selected == 0) {
+        widget.probQuery.mainEvent = "E";
+      } else if (selected == 1) {
+        widget.probQuery.mainEvent = "F";
+      } else if (selected == 2) {
+        widget.probQuery.mainEvent = "G";
+      }
     });
   }
 }
