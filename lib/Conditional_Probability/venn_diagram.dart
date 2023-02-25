@@ -34,7 +34,7 @@ class VennDiagramPainter extends CustomPainter {
     ..style = PaintingStyle.stroke;
 
   final Paint overlapPaint = Paint()
-    ..color = orangyRed.withOpacity(0.8)
+    ..color = orangyRed.withOpacity(0.2)
     ..style = PaintingStyle.fill;
 
   @override
@@ -76,21 +76,29 @@ class VennDiagramPainter extends CustomPainter {
     );
     canvas.drawPath(overlapPath, overlapPaint);
 
+    final mainEventSet = probQuery.mainSubSampleSpace().toSet();
+    final conditionEventSet = probQuery.conditionSubSampleSpace().toSet();
+    final sampleSpaceSet = probQuery.sampleSpace.toSet();
+
     // Text on coin sample sapce in the Venn diagram
-    final sampleSpaceSPainter = textPainter(
-        "${setToString(probQuery.sampleSpace, withDelimiter: true)}");
+    final sampleSpaceSPainter = textPainter(setToString(
+        sampleSpaceSet
+            .difference(mainEventSet.union(conditionEventSet))
+            .toList(),
+        withDelimiter: true));
 
     // Text on main event sub sample sapce in the Venn diagram
-    final mainEventPainter =
-        textPainter("${setToString(probQuery.mainSubSampleSpace())}");
+    final mainEventPainter = textPainter(
+        setToString(mainEventSet.difference(conditionEventSet).toList()));
 
     // Text on condition event sub sample sapce in the Venn diagram
-    final conditionEventPainter =
-        textPainter("${setToString(probQuery.conditionSubSampleSpace())}");
+    final conditionEventPainter = textPainter(
+        setToString(conditionEventSet.difference(mainEventSet).toList()));
 
     // Text on overlap sample sapce in the Venn diagram
     final overlapPainter = textPainter(
-        "${setToString(probQuery.mainSubSampleSpace(space: probQuery.conditionSubSampleSpace()))}");
+        setToString(mainEventSet.intersection(conditionEventSet).toList()),
+        contentColor: orangyRed);
 
     sampleSpaceSPainter.layout(minWidth: 0, maxWidth: 120);
     mainEventPainter.layout(minWidth: 0, maxWidth: 80);

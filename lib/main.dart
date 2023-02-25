@@ -38,7 +38,7 @@ class ProbabilityTutor extends StatelessWidget {
           ),
         ),
       ),
-      home: Conditional_Probability_Home(),
+      home: Homepage(),
     );
   }
 }

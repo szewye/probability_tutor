@@ -38,10 +38,24 @@ class _Conditional_Probability_Venn_DiagramState
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             VennDiagram(probQuery: widget.probQuery),
-            Title_Caption(
-              caption:
-                  "What is P(${widget.probQuery.mainEvent?.id} | ${widget.probQuery.conditionEvent?.id})?",
-              captionColour: darkBlue,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text("What is P(",
+                    style: Theme.of(context).textTheme.titleLarge),
+                Text("${widget.probQuery.mainEvent?.id}",
+                    style: Theme.of(context)
+                        .textTheme
+                        .titleLarge
+                        ?.apply(color: orangyRed)),
+                Text(" | ", style: Theme.of(context).textTheme.titleLarge),
+                Text("${widget.probQuery.conditionEvent?.id}",
+                    style: Theme.of(context)
+                        .textTheme
+                        .titleLarge
+                        ?.apply(color: Colors.green)),
+                Text(")?", style: Theme.of(context).textTheme.titleLarge),
+              ],
             ),
             SizedBox(height: 20),
             NextButton(onPress: () {

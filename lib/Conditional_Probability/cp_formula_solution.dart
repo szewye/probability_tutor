@@ -58,7 +58,7 @@ class _Conditional_Probability_Formula_Solution_State
                       style: Theme.of(context).textTheme.titleSmall,
                     ),
                     SizedBox(height: 8),
-                    Math.tex("P(E | F)"),
+                    Text("P(E | F)"),
                     SizedBox(height: 5),
                     Math.tex("= \\frac{P(E ∩ F)}{P(F)}"),
                     Row(
@@ -87,9 +87,21 @@ class _Conditional_Probability_Formula_Solution_State
                   ],
                 ),
                 SizedBox(width: 50),
-                Text(
-                  "P(${widget.probQuery.mainEvent?.id} | ${widget.probQuery.conditionEvent?.id}) = ${solution..toStringAsFixed(4)}",
-                  style: Theme.of(context).textTheme.headlineSmall,
+                Container(
+                  constraints: BoxConstraints(maxWidth: 420),
+                  padding: EdgeInsets.all(10),
+                  decoration:
+                      BoxDecoration(border: Border.all(color: darkBlue)),
+                  child: Container(
+                    constraints: BoxConstraints(maxWidth: 400),
+                    padding: EdgeInsets.all(10),
+                    decoration:
+                        BoxDecoration(border: Border.all(color: darkBlue)),
+                    child: Text(
+                      "P(${widget.probQuery.mainEvent?.id} | ${widget.probQuery.conditionEvent?.id}) = ${solution..toStringAsFixed(4)}",
+                      style: Theme.of(context).textTheme.headlineSmall,
+                    ),
+                  ),
                 )
               ],
             ),
