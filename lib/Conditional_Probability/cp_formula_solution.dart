@@ -5,6 +5,7 @@ import 'package:probability_tutor/Conditional_Probability/cp_condition_event.dar
 import 'package:probability_tutor/Conditional_Probability/cp_home.dart';
 import 'package:probability_tutor/Conditional_Probability/sample_space_button.dart';
 import 'package:probability_tutor/Conditional_Probability/venn_diagram.dart';
+import 'package:probability_tutor/buttons/back_home_button.dart';
 import 'package:probability_tutor/buttons/next_button.dart';
 import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/constants.dart';
@@ -98,12 +99,16 @@ class _Conditional_Probability_Formula_Solution_State
                     decoration:
                         BoxDecoration(border: Border.all(color: darkBlue)),
                     child: Text(
-                      "P(${widget.probQuery.mainEvent?.id} | ${widget.probQuery.conditionEvent?.id}) = ${solution..toStringAsFixed(4)}",
+                      "P(${widget.probQuery.mainEvent?.id} | ${widget.probQuery.conditionEvent?.id}) = ${solution.toStringAsFixed(4)}",
                       style: Theme.of(context).textTheme.headlineSmall,
                     ),
                   ),
                 )
               ],
+            ),
+            SizedBox(height: 20),
+            BackHomeButton(
+              title: "back to home page",
             ),
           ],
         ),
