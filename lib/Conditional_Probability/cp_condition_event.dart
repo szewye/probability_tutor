@@ -48,7 +48,7 @@ class _Conditional_Probability_Condition_EventState
                   style: Theme.of(context)
                       .textTheme
                       .bodyLarge
-                      ?.apply(color: Colors.orange, fontWeightDelta: 3),
+                      ?.apply(color: Colors.green, fontWeightDelta: 3),
                 ),
                 Text(")"),
               ],
@@ -66,7 +66,7 @@ class _Conditional_Probability_Condition_EventState
                       probQuery: widget.probQuery,
                     ),
                     value: "E",
-                    circleColour: Colors.orange,
+                    circleColour: Colors.green,
                   ),
                   EventCheckBox(
                     id: 1,
@@ -76,7 +76,7 @@ class _Conditional_Probability_Condition_EventState
                       probQuery: widget.probQuery,
                     ),
                     value: "F",
-                    circleColour: Colors.orange,
+                    circleColour: Colors.green,
                   ),
                   EventCheckBox(
                     id: 2,
@@ -86,7 +86,7 @@ class _Conditional_Probability_Condition_EventState
                       probQuery: widget.probQuery,
                     ),
                     value: "G",
-                    circleColour: Colors.orange,
+                    circleColour: Colors.green,
                   ),
                 ],
               ),

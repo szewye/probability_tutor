@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:probability_tutor/Conditional_Probability/conditional_probability_template.dart';
 import 'package:probability_tutor/Conditional_Probability/cp_condition_event.dart';
 import 'package:probability_tutor/Conditional_Probability/cp_home.dart';
+import 'package:probability_tutor/Conditional_Probability/cp_venn_diagram.dart';
+import 'package:probability_tutor/Conditional_Probability/cp_venn_diagram_caption.dart';
 import 'package:probability_tutor/Conditional_Probability/sample_space_button.dart';
 import 'package:probability_tutor/Conditional_Probability/venn_diagram.dart';
 import 'package:probability_tutor/colours.dart';
@@ -45,11 +47,11 @@ class _Conditional_Probability_Condition_Sample_Space
                   caption: "select all the sub sample spaces for the ",
                   captionColour: darkBlue,
                 ),
-                Text("condition event (${widget.probQuery.conditionEvent})",
+                Text(" condition event (${widget.probQuery.conditionEvent})",
                     style: Theme.of(context)
                         .textTheme
                         .titleLarge
-                        ?.apply(color: Colors.orange)),
+                        ?.apply(color: Colors.green)),
               ],
             ),
             SizedBox(height: 10),
@@ -88,7 +90,10 @@ class _Conditional_Probability_Condition_Sample_Space
           if (completeSubSampleSpace(
               subSampleSpace, widget.probQuery.conditionEvent!)) {
             getNavigation(duration: 800)(
-                context, Conditional_Probability_Home());
+                context,
+                Conditional_Probability_Venn_Diagram_Caption(
+                  probQuery: widget.probQuery,
+                ));
           }
         });
       }
