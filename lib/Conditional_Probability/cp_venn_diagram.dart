@@ -37,10 +37,12 @@ class _Conditional_Probability_Venn_DiagramState
         content: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            VennDiagram(),
+            VennDiagram(probQuery: widget.probQuery),
             Title_Caption(
-                caption:
-                    "What is P(${widget.probQuery.mainEvent} | ${widget.probQuery.conditionEvent})?"),
+              caption:
+                  "What is P(${widget.probQuery.mainEvent?.id} | ${widget.probQuery.conditionEvent?.id})?",
+              captionColour: darkBlue,
+            ),
             SizedBox(height: 20),
             NextButton(onPress: () {
               getNavigation()(

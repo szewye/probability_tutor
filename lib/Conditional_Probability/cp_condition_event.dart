@@ -42,7 +42,7 @@ class _Conditional_Probability_Condition_EventState
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("hint: P(${widget.probQuery.mainEvent} | "),
+                Text("hint: P(${widget.probQuery.mainEvent?.id} | "),
                 Text(
                   "Y",
                   style: Theme.of(context)
@@ -101,11 +101,11 @@ class _Conditional_Probability_Condition_EventState
     setState(() {
       selected = new_selected;
       if (selected == 0) {
-        widget.probQuery.conditionEvent = "E";
+        widget.probQuery.conditionEvent = E;
       } else if (selected == 1) {
-        widget.probQuery.conditionEvent = "F";
+        widget.probQuery.conditionEvent = F;
       } else if (selected == 2) {
-        widget.probQuery.conditionEvent = "G";
+        widget.probQuery.conditionEvent = G;
       }
     });
   }

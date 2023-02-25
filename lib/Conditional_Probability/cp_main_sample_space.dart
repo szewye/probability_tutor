@@ -8,7 +8,6 @@ import 'package:probability_tutor/Conditional_Probability/venn_diagram.dart';
 import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/constants.dart';
 import 'package:probability_tutor/font_style/title_caption.dart';
-import 'package:probability_tutor/helpers/sub_sample_space_helper.dart';
 import 'package:probability_tutor/models/prob_query.dart';
 import 'package:probability_tutor/helpers/navigation_helper.dart';
 
@@ -25,7 +24,7 @@ class Conditional_Probability_Main_Sample_Space extends StatefulWidget {
 
 class _Conditional_Probability_Main_Sample_Space
     extends State<Conditional_Probability_Main_Sample_Space> {
-  Set<String> subSampleSpace = {};
+  Set<String> selectedSubSampleSpace = {};
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +45,7 @@ class _Conditional_Probability_Main_Sample_Space
                   caption: "select all the sub sample spaces for the ",
                   captionColour: darkBlue,
                 ),
-                Text("main event (${widget.probQuery.mainEvent})",
+                Text("main event (${widget.probQuery.mainEvent?.id})",
                     style: Theme.of(context)
                         .textTheme
                         .titleLarge
@@ -66,7 +65,7 @@ class _Conditional_Probability_Main_Sample_Space
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: subSampleSpace.map<Widget>(
+                children: selectedSubSampleSpace.map<Widget>(
                   (String element) {
                     return SampleSpaceButton(text: element);
                   },
@@ -80,21 +79,19 @@ class _Conditional_Probability_Main_Sample_Space
   }
 
   // sample space button is clickable in this page
-  void sampleOnPress(String sample, BuildContext context) {
-    if (widget.probQuery.mainEvent != null) {
-      if (rightSample(sample, widget.probQuery.mainEvent!)) {
-        setState(() {
-          subSampleSpace.add(sample);
+  void sampleOnPress(String sampleClicked, BuildContext context) {
+    final subSampleSpace = widget.probQuery.mainSubSampleSpace();
+    if (subSampleSpace.contains(sampleClicked)) {
+      setState(() {
+        selectedSubSampleSpace.add(sampleClicked);
 
-          if (completeSubSampleSpace(
-              subSampleSpace, widget.probQuery.mainEvent!)) {
-            getNavigation(duration: 800)(
-                context,
-                Conditional_Probability_Condition_Sample_Space(
-                    probQuery: widget.probQuery));
-          }
-        });
-      }
+        if (selectedSubSampleSpace.containsAll(subSampleSpace)) {
+          getNavigation(duration: 800)(
+              context,
+              Conditional_Probability_Condition_Sample_Space(
+                  probQuery: widget.probQuery));
+        }
+      });
     }
   }
 }

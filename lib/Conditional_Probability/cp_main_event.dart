@@ -15,7 +15,7 @@ class Conditional_Probability_Main_Event extends StatefulWidget {
   _Conditional_Probability_Main_Event createState() =>
       _Conditional_Probability_Main_Event();
 
-  ProbQuery probQuery = ProbQuery();
+  ProbQuery probQuery = ProbQuery(sampleSpace: coinsSampleSpace);
 }
 
 class _Conditional_Probability_Main_Event
@@ -96,11 +96,11 @@ class _Conditional_Probability_Main_Event
     setState(() {
       selected = new_selected;
       if (selected == 0) {
-        widget.probQuery.mainEvent = "E";
+        widget.probQuery.mainEvent = E;
       } else if (selected == 1) {
-        widget.probQuery.mainEvent = "F";
+        widget.probQuery.mainEvent = F;
       } else if (selected == 2) {
-        widget.probQuery.mainEvent = "G";
+        widget.probQuery.mainEvent = G;
       }
     });
   }

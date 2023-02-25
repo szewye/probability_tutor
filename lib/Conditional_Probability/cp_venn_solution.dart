@@ -9,7 +9,6 @@ import 'package:probability_tutor/buttons/next_button.dart';
 import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/constants.dart';
 import 'package:probability_tutor/font_style/title_caption.dart';
-import 'package:probability_tutor/helpers/conditional_probability_helpers.dart';
 import 'package:probability_tutor/helpers/navigation_helper.dart';
 import 'package:probability_tutor/models/prob_query.dart';
 
@@ -28,11 +27,13 @@ class _Conditional_Probability_Venn_Diagram_Solution_State
     extends State<Conditional_Probability_Venn_Diagram_Solution> {
   @override
   Widget build(BuildContext context) {
-    double top = intersection(
-            widget.probQuery.mainEvent, widget.probQuery.conditionEvent) /
-        coinsSampleSpace.length;
-    double bottom = numberOfSubSampleSpace(widget.probQuery.conditionEvent) /
-        coinsSampleSpace.length;
+    double top = widget.probQuery
+            .mainSubSampleSpace(
+                space: widget.probQuery.conditionSubSampleSpace())
+            .length /
+        widget.probQuery.sampleSpace.length;
+    double bottom = widget.probQuery.conditionSubSampleSpace().length /
+        widget.probQuery.sampleSpace.length;
     double solution = top / bottom;
 
     return Builder(builder: (context) {
@@ -45,7 +46,7 @@ class _Conditional_Probability_Venn_Diagram_Solution_State
         content: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            VennDiagram(),
+            VennDiagram(probQuery: widget.probQuery),
             SizedBox(height: 5),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -55,7 +56,7 @@ class _Conditional_Probability_Venn_Diagram_Solution_State
                   style: Theme.of(context).textTheme.titleSmall,
                 ),
                 Text(
-                  "${widget.probQuery.mainEvent}",
+                  "${widget.probQuery.mainEvent?.id}",
                   style: Theme.of(context)
                       .textTheme
                       .bodyLarge
@@ -63,7 +64,7 @@ class _Conditional_Probability_Venn_Diagram_Solution_State
                 ),
                 Text(" happening given "),
                 Text(
-                  "${widget.probQuery.conditionEvent}",
+                  "${widget.probQuery.conditionEvent?.id}",
                   style: Theme.of(context)
                       .textTheme
                       .bodyLarge
@@ -71,7 +72,7 @@ class _Conditional_Probability_Venn_Diagram_Solution_State
                 ),
                 Text(" is "),
                 Text(
-                  "${solution} ",
+                  "${solution.toStringAsFixed(4)} ",
                   style: Theme.of(context)
                       .textTheme
                       .headlineSmall

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_math_fork/flutter_math.dart';
 import 'package:probability_tutor/Conditional_Probability/conditional_probability_template.dart';
 import 'package:probability_tutor/Conditional_Probability/cp_condition_event.dart';
 import 'package:probability_tutor/Conditional_Probability/cp_home.dart';
@@ -8,7 +9,6 @@ import 'package:probability_tutor/buttons/next_button.dart';
 import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/constants.dart';
 import 'package:probability_tutor/font_style/title_caption.dart';
-import 'package:probability_tutor/helpers/conditional_probability_helpers.dart';
 import 'package:probability_tutor/models/prob_query.dart';
 
 class Conditional_Probability_Formula_Solution extends StatefulWidget {
@@ -26,11 +26,13 @@ class _Conditional_Probability_Formula_Solution_State
     extends State<Conditional_Probability_Formula_Solution> {
   @override
   Widget build(BuildContext context) {
-    double top = intersection(
-            widget.probQuery.mainEvent, widget.probQuery.conditionEvent) /
-        coinsSampleSpace.length;
-    double bottom = numberOfSubSampleSpace(widget.probQuery.conditionEvent) /
-        coinsSampleSpace.length;
+    double top = widget.probQuery
+            .mainSubSampleSpace(
+                space: widget.probQuery.conditionSubSampleSpace())
+            .length /
+        widget.probQuery.sampleSpace.length;
+    double bottom = widget.probQuery.conditionSubSampleSpace().length /
+        widget.probQuery.sampleSpace.length;
     double solution = top / bottom;
 
     return Builder(builder: (context) {
@@ -43,39 +45,52 @@ class _Conditional_Probability_Formula_Solution_State
         content: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            VennDiagram(),
+            VennDiagram(probQuery: widget.probQuery),
             SizedBox(height: 8),
-            Text(
-              "Using the formula, we can see that the event of ${widget.probQuery.mainEvent} happening given ${widget.probQuery.conditionEvent}: ",
-              style: Theme.of(context).textTheme.titleSmall,
-            ),
-            Column(
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("P(E | F) "),
-                Text("= P(E ∩ F) / P(F)"),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text("= ("),
                     Text(
-                      "${intersection(widget.probQuery.mainEvent, widget.probQuery.conditionEvent)} / ${coinsSampleSpace.length}",
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodyLarge
-                          ?.apply(color: orangyRed),
+                      "Using the formula, ",
+                      style: Theme.of(context).textTheme.titleSmall,
                     ),
-                    Text(") / ("),
-                    Text(
-                      "${numberOfSubSampleSpace(widget.probQuery.conditionEvent)} / ${coinsSampleSpace.length}",
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodyLarge
-                          ?.apply(color: Colors.green),
+                    SizedBox(height: 8),
+                    Math.tex("P(E | F)"),
+                    SizedBox(height: 5),
+                    Math.tex("= \\frac{P(E ∩ F)}{P(F)}"),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("= ("),
+                        Text(
+                          "${widget.probQuery.mainSubSampleSpace(space: widget.probQuery.conditionSubSampleSpace()).length} / ${widget.probQuery.sampleSpace.length}",
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyLarge
+                              ?.apply(color: orangyRed),
+                        ),
+                        Text(") / ("),
+                        Text(
+                          "${widget.probQuery.conditionSubSampleSpace().length} / ${widget.probQuery.sampleSpace.length}",
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyLarge
+                              ?.apply(color: Colors.green),
+                        ),
+                        Text(")")
+                      ],
                     ),
-                    Text(")")
+                    Text("= ${solution.toStringAsFixed(4)}"),
                   ],
                 ),
-                Text("= ${solution.toString()}"),
+                SizedBox(width: 50),
+                Text(
+                  "P(${widget.probQuery.mainEvent?.id} | ${widget.probQuery.conditionEvent?.id}) = ${solution..toStringAsFixed(4)}",
+                  style: Theme.of(context).textTheme.headlineSmall,
+                )
               ],
             ),
           ],
