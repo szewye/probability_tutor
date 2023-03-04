@@ -50,10 +50,10 @@ class System {
     door.stateOfDoor = DoorState.OPENED;
   }
 
-  // Check if player win or lose the game
+  // Check if player win or lose the game when game ends
   void gameEnded() {
     currentGame.won = selectedDoor?.prizeBehindTheDoor == Prize.CAR;
-    addGame(currentGame);
+    addGame(currentGame); // Add the current game to the list of games played
   }
 
   // Open all the doors
@@ -63,6 +63,7 @@ class System {
     });
   }
 
+  // Keep track of games player played
   void addGame(Game game) {
     games.add(game);
   }
