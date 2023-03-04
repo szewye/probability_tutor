@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/constants.dart';
-import 'package:probability_tutor/models/prob_query.dart';
+import 'package:probability_tutor/models/probability_query.dart';
 
 class VennDiagram extends StatelessWidget {
   final ProbQuery probQuery;

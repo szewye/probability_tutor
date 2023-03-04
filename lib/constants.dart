@@ -1,6 +1,6 @@
 // Set page margin/padding
 import 'package:probability_tutor/models/event.dart';
-import 'package:probability_tutor/models/prob_query.dart';
+import 'package:probability_tutor/models/probability_query.dart';
 
 const double buttonsDistance = 45;
 const double mainPageRoundedButton = 20;

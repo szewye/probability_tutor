@@ -6,7 +6,7 @@ import 'package:probability_tutor/buttons/next_button.dart';
 import 'package:probability_tutor/constants.dart';
 import 'package:probability_tutor/font_style/title_caption.dart';
 import 'package:probability_tutor/helpers/navigation_helper.dart';
-import 'package:probability_tutor/models/prob_query.dart';
+import 'package:probability_tutor/models/probability_query.dart';
 
 class Conditional_Probability_Venn_Diagram_Caption extends StatefulWidget {
   Conditional_Probability_Venn_Diagram_Caption(
