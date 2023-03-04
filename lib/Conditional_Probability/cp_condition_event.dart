@@ -8,7 +8,7 @@ import 'package:probability_tutor/Conditional_Probability/sample_space_button.da
 import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/constants.dart';
 import 'package:probability_tutor/font_style/title_caption.dart';
-import 'package:probability_tutor/models/probability_query.dart';
+import 'package:probability_tutor/models/conditional_probability/probability_query.dart';
 
 class Conditional_Probability_Condition_Event extends StatefulWidget {
   Conditional_Probability_Condition_Event({super.key, required this.probQuery});

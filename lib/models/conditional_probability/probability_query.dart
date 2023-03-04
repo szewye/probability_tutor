@@ -1,4 +1,4 @@
-import 'package:probability_tutor/models/event.dart';
+import 'package:probability_tutor/models/conditional_probability/event.dart';
 
 class ProbQuery {
   Event? mainEvent;

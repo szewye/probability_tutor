@@ -10,7 +10,7 @@ import 'package:probability_tutor/buttons/next_button.dart';
 import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/constants.dart';
 import 'package:probability_tutor/font_style/title_caption.dart';
-import 'package:probability_tutor/models/probability_query.dart';
+import 'package:probability_tutor/models/conditional_probability/probability_query.dart';
 
 class Conditional_Probability_Formula_Solution extends StatefulWidget {
   Conditional_Probability_Formula_Solution(
