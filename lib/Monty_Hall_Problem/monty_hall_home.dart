@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:probability_tutor/Monty_Hall_Problem/mh_play_home.dart';
+import 'package:probability_tutor/Monty_Hall_Problem/monty_hall_game.dart';
 import 'package:probability_tutor/buttons/back_home_button.dart';
 import 'package:probability_tutor/buttons/main_page_button.dart';
 import 'package:probability_tutor/colours.dart';
