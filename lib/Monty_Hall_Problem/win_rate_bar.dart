@@ -14,7 +14,7 @@ class Win_Rate_Bar extends StatelessWidget {
     return Stack(
       children: [
         Container(
-            width: 300,
+            width: 320,
             height: 45,
             decoration: BoxDecoration(
               color: offWhite,
@@ -24,17 +24,29 @@ class Win_Rate_Bar extends StatelessWidget {
             Container(
               alignment: Alignment.center,
               height: 45,
-              width: winRate * 300,
+              width: winRate * 320,
               decoration: BoxDecoration(
-                color: lightBlue,
+                color: darkBlue,
               ),
-              child: Text("${(winRate * 100).round()}%"),
+              child: Text(
+                "car: ${(winRate * 100).round()}%",
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyLarge
+                    ?.apply(color: offWhite),
+                textAlign: TextAlign.center,
+              ),
             ),
             Container(
               alignment: Alignment.center,
               height: 45,
-              width: (1.0 - winRate) * 300,
-              child: Text("${((1.0 - winRate) * 100).round()}%"),
+              width: (1.0 - winRate) * 320,
+              child: (1.0 - winRate == 0)
+                  ? Container()
+                  : Text(
+                      "goat: ${((1.0 - winRate) * 100).round()}%",
+                      textAlign: TextAlign.center,
+                    ),
             ),
           ],
         ),

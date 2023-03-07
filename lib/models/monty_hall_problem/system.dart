@@ -1,9 +1,17 @@
 import 'package:probability_tutor/models/monty_hall_problem/door.dart';
 import 'package:probability_tutor/models/monty_hall_problem/game.dart';
 
+// To keep track of the state of game
+enum GameState {
+  FIRST_SELECTION,
+  SECOND_SELECTION,
+  END;
+}
+
 class System {
   Door? selectedDoor;
   Game currentGame;
+  GameState currentGameState;
 
   List<Door> doors; // Doors in the game
   List<Game> games; // To keep track of the games player played in total
@@ -11,7 +19,8 @@ class System {
   System()
       : doors = [],
         games = [],
-        currentGame = Game() {
+        currentGame = Game(),
+        currentGameState = GameState.FIRST_SELECTION {
     setUpThreeDoors();
   }
 
@@ -26,6 +35,21 @@ class System {
     doors.shuffle();
   }
 
+  // Keep the same door as selection
+  void keepChoice() {
+    selectDoor(selectedDoor!);
+  }
+
+  // Change to the other door as new selection
+  void changeChoice() {
+    final door = (doors
+            .where((Door door) => door.stateOfDoor == DoorState.CLOSED)
+            .toList())
+        .first;
+
+    selectDoor(door);
+  }
+
   // When player selects a specific door (only one door can be selected at each time)
   void selectDoor(Door newSelectedDoor) {
     currentGame.changed =
@@ -34,6 +58,23 @@ class System {
     selectedDoor?.stateOfDoor = DoorState.CLOSED;
     selectedDoor = newSelectedDoor;
     selectedDoor?.stateOfDoor = DoorState.SELECTED;
+
+    if (currentGameState == GameState.FIRST_SELECTION) {
+      currentGameState = GameState.SECOND_SELECTION;
+      randomOpenDoor();
+    } else if (currentGameState == GameState.SECOND_SELECTION) {
+      currentGameState = GameState.END;
+      openAllDoors();
+      gameEnded();
+    }
+  }
+
+  // Begin new game after current game ends
+  void beginNewGame() {
+    currentGame = Game();
+    selectedDoor = null;
+    currentGameState = GameState.FIRST_SELECTION;
+    setUpThreeDoors();
   }
 
   // System will randomly open one of the two doors left
