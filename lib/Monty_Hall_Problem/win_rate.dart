@@ -13,7 +13,7 @@ class WinRate extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(30),
-      constraints: BoxConstraints(maxWidth: 380, maxHeight: 320),
+      constraints: BoxConstraints(maxWidth: 380, maxHeight: 350),
       decoration: BoxDecoration(
         color: orangyRed,
         borderRadius: BorderRadius.all(Radius.circular(30)),
@@ -51,6 +51,26 @@ class WinRate extends StatelessWidget {
           ),
           SizedBox(height: 2),
           Win_Rate_Bar(winRate: winRate(true)),
+          SizedBox(height: 2),
+          Row(
+            children: [
+              Text(
+                "Game(s) won: ${won(true)}",
+                style: Theme.of(context)
+                    .textTheme
+                    .bodySmall
+                    ?.apply(color: offWhite),
+              ),
+              SizedBox(width: 15),
+              Text(
+                "Game(s) played: ${games(true)}",
+                style: Theme.of(context)
+                    .textTheme
+                    .bodySmall
+                    ?.apply(color: offWhite),
+              ),
+            ],
+          ),
           SizedBox(height: 15),
           Text(
             "Keep your choice",
@@ -61,13 +81,38 @@ class WinRate extends StatelessWidget {
           ),
           SizedBox(height: 2),
           Win_Rate_Bar(winRate: winRate(false)),
+          SizedBox(height: 2),
+          Row(
+            children: [
+              Text(
+                "Game(s) won: ${won(false)}",
+                style: Theme.of(context)
+                    .textTheme
+                    .bodySmall
+                    ?.apply(color: offWhite),
+              ),
+              SizedBox(width: 15),
+              Text(
+                "Game(s) played: ${games(false)}",
+                style: Theme.of(context)
+                    .textTheme
+                    .bodySmall
+                    ?.apply(color: offWhite),
+              ),
+            ],
+          ),
           SizedBox(height: 20),
-          Text(
-            "Total game(s) played: ${system.games.length}",
-            style: Theme.of(context)
-                .textTheme
-                .bodySmall
-                ?.apply(color: offWhite, fontWeightDelta: 5),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Text(
+                "Total game(s) played: ${system.games.length}",
+                style: Theme.of(context)
+                    .textTheme
+                    .bodySmall
+                    ?.apply(color: offWhite, fontWeightDelta: 5),
+              ),
+            ],
           ),
         ],
       ),
@@ -88,5 +133,20 @@ class WinRate extends StatelessWidget {
         .length;
 
     return won.toDouble() / numberOfGames.toDouble();
+  }
+
+  // To calculate the games played for each action (keep or change choice)
+  int games(bool changedChoice) {
+    return system.games
+        .where((Game element) => element.changed == changedChoice)
+        .length;
+  }
+
+  // To calculate the games won for each action (keep or change choice)
+  int won(bool changedChoice) {
+    return system.games
+        .where(
+            (Game element) => element.changed == changedChoice && element.won)
+        .length;
   }
 }

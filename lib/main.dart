@@ -16,6 +16,7 @@ import 'package:probability_tutor/Conditional_Probability/cp_main_sample_space.d
 import 'package:probability_tutor/Conditional_Probability/cp_venn_diagram.dart';
 import 'package:probability_tutor/Conditional_Probability/cp_venn_diagram_caption.dart';
 import 'package:probability_tutor/Monty_Hall_Problem/monty_hall_game.dart';
+import 'package:probability_tutor/Monty_Hall_Problem/monty_hall_simulation.dart';
 import 'package:probability_tutor/homepage.dart';
 import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/Monty_Hall_Problem/monty_hall_home.dart';
@@ -39,7 +40,7 @@ class ProbabilityTutor extends StatelessWidget {
           ),
         ),
       ),
-      home: Monty_Hall_Play_Home(),
+      home: Monty_Hall_Simulation(),
     );
   }
 }

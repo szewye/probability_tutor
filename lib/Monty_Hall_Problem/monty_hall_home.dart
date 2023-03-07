@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:probability_tutor/Monty_Hall_Problem/monty_hall_game.dart';
+import 'package:probability_tutor/Monty_Hall_Problem/monty_hall_simulation.dart';
 import 'package:probability_tutor/buttons/back_home_button.dart';
 import 'package:probability_tutor/buttons/main_page_button.dart';
 import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/constants.dart';
 import 'package:probability_tutor/helpers/navigation_helper.dart';
-import 'package:probability_tutor/homepage.dart';
 
 class Monty_Hall extends StatelessWidget {
   const Monty_Hall({Key? key}) : super(key: key);
@@ -36,7 +36,7 @@ class Monty_Hall extends StatelessWidget {
                       child: MainPageButton(
                           title: "Play",
                           onPress: () {
-                            getNavigation()(context, Monty_Hall_Play_Home());
+                            getNavigation()(context, Monty_Hall_Game());
                           }),
                     ),
                     const SizedBox(height: buttonsDistance),
@@ -44,7 +44,9 @@ class Monty_Hall extends StatelessWidget {
                       width: double.infinity,
                       child: MainPageButton(
                         title: "Simulate",
-                        onPress: () {},
+                        onPress: () {
+                          getNavigation()(context, Monty_Hall_Simulation());
+                        },
                       ),
                     ),
                     const SizedBox(height: 20),
