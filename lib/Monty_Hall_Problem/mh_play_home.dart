@@ -51,7 +51,7 @@ class _Monty_Hall_Play_Home extends State<Monty_Hall_Play_Home> {
                   Heading(title: "Monty Hall Problem"),
                   SizedBox(height: 10),
                   Text(
-                    "Understand the Monty Hall problem with this game, play at least 30 times to see which is the best choice? \n Keep or change your choice?",
+                    "Understand the Monty Hall problem with this game. \n Play at least 30 times to see which is the best choice. Keep or change your choice?",
                     style: Theme.of(context).textTheme.titleMedium,
                     textAlign: TextAlign.center,
                   ),

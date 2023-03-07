@@ -28,10 +28,10 @@ class DoorShape extends StatelessWidget {
               color: getDoorColour(door.stateOfDoor),
               boxShadow: [
                 BoxShadow(
-                    color: darkBlue.withOpacity(0.3),
-                    spreadRadius: 3,
-                    blurRadius: 15,
-                    offset: Offset(8, 8)),
+                  color: darkBlue.withOpacity(0.3),
+                  spreadRadius: 3,
+                  blurRadius: 15,
+                ),
               ],
             ),
             child:
@@ -73,7 +73,7 @@ class DoorShape extends StatelessWidget {
     if (state == DoorState.CLOSED) {
       return offWhite;
     } else if (state == DoorState.SELECTED) {
-      return darkBlue;
+      return darkBlue.withOpacity(0.7);
     } else {
       return offWhite.withOpacity(0.3);
     }

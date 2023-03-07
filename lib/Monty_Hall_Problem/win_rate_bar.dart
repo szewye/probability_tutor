@@ -26,14 +26,14 @@ class Win_Rate_Bar extends StatelessWidget {
               height: 45,
               width: winRate * 320,
               decoration: BoxDecoration(
-                color: darkBlue,
+                color: lightBlue,
               ),
               child: Text(
                 "car: ${(winRate * 100).round()}%",
                 style: Theme.of(context)
                     .textTheme
                     .bodyLarge
-                    ?.apply(color: offWhite),
+                    ?.apply(color: darkBlue),
                 textAlign: TextAlign.center,
               ),
             ),

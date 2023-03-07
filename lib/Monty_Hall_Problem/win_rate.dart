@@ -15,7 +15,7 @@ class WinRate extends StatelessWidget {
       padding: EdgeInsets.all(30),
       constraints: BoxConstraints(maxWidth: 380, maxHeight: 320),
       decoration: BoxDecoration(
-        color: lightYellow,
+        color: orangyRed,
         borderRadius: BorderRadius.all(Radius.circular(30)),
         boxShadow: [
           BoxShadow(
@@ -34,12 +34,12 @@ class WinRate extends StatelessWidget {
             style: Theme.of(context)
                 .textTheme
                 .headlineSmall
-                ?.apply(color: darkBlue, fontWeightDelta: 5),
+                ?.apply(color: offWhite, fontWeightDelta: 5),
           ),
           Text(
             "(car : goat)",
             style:
-                Theme.of(context).textTheme.bodyMedium?.apply(color: darkBlue),
+                Theme.of(context).textTheme.bodyMedium?.apply(color: offWhite),
           ),
           SizedBox(height: 10),
           Text(
@@ -47,7 +47,7 @@ class WinRate extends StatelessWidget {
             style: Theme.of(context)
                 .textTheme
                 .titleLarge
-                ?.apply(color: darkBlue, decoration: TextDecoration.underline),
+                ?.apply(color: offWhite, decoration: TextDecoration.underline),
           ),
           SizedBox(height: 2),
           Win_Rate_Bar(winRate: winRate(true)),
@@ -57,7 +57,7 @@ class WinRate extends StatelessWidget {
             style: Theme.of(context)
                 .textTheme
                 .titleLarge
-                ?.apply(color: darkBlue, decoration: TextDecoration.underline),
+                ?.apply(color: offWhite, decoration: TextDecoration.underline),
           ),
           SizedBox(height: 2),
           Win_Rate_Bar(winRate: winRate(false)),
@@ -67,7 +67,7 @@ class WinRate extends StatelessWidget {
             style: Theme.of(context)
                 .textTheme
                 .bodySmall
-                ?.apply(color: darkBlue, fontWeightDelta: 5),
+                ?.apply(color: offWhite, fontWeightDelta: 5),
           ),
         ],
       ),

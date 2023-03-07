@@ -6,7 +6,7 @@ class MontyHallButton extends StatelessWidget {
   const MontyHallButton({
     Key? key,
     required this.title,
-    this.buttonColour = orangyRed,
+    this.buttonColour = darkBlue,
     this.textColour = offWhite,
     required this.onPress,
   }) : super(key: key);
