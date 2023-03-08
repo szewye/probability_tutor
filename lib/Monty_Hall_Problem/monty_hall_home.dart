@@ -34,7 +34,7 @@ class Monty_Hall extends StatelessWidget {
                   ),
                   const SizedBox(height: 50),
                   Container(
-                    constraints: BoxConstraints(maxWidth: 500),
+                    constraints: BoxConstraints(maxWidth: 400),
                     child: Column(
                       children: [
                         SizedBox(

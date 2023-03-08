@@ -34,7 +34,7 @@ class Bayes_Theorem extends StatelessWidget {
                   ),
                   const SizedBox(height: 50),
                   Container(
-                    constraints: BoxConstraints(maxWidth: 500),
+                    constraints: BoxConstraints(maxWidth: 450),
                     child: Column(
                       children: [
                         SizedBox(

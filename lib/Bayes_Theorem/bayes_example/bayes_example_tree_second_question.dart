@@ -4,6 +4,7 @@ import 'package:probability_tutor/Bayes_Theorem/bayes_example/bayes_example_temp
 import 'package:probability_tutor/Bayes_Theorem/bayes_example/bayes_tree.dart';
 import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/constants.dart';
+import 'package:probability_tutor/font_style/title_caption.dart';
 import 'package:probability_tutor/helpers/navigation_helper.dart';
 
 class Bayes_Theorem_Example_Tree_Second extends StatefulWidget {
@@ -41,8 +42,7 @@ class _Bayes_Theorem_Example_Tree_Second
               ),
             ),
             SizedBox(height: 20),
-            Text("what is P(¬D)?",
-                style: Theme.of(context).textTheme.headlineSmall),
+            Title_Caption(caption: "what is P(¬D)?"),
             SizedBox(height: 8),
             Text("select the correct answer",
                 style: Theme.of(context).textTheme.bodyLarge),

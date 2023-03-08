@@ -32,9 +32,9 @@ class Homepage extends StatelessWidget {
                         ?.apply(fontWeightDelta: 20, color: lightBlue),
                     textAlign: TextAlign.center,
                   ),
-                  const SizedBox(height: 50),
+                  const SizedBox(height: 45),
                   Container(
-                    constraints: BoxConstraints(maxWidth: 550),
+                    constraints: BoxConstraints(maxWidth: 500),
                     child: Column(
                       children: [
                         SizedBox(

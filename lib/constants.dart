@@ -1,6 +1,6 @@
 import 'package:probability_tutor/models/conditional_probability/event.dart';
 
-const double buttonsDistance = 45;
+const double buttonsDistance = 35;
 const double mainPageRoundedButton = 20;
 
 // Set page margin/padding
