@@ -104,6 +104,12 @@ class System {
     });
   }
 
+  // System will slect the first door at random
+  void selectRandomFirstDoor() {
+    var door = (doors..shuffle()).toList().first;
+    selectDoor(door);
+  }
+
   // Keep track of games player played
   void addGame(Game game) {
     games.add(game);

@@ -11,6 +11,7 @@ import 'package:probability_tutor/constants.dart';
 import 'package:probability_tutor/font_style/title_caption.dart';
 import 'package:probability_tutor/helpers/navigation_helper.dart';
 import 'package:probability_tutor/models/monty_hall_problem/door.dart';
+import 'package:probability_tutor/models/monty_hall_problem/game.dart';
 import 'package:probability_tutor/models/monty_hall_problem/system.dart';
 
 class Monty_Hall_Simulation extends StatefulWidget {
@@ -33,6 +34,7 @@ class _Monty_Hall_Simulation extends State<Monty_Hall_Simulation> {
   String actionValue = "keep your choice";
   // List of actions in the second dropdown menu
   List<String> action = ["keep your choice", "change your choice"];
+
   @override
   Widget build(BuildContext context) {
     return Builder(builder: (context) {
@@ -152,7 +154,9 @@ class _Monty_Hall_Simulation extends State<Monty_Hall_Simulation> {
           ),
           SizedBox(height: 10),
           ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              keepAllChoice(10);
+            },
             style: ElevatedButton.styleFrom(
                 backgroundColor: orangyRed,
                 padding: const EdgeInsets.fromLTRB(30, 18, 30, 18),
@@ -236,5 +240,41 @@ class _Monty_Hall_Simulation extends State<Monty_Hall_Simulation> {
               ),
             ))
         .toList();
+  }
+
+  // If user choose to keep the choice for all games in the simulation
+  void keepAllChoice(int numberOfSimulation) async {
+    for (int i = 0; i < numberOfSimulation; ++i) {
+      setState(() {
+        widget.system.selectRandomFirstDoor();
+      });
+
+      setState(() {
+        widget.system.randomOpenDoor();
+      });
+
+      setState(() {
+        widget.system.keepChoice();
+      });
+
+      setState(() {
+        widget.system.openAllDoors();
+      });
+
+      setState(() {
+        widget.system.gameEnded();
+      });
+
+      await Future.delayed(Duration(milliseconds: 500));
+    }
+  }
+
+  // If user choose to change the choice for all games in the simulation
+  void changeAllChoice(int numberOfSimulation) {
+    widget.system.selectRandomFirstDoor();
+    widget.system.randomOpenDoor();
+    widget.system.changeChoice();
+    widget.system.openAllDoors();
+    widget.system.gameEnded();
   }
 }
