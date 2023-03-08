@@ -40,7 +40,7 @@ class ProbabilityTutor extends StatelessWidget {
           ),
         ),
       ),
-      home: Monty_Hall_Simulation(),
+      home: Homepage(),
     );
   }
 }

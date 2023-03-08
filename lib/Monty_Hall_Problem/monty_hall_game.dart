@@ -38,19 +38,24 @@ class _Monty_Hall_Game extends State<Monty_Hall_Game> {
           actions: [
             Padding(
               padding: const EdgeInsets.all(10.0),
-              child: ElevatedButton(
-                onPressed: () {
-                  getNavigation()(context, Monty_Hall_Simulation());
-                },
-                style: ElevatedButton.styleFrom(
-                    backgroundColor: offWhite,
-                    padding: const EdgeInsets.all(10),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10))),
-                child: Text(
-                  "simulation",
-                  style: TextStyle(color: darkBlue),
-                ),
+              child: Row(
+                children: [
+                  ElevatedButton(
+                    onPressed: () {
+                      getNavigation()(context, Monty_Hall_Simulation());
+                    },
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: offWhite,
+                        padding: const EdgeInsets.all(10),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10))),
+                    child: Text(
+                      "simulation",
+                      style: TextStyle(color: darkBlue),
+                    ),
+                  ),
+                  BackHomeButton()
+                ],
               ),
             )
           ],

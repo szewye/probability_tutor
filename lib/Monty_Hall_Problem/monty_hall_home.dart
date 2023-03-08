@@ -23,7 +23,7 @@ class Monty_Hall extends StatelessWidget {
                 'Monty Hall Problem',
                 style: Theme.of(context)
                     .textTheme
-                    .headline1
+                    .headlineLarge
                     ?.apply(fontWeightDelta: 20, color: darkBlue),
               ),
               const SizedBox(height: 50),

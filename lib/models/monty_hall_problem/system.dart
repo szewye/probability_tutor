@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:probability_tutor/models/monty_hall_problem/door.dart';
 import 'package:probability_tutor/models/monty_hall_problem/game.dart';
 
@@ -106,8 +108,7 @@ class System {
 
   // System will slect the first door at random
   void selectRandomFirstDoor() {
-    var door = (doors..shuffle()).toList().first;
-    selectDoor(door);
+    selectDoor(doors[Random().nextInt(doors.length - 1)]);
   }
 
   // Keep track of games player played

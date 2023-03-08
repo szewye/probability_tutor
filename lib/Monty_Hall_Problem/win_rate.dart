@@ -61,7 +61,7 @@ class WinRate extends StatelessWidget {
                     .bodySmall
                     ?.apply(color: offWhite),
               ),
-              SizedBox(width: 15),
+              SizedBox(width: 30),
               Text(
                 "Game(s) played: ${games(true)}",
                 style: Theme.of(context)
@@ -91,7 +91,7 @@ class WinRate extends StatelessWidget {
                     .bodySmall
                     ?.apply(color: offWhite),
               ),
-              SizedBox(width: 15),
+              SizedBox(width: 30),
               Text(
                 "Game(s) played: ${games(false)}",
                 style: Theme.of(context)

@@ -23,7 +23,7 @@ class Homepage extends StatelessWidget {
                 'Probability Tutor',
                 style: Theme.of(context)
                     .textTheme
-                    .headline1
+                    .displayMedium
                     ?.apply(fontWeightDelta: 20, color: lightBlue),
               ),
               const SizedBox(height: 50),

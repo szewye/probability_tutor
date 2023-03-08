@@ -4,14 +4,12 @@ import 'package:probability_tutor/Monty_Hall_Problem/dropdown_selection.dart';
 import 'package:probability_tutor/Monty_Hall_Problem/monty_hall_game.dart';
 import 'package:probability_tutor/Monty_Hall_Problem/win_rate.dart';
 import 'package:probability_tutor/buttons/back_home_button.dart';
-import 'package:probability_tutor/buttons/monty_hall_button.dart';
 import 'package:probability_tutor/font_style/heading.dart';
 import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/constants.dart';
 import 'package:probability_tutor/font_style/title_caption.dart';
 import 'package:probability_tutor/helpers/navigation_helper.dart';
 import 'package:probability_tutor/models/monty_hall_problem/door.dart';
-import 'package:probability_tutor/models/monty_hall_problem/game.dart';
 import 'package:probability_tutor/models/monty_hall_problem/system.dart';
 
 class Monty_Hall_Simulation extends StatefulWidget {
@@ -27,13 +25,15 @@ class Monty_Hall_Simulation extends StatefulWidget {
 
 class _Monty_Hall_Simulation extends State<Monty_Hall_Simulation> {
   // Initial selected value for the first dropdown menu
-  int roundsValue = 50;
+  int roundsValue = 20;
   // List of items in the first dropdown menu
-  List<int> rounds = [10, 20, 50, 100, 500, 1000];
-  // Initial selected value for the second dropdown menu
-  String actionValue = "keep your choice";
+  List<int> rounds = [10, 20, 50, 100, 200, 500, 1000];
+  // Users pick to keep or change their choice
+  bool shouldKeepChoices = true;
   // List of actions in the second dropdown menu
-  List<String> action = ["keep your choice", "change your choice"];
+  List<String> actions = ["keep your choice", "change your choice"];
+
+  bool hideSimulationSelection = false;
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +47,25 @@ class _Monty_Hall_Simulation extends State<Monty_Hall_Simulation> {
           actions: [
             Padding(
               padding: const EdgeInsets.all(10.0),
-              child: BackHomeButton(),
+              child: Row(
+                children: [
+                  ElevatedButton(
+                    onPressed: () {
+                      getNavigation()(context, Monty_Hall_Game());
+                    },
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: offWhite,
+                        padding: const EdgeInsets.all(10),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10))),
+                    child: Text(
+                      "game",
+                      style: TextStyle(color: darkBlue),
+                    ),
+                  ),
+                  BackHomeButton()
+                ],
+              ),
             )
           ],
         ),
@@ -75,7 +93,110 @@ class _Monty_Hall_Simulation extends State<Monty_Hall_Simulation> {
                       ),
                   ),
                   SizedBox(height: 45),
-                  getInstructions(),
+                  hideSimulationSelection
+                      ? Column(
+                          children: [
+                            Title_Caption(
+                              caption: "Simulation running...",
+                              captionColour: darkBlue,
+                            ),
+                            SizedBox(height: 10),
+                            Text("Keep an eye on the win rate 😉")
+                          ],
+                        )
+                      : Column(
+                          children: [
+                            Title_Caption(
+                              caption:
+                                  "Select how many times you want the system to play:",
+                              captionColour: darkBlue,
+                            ),
+                            SizedBox(height: 10),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                DropDown(
+                                  width: 80,
+                                  height: 40,
+                                  value: roundsValue,
+                                  items: rounds.map((int roundValue) {
+                                    return DropdownMenuItem(
+                                      value: roundValue,
+                                      child: Text(
+                                        "$roundValue",
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodyLarge
+                                            ?.apply(color: offWhite),
+                                      ),
+                                    );
+                                  }).toList(),
+                                  onPress: (int? newValue) {
+                                    if (newValue != null) {
+                                      setState(() {
+                                        roundsValue = newValue;
+                                      });
+                                    }
+                                  },
+                                ),
+                                SizedBox(width: 15),
+                                Text("times and"),
+                                SizedBox(width: 15),
+                                DropDown(
+                                  width: 180,
+                                  height: 40,
+                                  value: getChoiceString(),
+                                  items: actions.map((String actionValue) {
+                                    return DropdownMenuItem(
+                                      value: actionValue,
+                                      child: Text(
+                                        "$actionValue",
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodyLarge
+                                            ?.apply(color: offWhite),
+                                      ),
+                                    );
+                                  }).toList(),
+                                  onPress: (String? newValue) {
+                                    setState(() {
+                                      if (newValue != null) {
+                                        setChoice(newValue);
+                                      }
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: 10),
+                            ElevatedButton(
+                              onPressed: () async {
+                                setState(() {
+                                  hideSimulationSelection = true;
+                                });
+                                await simulate(roundsValue, shouldKeepChoices);
+                                setState(() {
+                                  hideSimulationSelection = false;
+                                });
+                              },
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: orangyRed,
+                                padding:
+                                    const EdgeInsets.fromLTRB(30, 18, 30, 18),
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10)),
+                              ),
+                              child: Text(
+                                "start simulation",
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .titleMedium
+                                    ?.apply(color: offWhite),
+                              ),
+                            ),
+                          ],
+                        ),
                 ],
               ),
             ),
@@ -85,148 +206,14 @@ class _Monty_Hall_Simulation extends State<Monty_Hall_Simulation> {
     });
   }
 
-  // Different instructions appear at different stage of the simulation
-  Widget getInstructions() {
-    if (widget.system.currentGameState == GameState.FIRST_SELECTION) {
-      return Column(
-        children: [
-          Title_Caption(
-            caption: "Select how many times you want the system to play:",
-            captionColour: darkBlue,
-          ),
-          SizedBox(height: 10),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              DropDown(
-                width: 80,
-                height: 40,
-                initialValue: roundsValue,
-                items: rounds.map((int roundValue) {
-                  return DropdownMenuItem(
-                    value: roundValue,
-                    child: Text(
-                      "$roundValue",
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodyLarge
-                          ?.apply(color: offWhite),
-                    ),
-                  );
-                }).toList(),
-                onPress: (int? newValue) {
-                  setState(
-                    () {
-                      roundsValue = newValue!;
-                    },
-                  );
-                },
-              ),
-              SizedBox(width: 15),
-              Text("times and"),
-              SizedBox(width: 15),
-              DropDown(
-                width: 180,
-                height: 40,
-                initialValue: actionValue,
-                items: action.map((String actionValue) {
-                  return DropdownMenuItem(
-                    value: actionValue,
-                    child: Text(
-                      "$actionValue",
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodyLarge
-                          ?.apply(color: offWhite),
-                    ),
-                  );
-                }).toList(),
-                onPress: (String? newValue) {
-                  setState(
-                    () {
-                      actionValue = newValue!;
-                    },
-                  );
-                },
-              ),
-            ],
-          ),
-          SizedBox(height: 10),
-          ElevatedButton(
-            onPressed: () {
-              keepAllChoice(10);
-            },
-            style: ElevatedButton.styleFrom(
-                backgroundColor: orangyRed,
-                padding: const EdgeInsets.fromLTRB(30, 18, 30, 18),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10))),
-            child: Text(
-              "start simulation",
-              style: Theme.of(context)
-                  .textTheme
-                  .titleMedium
-                  ?.apply(color: offWhite),
-            ),
-          ),
-        ],
-      );
-    } else if (widget.system.currentGameState == GameState.SECOND_SELECTION) {
-      return Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Text(
-            "Do you want to",
-            style: Theme.of(context).textTheme.titleLarge,
-          ),
-          SizedBox(height: 10),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              MontyHallButton(
-                title: "Keep your choice?",
-                onPress: () {
-                  setState(() {
-                    widget.system.keepChoice();
-                  });
-                },
-              ),
-              SizedBox(width: 15),
-              Text("or"),
-              SizedBox(width: 15),
-              MontyHallButton(
-                title: "Change your choice?",
-                onPress: () {
-                  setState(() {
-                    widget.system.changeChoice();
-                  });
-                },
-              ),
-            ],
-          ),
-        ],
-      );
-    } else {
-      return Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Text(
-            "${widget.system.currentGame.won ? "Congratulations, you won!" : "You lost..."}",
-            style: Theme.of(context).textTheme.titleLarge,
-          ),
-          SizedBox(height: 10),
-          MontyHallButton(
-            title: "Play again",
-            onPress: () {
-              setState(() {
-                widget.system.beginNewGame();
-              });
-            },
-          ),
-        ],
-      );
-    }
+  // Get "keep your choice" or "change your choice"
+  String getChoiceString() {
+    return shouldKeepChoices ? actions[0] : actions[1];
+  }
+
+  // Set the simulation to keep or change choice
+  void setChoice(String newValue) {
+    shouldKeepChoices = newValue == actions[0];
   }
 
   // Number of doors on screen based on the system setup
@@ -242,39 +229,28 @@ class _Monty_Hall_Simulation extends State<Monty_Hall_Simulation> {
         .toList();
   }
 
-  // If user choose to keep the choice for all games in the simulation
-  void keepAllChoice(int numberOfSimulation) async {
+  // If user choose to keep or change the choice for all games in the simulation
+  Future<void> simulate(int numberOfSimulation, bool keepChoice) async {
     for (int i = 0; i < numberOfSimulation; ++i) {
       setState(() {
         widget.system.selectRandomFirstDoor();
       });
 
-      setState(() {
-        widget.system.randomOpenDoor();
-      });
+      await Future.delayed(Duration(milliseconds: 100));
 
       setState(() {
-        widget.system.keepChoice();
+        if (keepChoice) {
+          widget.system.keepChoice();
+        } else {
+          widget.system.changeChoice();
+        }
       });
+
+      await Future.delayed(Duration(milliseconds: 100));
 
       setState(() {
-        widget.system.openAllDoors();
+        widget.system.beginNewGame();
       });
-
-      setState(() {
-        widget.system.gameEnded();
-      });
-
-      await Future.delayed(Duration(milliseconds: 500));
     }
-  }
-
-  // If user choose to change the choice for all games in the simulation
-  void changeAllChoice(int numberOfSimulation) {
-    widget.system.selectRandomFirstDoor();
-    widget.system.randomOpenDoor();
-    widget.system.changeChoice();
-    widget.system.openAllDoors();
-    widget.system.gameEnded();
   }
 }

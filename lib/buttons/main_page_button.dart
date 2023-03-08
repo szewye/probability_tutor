@@ -30,7 +30,7 @@ class MainPageButton extends StatelessWidget {
           child: Text(title,
               style: Theme.of(context)
                   .textTheme
-                  .headline4
+                  .headlineMedium
                   ?.apply(color: textColour)),
         ));
   }
