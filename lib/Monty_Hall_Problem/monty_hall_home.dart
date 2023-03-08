@@ -18,9 +18,9 @@ class Monty_Hall extends StatelessWidget {
         body: SingleChildScrollView(
           child: Center(
             child: Container(
-              padding: EdgeInsets.fromLTRB(
+              padding: const EdgeInsets.fromLTRB(
                   pagePadding, 220, pagePadding, pagePadding),
-              constraints: BoxConstraints(maxWidth: pageConstraint),
+              constraints: const BoxConstraints(maxWidth: pageConstraint),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -34,7 +34,7 @@ class Monty_Hall extends StatelessWidget {
                   ),
                   const SizedBox(height: 50),
                   Container(
-                    constraints: BoxConstraints(maxWidth: 400),
+                    constraints: const BoxConstraints(maxWidth: 400),
                     child: Column(
                       children: [
                         SizedBox(
@@ -56,7 +56,7 @@ class Monty_Hall extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(height: 20),
-                        BackHomeButton(title: "back to home page"),
+                        const BackHomeButton(title: "back to home page"),
                       ],
                     ),
                   ),

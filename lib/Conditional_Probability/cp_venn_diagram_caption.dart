@@ -32,15 +32,15 @@ class _Conditional_Probability_Venn_Diagram_CaptionState
         content: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Title_Caption(
+            const Title_Caption(
                 caption:
                     "Want to see a Venn diagram based on the sample spaces you've just chosen?"),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Text(
               "Click next to see the Venn diagram!",
               style: Theme.of(context).textTheme.titleSmall,
             ),
-            SizedBox(height: 40),
+            const SizedBox(height: 40),
             NextButton(
               onPress: () {
                 getNavigation()(

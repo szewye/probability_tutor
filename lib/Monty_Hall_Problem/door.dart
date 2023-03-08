@@ -38,7 +38,7 @@ class DoorShape extends StatelessWidget {
                 door.stateOfDoor == DoorState.OPENED ? getPrize() : Container(),
           ),
           Container(
-            margin: EdgeInsets.only(right: 10),
+            margin: const EdgeInsets.only(right: 10),
             width: 10,
             height: 10,
             decoration: BoxDecoration(

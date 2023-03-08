@@ -19,9 +19,9 @@ class Bayes_Theorem extends StatelessWidget {
         body: SingleChildScrollView(
           child: Center(
             child: Container(
-              padding: EdgeInsets.fromLTRB(
+              padding: const EdgeInsets.fromLTRB(
                   pagePadding, 200, pagePadding, pagePadding),
-              constraints: BoxConstraints(maxWidth: pageConstraint),
+              constraints: const BoxConstraints(maxWidth: pageConstraint),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -34,7 +34,7 @@ class Bayes_Theorem extends StatelessWidget {
                   ),
                   const SizedBox(height: 50),
                   Container(
-                    constraints: BoxConstraints(maxWidth: 450),
+                    constraints: const BoxConstraints(maxWidth: 450),
                     child: Column(
                       children: [
                         SizedBox(
@@ -68,14 +68,14 @@ class Bayes_Theorem extends StatelessWidget {
                             title: "Simulation",
                             onPress: () {
                               getNavigation()(
-                                  context, Bayes_Theorem_Simulation());
+                                  context, const Bayes_Theorem_Simulation());
                             },
                             buttonColour: darkBlue,
                             textColour: offWhite,
                           ),
                         ),
                         const SizedBox(height: 20),
-                        BackHomeButton(title: "back to home page"),
+                        const BackHomeButton(title: "back to home page"),
                       ],
                     ),
                   ),

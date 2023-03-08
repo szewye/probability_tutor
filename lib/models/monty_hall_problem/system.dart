@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:probability_tutor/models/monty_hall_problem/door.dart';
 import 'package:probability_tutor/models/monty_hall_problem/game.dart';
 

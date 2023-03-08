@@ -34,7 +34,7 @@ class _Monty_Hall_Game extends State<Monty_Hall_Game> {
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           elevation: 0,
-          iconTheme: IconThemeData(color: darkBlue),
+          iconTheme: const IconThemeData(color: darkBlue),
           actions: [
             Padding(
               padding: const EdgeInsets.all(10.0),
@@ -49,12 +49,12 @@ class _Monty_Hall_Game extends State<Monty_Hall_Game> {
                         padding: const EdgeInsets.all(10),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10))),
-                    child: Text(
+                    child: const Text(
                       "simulation",
                       style: TextStyle(color: darkBlue),
                     ),
                   ),
-                  BackHomeButton()
+                  const BackHomeButton()
                 ],
               ),
             )
@@ -63,27 +63,30 @@ class _Monty_Hall_Game extends State<Monty_Hall_Game> {
         body: SingleChildScrollView(
           child: Center(
             child: Container(
-              padding: EdgeInsets.all(pagePadding),
-              constraints: BoxConstraints(maxWidth: pageConstraint),
+              padding: const EdgeInsets.all(pagePadding),
+              constraints: const BoxConstraints(maxWidth: pageConstraint),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Heading(title: "Monty Hall Problem"),
-                  SizedBox(height: 10),
+                  const Heading(title: "Monty Hall Problem"),
+                  const SizedBox(height: 10),
                   Text(
                     "Understand the Monty Hall problem with this game. \n Play at least 30 times to see which is the best action. Keep or change your choice?",
                     style: Theme.of(context).textTheme.titleMedium,
                     textAlign: TextAlign.center,
                   ),
-                  SizedBox(height: 30),
+                  const SizedBox(height: 30),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: doorWidgets(widget.system.doors)
                       ..addAll(
-                        [SizedBox(width: 45), WinRate(system: widget.system)],
+                        [
+                          const SizedBox(width: 45),
+                          WinRate(system: widget.system)
+                        ],
                       ),
                   ),
-                  SizedBox(height: 45),
+                  const SizedBox(height: 45),
                   getInstructions(),
                 ],
               ),
@@ -111,7 +114,7 @@ class _Monty_Hall_Game extends State<Monty_Hall_Game> {
             "Do you want to",
             style: Theme.of(context).textTheme.titleLarge,
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -123,9 +126,9 @@ class _Monty_Hall_Game extends State<Monty_Hall_Game> {
                   });
                 },
               ),
-              SizedBox(width: 15),
-              Text("or"),
-              SizedBox(width: 15),
+              const SizedBox(width: 15),
+              const Text("or"),
+              const SizedBox(width: 15),
               MontyHallButton(
                 title: "Change your choice?",
                 onPress: () {
@@ -143,12 +146,14 @@ class _Monty_Hall_Game extends State<Monty_Hall_Game> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
-            "${widget.system.currentGame.won ? "Congratulations, you won!" : "You lost..."}",
+            widget.system.currentGame.won
+                ? "Congratulations, you won!"
+                : "You lost...",
             style: Theme.of(context).textTheme.titleLarge,
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           MontyHallButton(
-            title: "Play again",
+            title: "Play again?",
             onPress: () {
               setState(() {
                 widget.system.beginNewGame();

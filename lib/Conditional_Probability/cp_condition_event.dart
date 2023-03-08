@@ -2,10 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:probability_tutor/Conditional_Probability/cp_main_sample_space.dart';
 import 'package:probability_tutor/Conditional_Probability/event_checkbox.dart';
 import 'package:probability_tutor/Conditional_Probability/conditional_probability_template.dart';
-import 'package:probability_tutor/Conditional_Probability/cp_condition_event.dart';
-import 'package:probability_tutor/Conditional_Probability/cp_home.dart';
 import 'package:probability_tutor/Conditional_Probability/sample_space_button.dart';
-import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/constants.dart';
 import 'package:probability_tutor/font_style/title_caption.dart';
 import 'package:probability_tutor/models/conditional_probability/probability_query.dart';
@@ -35,7 +32,7 @@ class _Conditional_Probability_Condition_EventState
         ),
         content: Column(
           children: [
-            Title_Caption(
+            const Title_Caption(
               caption: "select the condition event",
             ),
             Row(
@@ -49,12 +46,12 @@ class _Conditional_Probability_Condition_EventState
                       .bodyLarge
                       ?.apply(color: Colors.green, fontWeightDelta: 3),
                 ),
-                Text(")"),
+                const Text(")"),
               ],
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Container(
-              constraints: BoxConstraints(maxWidth: 100),
+              constraints: const BoxConstraints(maxWidth: 100),
               child: Column(
                 children: [
                   EventCheckBox(
@@ -96,9 +93,9 @@ class _Conditional_Probability_Condition_EventState
     });
   }
 
-  void onSelection(int? new_selected) {
+  void onSelection(int? newSelected) {
     setState(() {
-      selected = new_selected;
+      selected = newSelected;
       if (selected == 0) {
         widget.probQuery.conditionEvent = E;
       } else if (selected == 1) {

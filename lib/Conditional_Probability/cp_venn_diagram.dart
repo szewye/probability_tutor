@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:probability_tutor/Conditional_Probability/conditional_probability_template.dart';
-import 'package:probability_tutor/Conditional_Probability/cp_condition_event.dart';
-import 'package:probability_tutor/Conditional_Probability/cp_home.dart';
-import 'package:probability_tutor/Conditional_Probability/cp_venn_diagram_caption.dart';
 import 'package:probability_tutor/Conditional_Probability/cp_venn_solution.dart';
 import 'package:probability_tutor/Conditional_Probability/sample_space_button.dart';
 import 'package:probability_tutor/Conditional_Probability/venn_diagram.dart';
 import 'package:probability_tutor/buttons/next_button.dart';
 import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/constants.dart';
-import 'package:probability_tutor/font_style/title_caption.dart';
 import 'package:probability_tutor/helpers/navigation_helper.dart';
 import 'package:probability_tutor/models/conditional_probability/probability_query.dart';
 
@@ -57,7 +53,7 @@ class _Conditional_Probability_Venn_DiagramState
                 Text(")?", style: Theme.of(context).textTheme.titleLarge),
               ],
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             NextButton(onPress: () {
               getNavigation()(
                   context,

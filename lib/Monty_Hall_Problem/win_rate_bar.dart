@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:probability_tutor/colours.dart';
 
-class Win_Rate_Bar extends StatelessWidget {
-  const Win_Rate_Bar({
+class WinRateBar extends StatelessWidget {
+  const WinRateBar({
     Key? key,
     this.winRate = 0.5,
   }) : super(key: key);
@@ -16,7 +16,7 @@ class Win_Rate_Bar extends StatelessWidget {
         Container(
             width: 320,
             height: 45,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: offWhite,
             )),
         Row(
@@ -25,7 +25,7 @@ class Win_Rate_Bar extends StatelessWidget {
               alignment: Alignment.center,
               height: 45,
               width: winRate * 320,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: lightBlue,
               ),
               child: Text(

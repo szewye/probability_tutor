@@ -12,17 +12,17 @@ class WinRate extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(30),
-      constraints: BoxConstraints(maxWidth: 380, maxHeight: 350),
+      padding: const EdgeInsets.all(30),
+      constraints: const BoxConstraints(maxWidth: 380, maxHeight: 350),
       decoration: BoxDecoration(
         color: orangyRed,
-        borderRadius: BorderRadius.all(Radius.circular(30)),
+        borderRadius: const BorderRadius.all(Radius.circular(30)),
         boxShadow: [
           BoxShadow(
               color: Colors.grey.withOpacity(0.5),
               spreadRadius: 3,
               blurRadius: 15,
-              offset: Offset(4, 8)),
+              offset: const Offset(4, 8)),
         ],
       ),
       child: Column(
@@ -41,7 +41,7 @@ class WinRate extends StatelessWidget {
             style:
                 Theme.of(context).textTheme.bodyMedium?.apply(color: offWhite),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Text(
             "Change your choice",
             style: Theme.of(context)
@@ -49,9 +49,9 @@ class WinRate extends StatelessWidget {
                 .titleLarge
                 ?.apply(color: offWhite, decoration: TextDecoration.underline),
           ),
-          SizedBox(height: 2),
-          Win_Rate_Bar(winRate: winRate(true)),
-          SizedBox(height: 2),
+          const SizedBox(height: 2),
+          WinRateBar(winRate: winRate(true)),
+          const SizedBox(height: 2),
           Row(
             children: [
               Text(
@@ -61,7 +61,7 @@ class WinRate extends StatelessWidget {
                     .bodySmall
                     ?.apply(color: offWhite),
               ),
-              SizedBox(width: 30),
+              const SizedBox(width: 30),
               Text(
                 "Game(s) played: ${games(true)}",
                 style: Theme.of(context)
@@ -71,7 +71,7 @@ class WinRate extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: 15),
+          const SizedBox(height: 15),
           Text(
             "Keep your choice",
             style: Theme.of(context)
@@ -79,9 +79,9 @@ class WinRate extends StatelessWidget {
                 .titleLarge
                 ?.apply(color: offWhite, decoration: TextDecoration.underline),
           ),
-          SizedBox(height: 2),
-          Win_Rate_Bar(winRate: winRate(false)),
-          SizedBox(height: 2),
+          const SizedBox(height: 2),
+          WinRateBar(winRate: winRate(false)),
+          const SizedBox(height: 2),
           Row(
             children: [
               Text(
@@ -91,7 +91,7 @@ class WinRate extends StatelessWidget {
                     .bodySmall
                     ?.apply(color: offWhite),
               ),
-              SizedBox(width: 30),
+              const SizedBox(width: 30),
               Text(
                 "Game(s) played: ${games(false)}",
                 style: Theme.of(context)
@@ -101,7 +101,7 @@ class WinRate extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [

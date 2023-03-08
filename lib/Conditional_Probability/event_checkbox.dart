@@ -3,7 +3,7 @@ import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/helpers/navigation_helper.dart';
 
 class EventCheckBox extends StatefulWidget {
-  EventCheckBox({
+  const EventCheckBox({
     Key? key,
     required this.id,
     required this.selection,
@@ -33,7 +33,7 @@ class _EventCheckBox extends State<EventCheckBox> {
       title: Text(widget.value),
       checkColor: widget.tickColour,
       activeColor: widget.circleColour,
-      checkboxShape: CircleBorder(),
+      checkboxShape: const CircleBorder(),
       controlAffinity: ListTileControlAffinity.leading,
       value: widget.selection == widget.id,
       onChanged: (bool? value) {

@@ -18,9 +18,9 @@ class Homepage extends StatelessWidget {
         body: SingleChildScrollView(
           child: Center(
             child: Container(
-              padding: EdgeInsets.fromLTRB(
+              padding: const EdgeInsets.fromLTRB(
                   pagePadding, 200, pagePadding, pagePadding),
-              constraints: BoxConstraints(maxWidth: pageConstraint),
+              constraints: const BoxConstraints(maxWidth: pageConstraint),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -34,7 +34,7 @@ class Homepage extends StatelessWidget {
                   ),
                   const SizedBox(height: 45),
                   Container(
-                    constraints: BoxConstraints(maxWidth: 500),
+                    constraints: const BoxConstraints(maxWidth: 500),
                     child: Column(
                       children: [
                         SizedBox(
@@ -42,7 +42,7 @@ class Homepage extends StatelessWidget {
                           child: MainPageButton(
                               title: "Monty Hall Problem",
                               onPress: () {
-                                getNavigation()(context, Monty_Hall());
+                                getNavigation()(context, const Monty_Hall());
                               }),
                         ),
                         const SizedBox(height: buttonsDistance),
@@ -51,8 +51,8 @@ class Homepage extends StatelessWidget {
                           child: MainPageButton(
                               title: "Conditional Probability",
                               onPress: () {
-                                getNavigation()(
-                                    context, Conditional_Probability_Home());
+                                getNavigation()(context,
+                                    const Conditional_Probability_Home());
                               }),
                         ),
                         const SizedBox(height: buttonsDistance),
@@ -61,7 +61,7 @@ class Homepage extends StatelessWidget {
                           child: MainPageButton(
                               title: "Bayes' Theorem",
                               onPress: () {
-                                getNavigation()(context, Bayes_Theorem());
+                                getNavigation()(context, const Bayes_Theorem());
                               }),
                         ),
                       ],

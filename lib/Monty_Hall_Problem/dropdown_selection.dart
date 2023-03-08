@@ -22,9 +22,11 @@ class DropDown<T> extends StatelessWidget {
     return Container(
       width: width,
       height: height,
-      decoration: BoxDecoration(
-          color: darkBlue, borderRadius: BorderRadius.all(Radius.circular(10))),
-      padding: EdgeInsets.all(10),
+      decoration: const BoxDecoration(
+        color: darkBlue,
+        borderRadius: BorderRadius.all(Radius.circular(10)),
+      ),
+      padding: const EdgeInsets.all(10),
       child: DropdownButtonHideUnderline(
         child: DropdownButton<T>(
           value: value,

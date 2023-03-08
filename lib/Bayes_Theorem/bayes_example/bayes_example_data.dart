@@ -15,16 +15,17 @@ class Bayes_Theorem_Example_Data extends StatelessWidget {
       return Bayes_Theorem_Example_Template(
         content: Column(
           children: [
-            Title_Caption(
+            const Title_Caption(
                 caption: "How do we get $pOfTGivenNotD and $pOfNotD?"),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Text(
               "Click next to compute a tree using the data given from the scenario!",
               style: Theme.of(context).textTheme.titleSmall,
             ),
-            SizedBox(height: 50),
+            const SizedBox(height: 50),
             NextButton(onPress: () {
-              getNavigation()(context, Bayes_Theorem_Example_Tree_First());
+              getNavigation()(
+                  context, const Bayes_Theorem_Example_Tree_First());
             }),
           ],
         ),

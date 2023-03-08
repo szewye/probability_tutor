@@ -2,12 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:probability_tutor/Conditional_Probability/event_checkbox.dart';
 import 'package:probability_tutor/Conditional_Probability/conditional_probability_template.dart';
 import 'package:probability_tutor/Conditional_Probability/cp_condition_event.dart';
-import 'package:probability_tutor/Conditional_Probability/cp_home.dart';
 import 'package:probability_tutor/Conditional_Probability/sample_space_button.dart';
 import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/constants.dart';
 import 'package:probability_tutor/font_style/title_caption.dart';
-import 'package:probability_tutor/helpers/navigation_helper.dart';
 import 'package:probability_tutor/models/conditional_probability/probability_query.dart';
 
 class Conditional_Probability_Main_Event extends StatefulWidget {
@@ -33,13 +31,13 @@ class _Conditional_Probability_Main_Event
         ),
         content: Column(
           children: [
-            Title_Caption(
+            const Title_Caption(
               caption: "select a main event",
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("hint: P("),
+                const Text("hint: P("),
                 Text(
                   "X",
                   style: Theme.of(context)
@@ -47,12 +45,12 @@ class _Conditional_Probability_Main_Event
                       .bodyLarge
                       ?.apply(color: orangyRed, fontWeightDelta: 3),
                 ),
-                Text(" | Y)"),
+                const Text(" | Y)"),
               ],
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Container(
-              constraints: BoxConstraints(maxWidth: 100),
+              constraints: const BoxConstraints(maxWidth: 100),
               child: Column(
                 children: [
                   EventCheckBox(
@@ -91,9 +89,9 @@ class _Conditional_Probability_Main_Event
     });
   }
 
-  void onSelection(int? new_selected) {
+  void onSelection(int? newSelected) {
     setState(() {
-      selected = new_selected;
+      selected = newSelected;
       if (selected == 0) {
         widget.probQuery.mainEvent = E;
       } else if (selected == 1) {

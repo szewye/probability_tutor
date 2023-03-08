@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_math_fork/flutter_math.dart';
 import 'package:probability_tutor/Conditional_Probability/conditional_probability_template.dart';
-import 'package:probability_tutor/Conditional_Probability/cp_condition_event.dart';
-import 'package:probability_tutor/Conditional_Probability/cp_home.dart';
 import 'package:probability_tutor/Conditional_Probability/sample_space_button.dart';
 import 'package:probability_tutor/Conditional_Probability/venn_diagram.dart';
 import 'package:probability_tutor/buttons/back_home_button.dart';
-import 'package:probability_tutor/buttons/next_button.dart';
 import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/constants.dart';
-import 'package:probability_tutor/font_style/title_caption.dart';
 import 'package:probability_tutor/models/conditional_probability/probability_query.dart';
 
 class Conditional_Probability_Formula_Solution extends StatefulWidget {
@@ -47,7 +43,7 @@ class _Conditional_Probability_Formula_Solution_State
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             VennDiagram(probQuery: widget.probQuery),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -58,14 +54,14 @@ class _Conditional_Probability_Formula_Solution_State
                       "Using the formula, ",
                       style: Theme.of(context).textTheme.titleSmall,
                     ),
-                    SizedBox(height: 8),
-                    Text("P(E | F)"),
-                    SizedBox(height: 5),
+                    const SizedBox(height: 8),
+                    const Text("P(E | F)"),
+                    const SizedBox(height: 5),
                     Math.tex("= \\frac{P(E ∩ F)}{P(F)}"),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text("= ("),
+                        const Text("= ("),
                         Text(
                           "${widget.probQuery.mainSubSampleSpace(space: widget.probQuery.conditionSubSampleSpace()).length} / ${widget.probQuery.sampleSpace.length}",
                           style: Theme.of(context)
@@ -73,7 +69,7 @@ class _Conditional_Probability_Formula_Solution_State
                               .bodyLarge
                               ?.apply(color: orangyRed),
                         ),
-                        Text(") / ("),
+                        const Text(") / ("),
                         Text(
                           "${widget.probQuery.conditionSubSampleSpace().length} / ${widget.probQuery.sampleSpace.length}",
                           style: Theme.of(context)
@@ -81,21 +77,21 @@ class _Conditional_Probability_Formula_Solution_State
                               .bodyLarge
                               ?.apply(color: Colors.green),
                         ),
-                        Text(")")
+                        const Text(")")
                       ],
                     ),
                     Text("= ${solution.toStringAsFixed(4)}"),
                   ],
                 ),
-                SizedBox(width: 50),
+                const SizedBox(width: 50),
                 Container(
-                  constraints: BoxConstraints(maxWidth: 420),
-                  padding: EdgeInsets.all(10),
+                  constraints: const BoxConstraints(maxWidth: 420),
+                  padding: const EdgeInsets.all(10),
                   decoration:
                       BoxDecoration(border: Border.all(color: darkBlue)),
                   child: Container(
-                    constraints: BoxConstraints(maxWidth: 400),
-                    padding: EdgeInsets.all(10),
+                    constraints: const BoxConstraints(maxWidth: 400),
+                    padding: const EdgeInsets.all(10),
                     decoration:
                         BoxDecoration(border: Border.all(color: darkBlue)),
                     child: Text(
@@ -106,8 +102,8 @@ class _Conditional_Probability_Formula_Solution_State
                 )
               ],
             ),
-            SizedBox(height: 20),
-            BackHomeButton(
+            const SizedBox(height: 20),
+            const BackHomeButton(
               title: "back to home page",
             ),
           ],

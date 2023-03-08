@@ -32,7 +32,7 @@ class _Monty_Hall_Simulation extends State<Monty_Hall_Simulation> {
   bool shouldKeepChoices = true;
   // List of actions in the second dropdown menu
   List<String> actions = ["keep your choice", "change your choice"];
-
+  // To show simulation drop down boxes or not
   bool hideSimulationSelection = false;
 
   @override
@@ -43,7 +43,7 @@ class _Monty_Hall_Simulation extends State<Monty_Hall_Simulation> {
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           elevation: 0,
-          iconTheme: IconThemeData(color: darkBlue),
+          iconTheme: const IconThemeData(color: darkBlue),
           actions: [
             Padding(
               padding: const EdgeInsets.all(10.0),
@@ -58,12 +58,12 @@ class _Monty_Hall_Simulation extends State<Monty_Hall_Simulation> {
                         padding: const EdgeInsets.all(10),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10))),
-                    child: Text(
+                    child: const Text(
                       "game",
                       style: TextStyle(color: darkBlue),
                     ),
                   ),
-                  BackHomeButton()
+                  const BackHomeButton()
                 ],
               ),
             )
@@ -72,30 +72,33 @@ class _Monty_Hall_Simulation extends State<Monty_Hall_Simulation> {
         body: SingleChildScrollView(
           child: Center(
             child: Container(
-              padding: EdgeInsets.all(pagePadding),
-              constraints: BoxConstraints(maxWidth: pageConstraint),
+              padding: const EdgeInsets.all(pagePadding),
+              constraints: const BoxConstraints(maxWidth: pageConstraint),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Heading(title: "Monty Hall Simulation"),
-                  SizedBox(height: 10),
+                  const Heading(title: "Monty Hall Simulation"),
+                  const SizedBox(height: 10),
                   Text(
                     "Understand the Monty Hall problem with this game. \n Use the simulation and see which is the best action. Keep or change your choice?",
                     style: Theme.of(context).textTheme.titleMedium,
                     textAlign: TextAlign.center,
                   ),
-                  SizedBox(height: 30),
+                  const SizedBox(height: 30),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: doorWidgets(widget.system.doors)
                       ..addAll(
-                        [SizedBox(width: 45), WinRate(system: widget.system)],
+                        [
+                          const SizedBox(width: 45),
+                          WinRate(system: widget.system)
+                        ],
                       ),
                   ),
-                  SizedBox(height: 45),
+                  const SizedBox(height: 45),
                   hideSimulationSelection
                       ? Column(
-                          children: [
+                          children: const [
                             Title_Caption(
                               caption: "Simulation running...",
                             ),
@@ -105,11 +108,11 @@ class _Monty_Hall_Simulation extends State<Monty_Hall_Simulation> {
                         )
                       : Column(
                           children: [
-                            Title_Caption(
+                            const Title_Caption(
                               caption:
                                   "Select how many times you want the system to play:",
                             ),
-                            SizedBox(height: 10),
+                            const SizedBox(height: 10),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
@@ -138,9 +141,9 @@ class _Monty_Hall_Simulation extends State<Monty_Hall_Simulation> {
                                     }
                                   },
                                 ),
-                                SizedBox(width: 15),
-                                Text("times and"),
-                                SizedBox(width: 15),
+                                const SizedBox(width: 15),
+                                const Text("times and"),
+                                const SizedBox(width: 15),
                                 DropDown(
                                   width: 180,
                                   height: 40,
@@ -167,7 +170,7 @@ class _Monty_Hall_Simulation extends State<Monty_Hall_Simulation> {
                                 ),
                               ],
                             ),
-                            SizedBox(height: 10),
+                            const SizedBox(height: 10),
                             ElevatedButton(
                               onPressed: () async {
                                 setState(() {
@@ -234,7 +237,7 @@ class _Monty_Hall_Simulation extends State<Monty_Hall_Simulation> {
         widget.system.selectRandomFirstDoor();
       });
 
-      await Future.delayed(Duration(milliseconds: 100));
+      await Future.delayed(const Duration(milliseconds: 100));
 
       setState(() {
         if (keepChoice) {
@@ -244,7 +247,7 @@ class _Monty_Hall_Simulation extends State<Monty_Hall_Simulation> {
         }
       });
 
-      await Future.delayed(Duration(milliseconds: 100));
+      await Future.delayed(const Duration(milliseconds: 100));
 
       setState(() {
         widget.system.beginNewGame();
