@@ -35,7 +35,6 @@ class _Conditional_Probability_Main_Event
           children: [
             Title_Caption(
               caption: "select a main event",
-              captionColour: darkBlue,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,

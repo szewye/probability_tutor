@@ -102,7 +102,6 @@ class _Monty_Hall_Game extends State<Monty_Hall_Game> {
     if (widget.system.currentGameState == GameState.FIRST_SELECTION) {
       return Title_Caption(
         caption: widget.instruction,
-        captionColour: darkBlue,
       );
     } else if (widget.system.currentGameState == GameState.SECOND_SELECTION) {
       return Column(

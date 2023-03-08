@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:probability_tutor/colours.dart';
-import 'package:probability_tutor/constants.dart';
 
 class MontyHallButton extends StatelessWidget {
   const MontyHallButton({

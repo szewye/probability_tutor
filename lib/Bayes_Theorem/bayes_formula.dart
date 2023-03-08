@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 import 'package:probability_tutor/Bayes_Theorem/bayes_example/bayes_example_quiz_one.dart';
 import 'package:probability_tutor/buttons/back_home_button.dart';
@@ -57,17 +55,20 @@ class _Bayes_Theorem_Formula extends State<Bayes_Theorem_Formula> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Heading(title: "Bayes' Theorem"),
-            const SizedBox(height: 10),
             Text(
               "Recall the formula",
-              style:
-                  Theme.of(context).textTheme.headline4?.apply(color: darkBlue),
+              style: Theme.of(context)
+                  .textTheme
+                  .headlineSmall
+                  ?.apply(color: darkBlue),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 30),
             Title_Caption(
-                caption:
-                    "Drag and drop from parts of the formula from below to the respective boxes."),
+              caption:
+                  "Drag and drop from parts of the formula from below to the respective boxes.",
+              captionColour: orangyRed,
+            ),
             SizedBox(height: 80),
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,

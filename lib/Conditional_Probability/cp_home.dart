@@ -26,6 +26,7 @@ class Conditional_Probability_Home extends StatelessWidget {
           children: [
             Title_Caption(
               caption: "Ready to proceed?",
+              captionColour: orangyRed,
             ),
             SizedBox(height: 20),
             NextButton(

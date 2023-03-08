@@ -13,55 +13,63 @@ class Homepage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Builder(builder: (context) {
-      return Container(
-        color: darkBlue,
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'Probability Tutor',
-                style: Theme.of(context)
-                    .textTheme
-                    .displayMedium
-                    ?.apply(fontWeightDelta: 20, color: lightBlue),
+      return Scaffold(
+        backgroundColor: darkBlue,
+        body: SingleChildScrollView(
+          child: Center(
+            child: Container(
+              padding: EdgeInsets.fromLTRB(
+                  pagePadding, 200, pagePadding, pagePadding),
+              constraints: BoxConstraints(maxWidth: pageConstraint),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Probability Tutor',
+                    style: Theme.of(context)
+                        .textTheme
+                        .displayMedium
+                        ?.apply(fontWeightDelta: 20, color: lightBlue),
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(height: 50),
+                  Container(
+                    constraints: BoxConstraints(maxWidth: 550),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          width: double.infinity,
+                          child: MainPageButton(
+                              title: "Monty Hall Problem",
+                              onPress: () {
+                                getNavigation()(context, Monty_Hall());
+                              }),
+                        ),
+                        const SizedBox(height: buttonsDistance),
+                        SizedBox(
+                          width: double.infinity,
+                          child: MainPageButton(
+                              title: "Conditional Probability",
+                              onPress: () {
+                                getNavigation()(
+                                    context, Conditional_Probability_Home());
+                              }),
+                        ),
+                        const SizedBox(height: buttonsDistance),
+                        SizedBox(
+                          width: double.infinity,
+                          child: MainPageButton(
+                              title: "Bayes' Theorem",
+                              onPress: () {
+                                getNavigation()(context, Bayes_Theorem());
+                              }),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ),
-              const SizedBox(height: 50),
-              Container(
-                constraints: BoxConstraints(maxWidth: 550),
-                child: Column(
-                  children: [
-                    SizedBox(
-                      width: double.infinity,
-                      child: MainPageButton(
-                          title: "Monty Hall Problem",
-                          onPress: () {
-                            getNavigation()(context, Monty_Hall());
-                          }),
-                    ),
-                    const SizedBox(height: buttonsDistance),
-                    SizedBox(
-                      width: double.infinity,
-                      child: MainPageButton(
-                          title: "Conditional Probability",
-                          onPress: () {
-                            getNavigation()(
-                                context, Conditional_Probability_Home());
-                          }),
-                    ),
-                    const SizedBox(height: buttonsDistance),
-                    SizedBox(
-                      width: double.infinity,
-                      child: MainPageButton(
-                          title: "Bayes\' Theorem",
-                          onPress: () {
-                            getNavigation()(context, Bayes_Theorem());
-                          }),
-                    ),
-                  ],
-                ),
-              ),
-            ],
+            ),
           ),
         ),
       );

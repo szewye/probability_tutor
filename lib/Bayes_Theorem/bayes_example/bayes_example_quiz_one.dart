@@ -5,6 +5,7 @@ import 'package:probability_tutor/buttons/next_button.dart';
 import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/constants.dart';
 import 'package:probability_tutor/font_style/heading.dart';
+import 'package:probability_tutor/font_style/title_caption.dart';
 import 'package:probability_tutor/helpers/navigation_helper.dart';
 
 class Bayes_Theorem_Example_Quiz_One extends StatefulWidget {
@@ -79,8 +80,9 @@ class _Bayes_Theorem_Example_Quiz_One_State
                   ),
                 ),
                 SizedBox(height: 120),
-                Text("Identify what the question is asking for?",
-                    style: Theme.of(context).textTheme.headlineSmall),
+                Title_Caption(
+                  caption: "Identify what the question is asking for?",
+                ),
                 SizedBox(height: 8),
                 Text("select the correct answer",
                     style: Theme.of(context).textTheme.bodyLarge),

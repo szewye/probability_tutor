@@ -13,48 +13,56 @@ class Monty_Hall extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Builder(builder: (context) {
-      return Container(
-        color: lightBlue,
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'Monty Hall Problem',
-                style: Theme.of(context)
-                    .textTheme
-                    .headlineLarge
-                    ?.apply(fontWeightDelta: 20, color: darkBlue),
-              ),
-              const SizedBox(height: 50),
-              Container(
-                constraints: BoxConstraints(maxWidth: 500),
-                child: Column(
-                  children: [
-                    SizedBox(
-                      width: double.infinity,
-                      child: MainPageButton(
-                          title: "Play",
-                          onPress: () {
-                            getNavigation()(context, Monty_Hall_Game());
-                          }),
+      return Scaffold(
+        backgroundColor: lightBlue,
+        body: SingleChildScrollView(
+          child: Center(
+            child: Container(
+              padding: EdgeInsets.fromLTRB(
+                  pagePadding, 220, pagePadding, pagePadding),
+              constraints: BoxConstraints(maxWidth: pageConstraint),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Monty Hall Problem',
+                    style: Theme.of(context)
+                        .textTheme
+                        .displaySmall
+                        ?.apply(fontWeightDelta: 20, color: darkBlue),
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(height: 50),
+                  Container(
+                    constraints: BoxConstraints(maxWidth: 500),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          width: double.infinity,
+                          child: MainPageButton(
+                              title: "Play",
+                              onPress: () {
+                                getNavigation()(context, Monty_Hall_Game());
+                              }),
+                        ),
+                        const SizedBox(height: buttonsDistance),
+                        SizedBox(
+                          width: double.infinity,
+                          child: MainPageButton(
+                            title: "Simulate",
+                            onPress: () {
+                              getNavigation()(context, Monty_Hall_Simulation());
+                            },
+                          ),
+                        ),
+                        const SizedBox(height: 20),
+                        BackHomeButton(title: "back to home page"),
+                      ],
                     ),
-                    const SizedBox(height: buttonsDistance),
-                    SizedBox(
-                      width: double.infinity,
-                      child: MainPageButton(
-                        title: "Simulate",
-                        onPress: () {
-                          getNavigation()(context, Monty_Hall_Simulation());
-                        },
-                      ),
-                    ),
-                    const SizedBox(height: 20),
-                    BackHomeButton(title: "back to home page"),
-                  ],
-                ),
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
         ),
       );

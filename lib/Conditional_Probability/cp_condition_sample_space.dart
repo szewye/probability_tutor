@@ -44,7 +44,6 @@ class _Conditional_Probability_Condition_Sample_Space
               children: [
                 Title_Caption(
                   caption: "select all the sub sample spaces for the ",
-                  captionColour: darkBlue,
                 ),
                 Text(
                     " condition event (${widget.probQuery.conditionEvent?.id})",

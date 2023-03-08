@@ -37,7 +37,6 @@ class _Conditional_Probability_Condition_EventState
           children: [
             Title_Caption(
               caption: "select the condition event",
-              captionColour: darkBlue,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,

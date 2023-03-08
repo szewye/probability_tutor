@@ -43,7 +43,6 @@ class _Conditional_Probability_Main_Sample_Space
               children: [
                 Title_Caption(
                   caption: "select all the sub sample spaces for the ",
-                  captionColour: darkBlue,
                 ),
                 Text("main event (${widget.probQuery.mainEvent?.id})",
                     style: Theme.of(context)

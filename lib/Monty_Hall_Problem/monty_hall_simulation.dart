@@ -98,7 +98,6 @@ class _Monty_Hall_Simulation extends State<Monty_Hall_Simulation> {
                           children: [
                             Title_Caption(
                               caption: "Simulation running...",
-                              captionColour: darkBlue,
                             ),
                             SizedBox(height: 10),
                             Text("Keep an eye on the win rate 😉")
@@ -109,7 +108,6 @@ class _Monty_Hall_Simulation extends State<Monty_Hall_Simulation> {
                             Title_Caption(
                               caption:
                                   "Select how many times you want the system to play:",
-                              captionColour: darkBlue,
                             ),
                             SizedBox(height: 10),
                             Row(

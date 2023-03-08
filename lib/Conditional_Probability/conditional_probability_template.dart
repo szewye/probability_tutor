@@ -39,12 +39,17 @@ class Conditional_Probability_Template extends StatelessWidget {
                 children: [
                   Heading(title: "Conditional Probability"),
                   Text(
-                      "(the likelihood of an event occurring, based on a previous event having occurred in similar circumstances)"),
+                    "(the likelihood of an event occurring, based on a previous event having occurred in similar circumstances)",
+                    textAlign: TextAlign.center,
+                  ),
                   SizedBox(height: 30),
                   Column(
                     children: [
-                      Text(conditionalProbabilityContext,
-                          style: Theme.of(context).textTheme.headlineSmall),
+                      Text(
+                        conditionalProbabilityContext,
+                        style: Theme.of(context).textTheme.headlineSmall,
+                        textAlign: TextAlign.center,
+                      ),
                       SizedBox(height: 20),
                       Text.rich(
                         TextSpan(

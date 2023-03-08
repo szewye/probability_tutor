@@ -1,15 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:probability_tutor/Bayes_Theorem/bayes_example/bayes_example_quiz_one.dart';
-import 'package:probability_tutor/Bayes_Theorem/bayes_formula.dart';
-import 'package:probability_tutor/Bayes_Theorem/bayes_simulation.dart';
 import 'package:probability_tutor/buttons/back_home_button.dart';
-import 'package:probability_tutor/buttons/next_button.dart';
 import 'package:probability_tutor/font_style/heading.dart';
-import 'package:probability_tutor/font_style/title_caption.dart';
-import 'package:probability_tutor/homepage.dart';
 import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/constants.dart';
-import 'package:flutter_math_fork/flutter_math.dart';
 
 class Bayes_Theorem_Example_Template extends StatelessWidget {
   final Widget content;
