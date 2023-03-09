@@ -24,10 +24,11 @@ class Conditional_Probability_Home extends StatelessWidget {
         ),
         content: Column(
           children: [
-            Title_Caption(
+            const Title_Caption(
               caption: "Ready to proceed?",
+              captionColour: orangyRed,
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             NextButton(
               onPress: () {
                 getNavigation()(context, Conditional_Probability_Main_Event());

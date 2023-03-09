@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 import 'package:probability_tutor/Bayes_Theorem/bayes_example/bayes_example_quiz_one.dart';
 import 'package:probability_tutor/buttons/back_home_button.dart';
@@ -14,10 +12,10 @@ class Bayes_Theorem_Formula extends StatefulWidget {
 }
 
 class _Bayes_Theorem_Formula extends State<Bayes_Theorem_Formula> {
-  String _FGivenE = "P(F | E)";
-  String _FGivenNotE = "P(F | ¬E)";
-  String _E = "P(E)";
-  String _notE = "P(¬E)";
+  final String _FGivenE = "P(F | E)";
+  final String _FGivenNotE = "P(F | ¬E)";
+  final String _E = "P(E)";
+  final String _notE = "P(¬E)";
 
   String placeHolder1 = "";
   String placeHolder2 = "";
@@ -33,7 +31,7 @@ class _Bayes_Theorem_Formula extends State<Bayes_Theorem_Formula> {
       appBar: AppBar(
           backgroundColor: Colors.transparent,
           elevation: 0,
-          iconTheme: IconThemeData(color: darkBlue),
+          iconTheme: const IconThemeData(color: darkBlue),
           actions: [
             Padding(
               padding: const EdgeInsets.all(10.0),
@@ -46,7 +44,7 @@ class _Bayes_Theorem_Formula extends State<Bayes_Theorem_Formula> {
                       padding: const EdgeInsets.all(10),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10))),
-                  child: Text(
+                  child: const Text(
                     "example",
                     style: TextStyle(color: darkBlue),
                   )),
@@ -56,19 +54,22 @@ class _Bayes_Theorem_Formula extends State<Bayes_Theorem_Formula> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Heading(title: "Bayes' Theorem"),
-            const SizedBox(height: 10),
+            const Heading(title: "Bayes' Theorem"),
             Text(
               "Recall the formula",
-              style:
-                  Theme.of(context).textTheme.headline4?.apply(color: darkBlue),
+              style: Theme.of(context)
+                  .textTheme
+                  .headlineSmall
+                  ?.apply(color: darkBlue),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 30),
-            Title_Caption(
-                caption:
-                    "Drag and drop from parts of the formula from below to the respective boxes."),
-            SizedBox(height: 80),
+            const Title_Caption(
+              caption:
+                  "Drag and drop from parts of the formula from below to the respective boxes.",
+              captionColour: orangyRed,
+            ),
+            const SizedBox(height: 80),
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisSize: MainAxisSize.min,
@@ -78,7 +79,7 @@ class _Bayes_Theorem_Formula extends State<Bayes_Theorem_Formula> {
                   style: Theme.of(context).textTheme.headlineSmall,
                 ),
                 Container(
-                  constraints: BoxConstraints(maxWidth: 650),
+                  constraints: const BoxConstraints(maxWidth: 650),
                   child: Column(
                     children: [
                       Row(
@@ -89,17 +90,17 @@ class _Bayes_Theorem_Formula extends State<Bayes_Theorem_Formula> {
                               return Container(
                                 width: 120,
                                 height: 60,
+                                alignment: Alignment.center,
+                                decoration: BoxDecoration(
+                                  border: Border.all(color: darkBlue),
+                                ),
                                 child: rejects.isNotEmpty
-                                    ? Text(
+                                    ? const Text(
                                         'not acceptable',
                                         textAlign: TextAlign.center,
                                         style: TextStyle(color: orangyRed),
                                       )
                                     : Text(placeHolder1),
-                                alignment: Alignment.center,
-                                decoration: BoxDecoration(
-                                  border: Border.all(color: darkBlue),
-                                ),
                               );
                             },
                             onWillAccept: (data) {
@@ -111,26 +112,26 @@ class _Bayes_Theorem_Formula extends State<Bayes_Theorem_Formula> {
                               });
                             },
                           ),
-                          SizedBox(width: 5),
+                          const SizedBox(width: 5),
                           Text("\*",
                               style: Theme.of(context).textTheme.headlineSmall),
-                          SizedBox(width: 5),
+                          const SizedBox(width: 5),
                           DragTarget<String>(
                             builder: (context, candidates, rejects) {
                               return Container(
                                 width: 120,
                                 height: 60,
+                                alignment: Alignment.center,
+                                decoration: BoxDecoration(
+                                  border: Border.all(color: darkBlue),
+                                ),
                                 child: rejects.isNotEmpty
-                                    ? Text(
+                                    ? const Text(
                                         'not acceptable',
                                         textAlign: TextAlign.center,
                                         style: TextStyle(color: orangyRed),
                                       )
                                     : Text(placeHolder2),
-                                alignment: Alignment.center,
-                                decoration: BoxDecoration(
-                                  border: Border.all(color: darkBlue),
-                                ),
                               );
                             },
                             onWillAccept: (data) {
@@ -144,31 +145,31 @@ class _Bayes_Theorem_Formula extends State<Bayes_Theorem_Formula> {
                           ),
                         ],
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       Container(color: darkBlue, height: 1.5),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Text("(",
                               style: Theme.of(context).textTheme.headlineSmall),
-                          SizedBox(width: 5),
+                          const SizedBox(width: 5),
                           DragTarget<String>(
                             builder: (context, candidates, rejects) {
                               return Container(
                                 width: 120,
                                 height: 60,
+                                alignment: Alignment.center,
+                                decoration: BoxDecoration(
+                                  border: Border.all(color: darkBlue),
+                                ),
                                 child: rejects.isNotEmpty
-                                    ? Text(
+                                    ? const Text(
                                         'not acceptable',
                                         textAlign: TextAlign.center,
                                         style: TextStyle(color: orangyRed),
                                       )
                                     : Text(placeHolder3),
-                                alignment: Alignment.center,
-                                decoration: BoxDecoration(
-                                  border: Border.all(color: darkBlue),
-                                ),
                               );
                             },
                             onWillAccept: (data) {
@@ -180,26 +181,26 @@ class _Bayes_Theorem_Formula extends State<Bayes_Theorem_Formula> {
                               });
                             },
                           ),
-                          SizedBox(width: 5),
+                          const SizedBox(width: 5),
                           Text("\*",
                               style: Theme.of(context).textTheme.headlineSmall),
-                          SizedBox(width: 5),
+                          const SizedBox(width: 5),
                           DragTarget<String>(
                             builder: (context, candidates, rejects) {
                               return Container(
                                 width: 120,
                                 height: 60,
+                                alignment: Alignment.center,
+                                decoration: BoxDecoration(
+                                  border: Border.all(color: darkBlue),
+                                ),
                                 child: rejects.isNotEmpty
-                                    ? Text(
+                                    ? const Text(
                                         'not acceptable',
                                         textAlign: TextAlign.center,
                                         style: TextStyle(color: orangyRed),
                                       )
                                     : Text(placeHolder4),
-                                alignment: Alignment.center,
-                                decoration: BoxDecoration(
-                                  border: Border.all(color: darkBlue),
-                                ),
                               );
                             },
                             onWillAccept: (data) {
@@ -211,32 +212,32 @@ class _Bayes_Theorem_Formula extends State<Bayes_Theorem_Formula> {
                               });
                             },
                           ),
-                          SizedBox(width: 5),
+                          const SizedBox(width: 5),
                           Text(")",
                               style: Theme.of(context).textTheme.headlineSmall),
-                          SizedBox(width: 5),
+                          const SizedBox(width: 5),
                           Text("+",
                               style: Theme.of(context).textTheme.headlineSmall),
-                          SizedBox(width: 5),
+                          const SizedBox(width: 5),
                           Text("(",
                               style: Theme.of(context).textTheme.headlineSmall),
-                          SizedBox(width: 5),
+                          const SizedBox(width: 5),
                           DragTarget<String>(
                             builder: (context, candidates, rejects) {
                               return Container(
                                 width: 120,
                                 height: 60,
+                                alignment: Alignment.center,
+                                decoration: BoxDecoration(
+                                  border: Border.all(color: darkBlue),
+                                ),
                                 child: rejects.isNotEmpty
-                                    ? Text(
+                                    ? const Text(
                                         'not acceptable',
                                         textAlign: TextAlign.center,
                                         style: TextStyle(color: orangyRed),
                                       )
                                     : Text(placeHolder5),
-                                alignment: Alignment.center,
-                                decoration: BoxDecoration(
-                                  border: Border.all(color: darkBlue),
-                                ),
                               );
                             },
                             onWillAccept: (data) {
@@ -248,26 +249,26 @@ class _Bayes_Theorem_Formula extends State<Bayes_Theorem_Formula> {
                               });
                             },
                           ),
-                          SizedBox(width: 5),
+                          const SizedBox(width: 5),
                           Text("\*",
                               style: Theme.of(context).textTheme.headlineSmall),
-                          SizedBox(width: 5),
+                          const SizedBox(width: 5),
                           DragTarget<String>(
                             builder: (context, candidates, rejects) {
                               return Container(
                                 width: 120,
                                 height: 60,
+                                alignment: Alignment.center,
+                                decoration: BoxDecoration(
+                                  border: Border.all(color: darkBlue),
+                                ),
                                 child: rejects.isNotEmpty
-                                    ? Text(
+                                    ? const Text(
                                         'not acceptable',
                                         textAlign: TextAlign.center,
                                         style: TextStyle(color: orangyRed),
                                       )
                                     : Text(placeHolder6),
-                                alignment: Alignment.center,
-                                decoration: BoxDecoration(
-                                  border: Border.all(color: darkBlue),
-                                ),
                               );
                             },
                             onWillAccept: (data) {
@@ -279,7 +280,7 @@ class _Bayes_Theorem_Formula extends State<Bayes_Theorem_Formula> {
                               });
                             },
                           ),
-                          SizedBox(width: 5),
+                          const SizedBox(width: 5),
                           Text(")",
                               style: Theme.of(context).textTheme.headlineSmall),
                         ],
@@ -289,45 +290,45 @@ class _Bayes_Theorem_Formula extends State<Bayes_Theorem_Formula> {
                 ),
               ],
             ),
-            SizedBox(height: 120),
+            const SizedBox(height: 120),
             Row(
               mainAxisSize: MainAxisSize.min,
               children: [
                 Draggable<String>(
                     data: _FGivenE,
-                    child: Text(_FGivenE,
-                        style: Theme.of(context).textTheme.headline6),
                     feedback: Text(_FGivenE,
                         style: Theme.of(context).textTheme.headlineSmall),
-                    childWhenDragging: Text("")),
-                SizedBox(width: 35),
+                    childWhenDragging: const Text(""),
+                    child: Text(_FGivenE,
+                        style: Theme.of(context).textTheme.headline6)),
+                const SizedBox(width: 35),
                 Draggable<String>(
                     data: _FGivenNotE,
-                    child: Text(_FGivenNotE,
-                        style: Theme.of(context).textTheme.headline6),
                     feedback: Text(_FGivenNotE,
                         style: Theme.of(context).textTheme.headlineSmall),
-                    childWhenDragging: Text("")),
-                SizedBox(width: 35),
+                    childWhenDragging: const Text(""),
+                    child: Text(_FGivenNotE,
+                        style: Theme.of(context).textTheme.headline6)),
+                const SizedBox(width: 35),
                 Draggable<String>(
                     data: _notE,
-                    child: Text(_notE,
-                        style: Theme.of(context).textTheme.headline6),
                     feedback: Text(_notE,
                         style: Theme.of(context).textTheme.headlineSmall),
-                    childWhenDragging: Text("")),
-                SizedBox(width: 35),
+                    childWhenDragging: const Text(""),
+                    child: Text(_notE,
+                        style: Theme.of(context).textTheme.headline6)),
+                const SizedBox(width: 35),
                 Draggable<String>(
                     data: _E,
-                    child:
-                        Text(_E, style: Theme.of(context).textTheme.headline6),
                     feedback: Text(_E,
                         style: Theme.of(context).textTheme.headlineSmall),
-                    childWhenDragging: Text("")),
+                    childWhenDragging: const Text(""),
+                    child:
+                        Text(_E, style: Theme.of(context).textTheme.headline6)),
               ],
             ),
-            SizedBox(height: 120),
-            BackHomeButton(),
+            const SizedBox(height: 120),
+            const BackHomeButton(),
           ],
         ),
       ),

@@ -1,6 +1,9 @@
-// Set page margin/padding
-const double buttonsDistance = 45;
+import 'package:probability_tutor/models/conditional_probability/event.dart';
+
+const double buttonsDistance = 35;
 const double mainPageRoundedButton = 20;
+
+// Set page margin/padding
 const double pagePadding = 50;
 const double pageConstraint = 1200;
 
@@ -28,7 +31,7 @@ const String TNotDValue = "0.005";
 const String notDValue = "0.99999";
 const String notTNotDValue = "0.995";
 
-// Conditional probability part constants
+// Coin conditional probability part constants
 const String conditionalProbabilityContext =
     "We flip a fair coin 3 times. A couple of events can be observed through this:";
 
@@ -39,7 +42,7 @@ const String FSecondHalf = "the first flip comes up heads";
 const String GFirstHalf = "Let G be the event of ";
 const String GSecondHalf = "the first flip comes up tails";
 
-final Set<String> coinsSampleSpace = {
+final List<String> coinsSampleSpace = [
   "HHH",
   "HHT",
   "HTT",
@@ -48,8 +51,11 @@ final Set<String> coinsSampleSpace = {
   "TTH",
   "THH",
   "THT"
-};
+];
 
-final Set<String> eSubSampleSpace = {"HHH", "HHT", "THH"};
-final Set<String> fSubSampleSpace = {"HHH", "HHT", "HTT", "HTH"};
-final Set<String> gSubSampleSpace = {"TTT", "TTH", "THH", "THT"};
+Event E =
+    Event(id: "E", isIn: (String? sample) => sample?.contains("HH") ?? false);
+Event F =
+    Event(id: "F", isIn: (String? sample) => sample?.startsWith("H") ?? false);
+Event G =
+    Event(id: "G", isIn: (String? sample) => sample?.startsWith("T") ?? false);

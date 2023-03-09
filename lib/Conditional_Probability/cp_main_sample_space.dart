@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:probability_tutor/Conditional_Probability/conditional_probability_template.dart';
-import 'package:probability_tutor/Conditional_Probability/cp_condition_event.dart';
 import 'package:probability_tutor/Conditional_Probability/cp_condition_sample_space.dart';
-import 'package:probability_tutor/Conditional_Probability/cp_home.dart';
 import 'package:probability_tutor/Conditional_Probability/sample_space_button.dart';
-import 'package:probability_tutor/Conditional_Probability/venn_diagram.dart';
 import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/constants.dart';
 import 'package:probability_tutor/font_style/title_caption.dart';
-import 'package:probability_tutor/helpers/sub_sample_space_helper.dart';
-import 'package:probability_tutor/models/prob_query.dart';
+import 'package:probability_tutor/models/conditional_probability/probability_query.dart';
 import 'package:probability_tutor/helpers/navigation_helper.dart';
 
 class Conditional_Probability_Main_Sample_Space extends StatefulWidget {
@@ -25,7 +21,7 @@ class Conditional_Probability_Main_Sample_Space extends StatefulWidget {
 
 class _Conditional_Probability_Main_Sample_Space
     extends State<Conditional_Probability_Main_Sample_Space> {
-  Set<String> subSampleSpace = {};
+  Set<String> selectedSubSampleSpace = {};
 
   @override
   Widget build(BuildContext context) {
@@ -42,31 +38,30 @@ class _Conditional_Probability_Main_Sample_Space
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Title_Caption(
+                const Title_Caption(
                   caption: "select all the sub sample spaces for the ",
-                  captionColour: darkBlue,
                 ),
-                Text("main event (${widget.probQuery.mainEvent})",
+                Text("main event (${widget.probQuery.mainEvent?.id})",
                     style: Theme.of(context)
                         .textTheme
                         .titleLarge
                         ?.apply(color: orangyRed)),
               ],
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Container(
-              padding: EdgeInsets.all(10),
-              constraints: BoxConstraints(maxWidth: 350, minHeight: 55),
+              padding: const EdgeInsets.all(10),
+              constraints: const BoxConstraints(maxWidth: 350, minHeight: 55),
               decoration: BoxDecoration(
                 // color: lightBlue,
                 border: Border.all(color: darkBlue),
-                borderRadius: BorderRadius.all(
+                borderRadius: const BorderRadius.all(
                   Radius.circular(10),
                 ),
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: subSampleSpace.map<Widget>(
+                children: selectedSubSampleSpace.map<Widget>(
                   (String element) {
                     return SampleSpaceButton(text: element);
                   },
@@ -80,21 +75,20 @@ class _Conditional_Probability_Main_Sample_Space
   }
 
   // sample space button is clickable in this page
-  void sampleOnPress(String sample, BuildContext context) {
-    if (widget.probQuery.mainEvent != null) {
-      if (rightSample(sample, widget.probQuery.mainEvent!)) {
-        setState(() {
-          subSampleSpace.add(sample);
+  Future<void> sampleOnPress(String sampleClicked, BuildContext context) async {
+    final subSampleSpace = widget.probQuery.mainSubSampleSpace();
+    if (subSampleSpace.contains(sampleClicked)) {
+      setState(() {
+        selectedSubSampleSpace.add(sampleClicked);
 
-          if (completeSubSampleSpace(
-              subSampleSpace, widget.probQuery.mainEvent!)) {
-            getNavigation(duration: 800)(
-                context,
-                Conditional_Probability_Condition_Sample_Space(
-                    probQuery: widget.probQuery));
-          }
-        });
-      }
+        if (selectedSubSampleSpace.containsAll(subSampleSpace)) {
+          getNavigation(duration: 800)(
+              context,
+              Conditional_Probability_Condition_Sample_Space(
+                  probQuery: widget.probQuery));
+        }
+      });
+      await Future.delayed(const Duration(seconds: 1));
     }
   }
 }

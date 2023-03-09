@@ -2,13 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:probability_tutor/Conditional_Probability/cp_main_sample_space.dart';
 import 'package:probability_tutor/Conditional_Probability/event_checkbox.dart';
 import 'package:probability_tutor/Conditional_Probability/conditional_probability_template.dart';
-import 'package:probability_tutor/Conditional_Probability/cp_condition_event.dart';
-import 'package:probability_tutor/Conditional_Probability/cp_home.dart';
 import 'package:probability_tutor/Conditional_Probability/sample_space_button.dart';
-import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/constants.dart';
 import 'package:probability_tutor/font_style/title_caption.dart';
-import 'package:probability_tutor/models/prob_query.dart';
+import 'package:probability_tutor/models/conditional_probability/probability_query.dart';
 
 class Conditional_Probability_Condition_Event extends StatefulWidget {
   Conditional_Probability_Condition_Event({super.key, required this.probQuery});
@@ -35,27 +32,26 @@ class _Conditional_Probability_Condition_EventState
         ),
         content: Column(
           children: [
-            Title_Caption(
+            const Title_Caption(
               caption: "select the condition event",
-              captionColour: darkBlue,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("hint: P(${widget.probQuery.mainEvent} | "),
+                Text("hint: P(${widget.probQuery.mainEvent?.id} | "),
                 Text(
                   "Y",
                   style: Theme.of(context)
                       .textTheme
                       .bodyLarge
-                      ?.apply(color: Colors.orange, fontWeightDelta: 3),
+                      ?.apply(color: Colors.green, fontWeightDelta: 3),
                 ),
-                Text(")"),
+                const Text(")"),
               ],
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Container(
-              constraints: BoxConstraints(maxWidth: 100),
+              constraints: const BoxConstraints(maxWidth: 100),
               child: Column(
                 children: [
                   EventCheckBox(
@@ -66,7 +62,7 @@ class _Conditional_Probability_Condition_EventState
                       probQuery: widget.probQuery,
                     ),
                     value: "E",
-                    circleColour: Colors.orange,
+                    circleColour: Colors.green,
                   ),
                   EventCheckBox(
                     id: 1,
@@ -76,7 +72,7 @@ class _Conditional_Probability_Condition_EventState
                       probQuery: widget.probQuery,
                     ),
                     value: "F",
-                    circleColour: Colors.orange,
+                    circleColour: Colors.green,
                   ),
                   EventCheckBox(
                     id: 2,
@@ -86,7 +82,7 @@ class _Conditional_Probability_Condition_EventState
                       probQuery: widget.probQuery,
                     ),
                     value: "G",
-                    circleColour: Colors.orange,
+                    circleColour: Colors.green,
                   ),
                 ],
               ),
@@ -97,15 +93,15 @@ class _Conditional_Probability_Condition_EventState
     });
   }
 
-  void onSelection(int? new_selected) {
+  void onSelection(int? newSelected) {
     setState(() {
-      selected = new_selected;
+      selected = newSelected;
       if (selected == 0) {
-        widget.probQuery.conditionEvent = "E";
+        widget.probQuery.conditionEvent = E;
       } else if (selected == 1) {
-        widget.probQuery.conditionEvent = "F";
+        widget.probQuery.conditionEvent = F;
       } else if (selected == 2) {
-        widget.probQuery.conditionEvent = "G";
+        widget.probQuery.conditionEvent = G;
       }
     });
   }

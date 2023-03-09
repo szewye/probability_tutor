@@ -4,6 +4,7 @@ import 'package:probability_tutor/Bayes_Theorem/bayes_example/bayes_example_temp
 import 'package:probability_tutor/Bayes_Theorem/bayes_example/bayes_tree.dart';
 import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/constants.dart';
+import 'package:probability_tutor/font_style/title_caption.dart';
 import 'package:probability_tutor/helpers/navigation_helper.dart';
 
 class Bayes_Theorem_Example_Tree_Second extends StatefulWidget {
@@ -28,34 +29,33 @@ class _Bayes_Theorem_Example_Tree_Second
         content: Column(
           children: [
             Container(
-              padding: EdgeInsets.all(20),
-              decoration: BoxDecoration(
+              padding: const EdgeInsets.all(20),
+              decoration: const BoxDecoration(
                   color: offWhite,
                   borderRadius: BorderRadius.all(Radius.circular(15))),
               child: Column(
                 children: [
-                  Text(
+                  const Text(
                       "we know that probability always add up to 1, hence we can compute a tree for the problem:"),
                   BinaryTreeView(),
                 ],
               ),
             ),
-            SizedBox(height: 20),
-            Text("what is P(¬D)?",
-                style: Theme.of(context).textTheme.headlineSmall),
-            SizedBox(height: 8),
+            const SizedBox(height: 20),
+            const Title_Caption(caption: "what is P(¬D)?"),
+            const SizedBox(height: 8),
             Text("select the correct answer",
                 style: Theme.of(context).textTheme.bodyLarge),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Container(
-              constraints: BoxConstraints(maxWidth: 300),
+              constraints: const BoxConstraints(maxWidth: 300),
               child: Column(
                 children: [
                   CheckboxListTile(
-                    title: Text(TNotDValue),
+                    title: const Text(TNotDValue),
                     checkColor: darkBlue,
                     activeColor: offWhite,
-                    checkboxShape: CircleBorder(),
+                    checkboxShape: const CircleBorder(),
                     value: _TGivenNotD,
                     onChanged: (bool? value) {
                       setState(() {
@@ -64,7 +64,7 @@ class _Bayes_Theorem_Example_Tree_Second
                         _notTGivenD = false;
                         mistake = false;
                         getNavigation(duration: 800)(
-                            context, Bayes_Theorem_Example_Final());
+                            context, const Bayes_Theorem_Example_Final());
                       });
                     },
                   ),
@@ -73,10 +73,10 @@ class _Bayes_Theorem_Example_Tree_Second
                         ? orangyRed.withOpacity(0.9)
                         : Colors.transparent,
                     child: CheckboxListTile(
-                      title: Text(notDValue),
+                      title: const Text(notDValue),
                       checkColor: darkBlue,
                       activeColor: offWhite,
-                      checkboxShape: CircleBorder(),
+                      checkboxShape: const CircleBorder(),
                       value: _notD,
                       onChanged: (bool? value) {
                         setState(() {
@@ -93,10 +93,10 @@ class _Bayes_Theorem_Example_Tree_Second
                         ? orangyRed.withOpacity(0.9)
                         : Colors.transparent,
                     child: CheckboxListTile(
-                      title: Text(notTDValue),
+                      title: const Text(notTDValue),
                       checkColor: darkBlue,
                       activeColor: offWhite,
-                      checkboxShape: CircleBorder(),
+                      checkboxShape: const CircleBorder(),
                       value: _notTGivenD,
                       onChanged: (bool? value) {
                         setState(() {
@@ -108,8 +108,8 @@ class _Bayes_Theorem_Example_Tree_Second
                       },
                     ),
                   ),
-                  SizedBox(height: 10),
-                  (mistake) ? Text("Try again?") : Container(),
+                  const SizedBox(height: 10),
+                  (mistake) ? const Text("Try again?") : Container(),
                 ],
               ),
             ),

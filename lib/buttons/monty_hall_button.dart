@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:probability_tutor/colours.dart';
-import 'package:probability_tutor/constants.dart';
 
-class MainPageButton extends StatelessWidget {
-  const MainPageButton({
+class MontyHallButton extends StatelessWidget {
+  const MontyHallButton({
     Key? key,
     required this.title,
-    this.buttonColour = offWhite,
-    this.textColour = darkBlue,
+    this.buttonColour = darkBlue,
+    this.textColour = offWhite,
     required this.onPress,
   }) : super(key: key);
 
@@ -22,15 +21,15 @@ class MainPageButton extends StatelessWidget {
         onPressed: onPress,
         style: ElevatedButton.styleFrom(
             backgroundColor: buttonColour,
-            padding: const EdgeInsets.all(25),
+            padding: const EdgeInsets.all(12),
             shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(mainPageRoundedButton))),
+                borderRadius: BorderRadius.circular(10))),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Text(title,
               style: Theme.of(context)
                   .textTheme
-                  .headlineMedium
+                  .titleMedium
                   ?.apply(color: textColour)),
         ));
   }
