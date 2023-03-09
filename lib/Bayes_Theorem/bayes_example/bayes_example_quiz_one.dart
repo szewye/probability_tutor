@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:probability_tutor/Bayes_Theorem/bayes_example/bayes_example_data.dart';
 import 'package:probability_tutor/buttons/back_home_button.dart';
-import 'package:probability_tutor/buttons/next_button.dart';
 import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/constants.dart';
 import 'package:probability_tutor/font_style/heading.dart';
+import 'package:probability_tutor/font_style/title_caption.dart';
 import 'package:probability_tutor/helpers/navigation_helper.dart';
 
 class Bayes_Theorem_Example_Quiz_One extends StatefulWidget {
@@ -19,8 +19,6 @@ class _Bayes_Theorem_Example_Quiz_One_State
   bool _TGivenD = false;
   bool mistake = false;
 
-  Color _backgroundColor = Colors.transparent;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,10 +26,10 @@ class _Bayes_Theorem_Example_Quiz_One_State
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        iconTheme: IconThemeData(color: darkBlue),
-        actions: [
+        iconTheme: const IconThemeData(color: darkBlue),
+        actions: const [
           Padding(
-            padding: const EdgeInsets.all(10.0),
+            padding: EdgeInsets.all(10.0),
             child: BackHomeButton(),
           )
         ],
@@ -39,26 +37,26 @@ class _Bayes_Theorem_Example_Quiz_One_State
       body: SingleChildScrollView(
         child: Center(
           child: Container(
-            padding: EdgeInsets.all(pagePadding),
-            constraints: BoxConstraints(maxWidth: pageConstraint),
+            padding: const EdgeInsets.all(pagePadding),
+            constraints: const BoxConstraints(maxWidth: pageConstraint),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Heading(title: "Bayes' Theorem Example"),
-                SizedBox(height: 30),
+                const Heading(title: "Bayes' Theorem Example"),
+                const SizedBox(height: 30),
                 Container(
-                  decoration: BoxDecoration(color: offWhite),
-                  padding: EdgeInsets.all(15),
+                  decoration: const BoxDecoration(color: offWhite),
+                  padding: const EdgeInsets.all(15),
                   child: Text(bayesExampleContext,
                       textAlign: TextAlign.left,
                       style: Theme.of(context).textTheme.bodyLarge),
                 ),
-                SizedBox(height: 15),
+                const SizedBox(height: 15),
                 Text.rich(
                   TextSpan(
                     text: DFirstHalf,
                     style: Theme.of(context).textTheme.bodyLarge,
-                    children: <TextSpan>[
+                    children: const <TextSpan>[
                       TextSpan(
                           text: DSecondHalf,
                           style:
@@ -70,7 +68,7 @@ class _Bayes_Theorem_Example_Quiz_One_State
                   TextSpan(
                     text: TFirstHalf,
                     style: Theme.of(context).textTheme.bodyLarge,
-                    children: <TextSpan>[
+                    children: const <TextSpan>[
                       TextSpan(
                           text: TSecondHalf,
                           style:
@@ -78,22 +76,23 @@ class _Bayes_Theorem_Example_Quiz_One_State
                     ],
                   ),
                 ),
-                SizedBox(height: 120),
-                Text("Identify what the question is asking for?",
-                    style: Theme.of(context).textTheme.headlineSmall),
-                SizedBox(height: 8),
+                const SizedBox(height: 120),
+                const Title_Caption(
+                  caption: "Identify what the question is asking for?",
+                ),
+                const SizedBox(height: 8),
                 Text("select the correct answer",
                     style: Theme.of(context).textTheme.bodyLarge),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Container(
-                  constraints: BoxConstraints(maxWidth: 300),
+                  constraints: const BoxConstraints(maxWidth: 300),
                   child: Column(
                     children: [
                       CheckboxListTile(
-                        title: Text(pOfDGivenT),
+                        title: const Text(pOfDGivenT),
                         checkColor: darkBlue,
                         activeColor: offWhite,
-                        checkboxShape: CircleBorder(),
+                        checkboxShape: const CircleBorder(),
                         value: _DGivenT,
                         onChanged: (bool? value) {
                           setState(() {
@@ -110,10 +109,10 @@ class _Bayes_Theorem_Example_Quiz_One_State
                             ? orangyRed.withOpacity(0.9)
                             : Colors.transparent,
                         child: CheckboxListTile(
-                          title: Text(pOfTGivenD),
+                          title: const Text(pOfTGivenD),
                           checkColor: darkBlue,
                           activeColor: offWhite,
-                          checkboxShape: CircleBorder(),
+                          checkboxShape: const CircleBorder(),
                           value: _TGivenD,
                           onChanged: (bool? value) {
                             setState(() {
@@ -124,8 +123,8 @@ class _Bayes_Theorem_Example_Quiz_One_State
                           },
                         ),
                       ),
-                      SizedBox(height: 10),
-                      (mistake) ? Text("Try again?") : Container(),
+                      const SizedBox(height: 10),
+                      (mistake) ? const Text("Try again?") : Container(),
                     ],
                   ),
                 ),

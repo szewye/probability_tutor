@@ -38,9 +38,8 @@ class _Conditional_Probability_Main_Sample_Space
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Title_Caption(
+                const Title_Caption(
                   caption: "select all the sub sample spaces for the ",
-                  captionColour: darkBlue,
                 ),
                 Text("main event (${widget.probQuery.mainEvent?.id})",
                     style: Theme.of(context)
@@ -49,14 +48,14 @@ class _Conditional_Probability_Main_Sample_Space
                         ?.apply(color: orangyRed)),
               ],
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Container(
-              padding: EdgeInsets.all(10),
-              constraints: BoxConstraints(maxWidth: 350, minHeight: 55),
+              padding: const EdgeInsets.all(10),
+              constraints: const BoxConstraints(maxWidth: 350, minHeight: 55),
               decoration: BoxDecoration(
                 // color: lightBlue,
                 border: Border.all(color: darkBlue),
-                borderRadius: BorderRadius.all(
+                borderRadius: const BorderRadius.all(
                   Radius.circular(10),
                 ),
               ),

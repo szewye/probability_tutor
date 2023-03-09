@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:probability_tutor/colours.dart';
-import 'package:probability_tutor/constants.dart';
 
 class Heading extends StatelessWidget {
   const Heading({
@@ -14,10 +13,13 @@ class Heading extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(title,
-        style: Theme.of(context)
-            .textTheme
-            .headline2
-            ?.apply(fontWeightDelta: 20, color: textColour));
+    return Text(
+      title,
+      style: Theme.of(context)
+          .textTheme
+          .headlineLarge
+          ?.apply(fontWeightDelta: 20, color: textColour),
+      textAlign: TextAlign.center,
+    );
   }
 }

@@ -1,15 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:probability_tutor/Bayes_Theorem/bayes_example/bayes_example_quiz_one.dart';
-import 'package:probability_tutor/Bayes_Theorem/bayes_formula.dart';
-import 'package:probability_tutor/Bayes_Theorem/bayes_simulation.dart';
 import 'package:probability_tutor/buttons/back_home_button.dart';
-import 'package:probability_tutor/buttons/next_button.dart';
 import 'package:probability_tutor/font_style/heading.dart';
-import 'package:probability_tutor/font_style/title_caption.dart';
-import 'package:probability_tutor/homepage.dart';
 import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/constants.dart';
-import 'package:flutter_math_fork/flutter_math.dart';
 
 class Bayes_Theorem_Example_Template extends StatelessWidget {
   final Widget content;
@@ -31,64 +24,64 @@ class Bayes_Theorem_Example_Template extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           elevation: 0,
-          iconTheme: IconThemeData(color: darkBlue),
-          actions: [
-            Padding(
-                padding: const EdgeInsets.all(10.0), child: BackHomeButton())
+          iconTheme: const IconThemeData(color: darkBlue),
+          actions: const [
+            Padding(padding: EdgeInsets.all(10.0), child: BackHomeButton())
           ],
         ),
         body: SingleChildScrollView(
           child: Center(
             child: Container(
-              padding: EdgeInsets.all(pagePadding),
-              constraints: BoxConstraints(maxWidth: pageConstraint),
+              padding: const EdgeInsets.all(pagePadding),
+              constraints: const BoxConstraints(maxWidth: pageConstraint),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Heading(title: "Bayes' Theorem Example"),
-                  SizedBox(height: 30),
+                  const Heading(title: "Bayes' Theorem Example"),
+                  const SizedBox(height: 30),
                   Container(
-                      decoration: BoxDecoration(color: offWhite),
-                      padding: EdgeInsets.all(15),
+                      decoration: const BoxDecoration(color: offWhite),
+                      padding: const EdgeInsets.all(15),
                       child: RichText(
                         text: TextSpan(
                           style: Theme.of(context).textTheme.bodyLarge,
                           children: [
-                            TextSpan(
+                            const TextSpan(
                               text: "Suppose that ",
                             ),
                             TextSpan(
-                                text: D, style: TextStyle(color: Colors.blue)),
-                            TextSpan(
+                                text: D,
+                                style: const TextStyle(color: Colors.blue)),
+                            const TextSpan(
                                 text:
                                     " for which there is a quite accurate diagnostic test:  \n • It is "),
                             TextSpan(
                                 text: TGivenD,
-                                style: TextStyle(color: Colors.red)),
-                            TextSpan(text: " of the time when given to "),
+                                style: const TextStyle(color: Colors.red)),
+                            const TextSpan(text: " of the time when given to "),
                             TextSpan(
                                 text: TGivenDContext,
-                                style: TextStyle(color: Colors.red)),
-                            TextSpan(text: " \n • It is "),
+                                style: const TextStyle(color: Colors.red)),
+                            const TextSpan(text: " \n • It is "),
                             TextSpan(
                                 text: notTGivenNotD,
-                                style: TextStyle(color: Colors.green)),
-                            TextSpan(text: " of the time when given to "),
+                                style: const TextStyle(color: Colors.green)),
+                            const TextSpan(text: " of the time when given to "),
                             TextSpan(
                                 text: notTGivenNotDContext,
-                                style: TextStyle(color: Colors.green)),
-                            TextSpan(
+                                style: const TextStyle(color: Colors.green)),
+                            const TextSpan(
                                 text:
                                     "\n\n What is the probability that someone who tests positive for the disease actually has the disease?")
                           ],
                         ),
                       )),
-                  SizedBox(height: 15),
+                  const SizedBox(height: 15),
                   Text.rich(
                     TextSpan(
                       text: DFirstHalf,
                       style: Theme.of(context).textTheme.bodyLarge,
-                      children: <TextSpan>[
+                      children: const <TextSpan>[
                         TextSpan(
                             text: DSecondHalf,
                             style: TextStyle(
@@ -100,7 +93,7 @@ class Bayes_Theorem_Example_Template extends StatelessWidget {
                     TextSpan(
                       text: TFirstHalf,
                       style: Theme.of(context).textTheme.bodyLarge,
-                      children: <TextSpan>[
+                      children: const <TextSpan>[
                         TextSpan(
                             text: TSecondHalf,
                             style: TextStyle(
@@ -108,12 +101,12 @@ class Bayes_Theorem_Example_Template extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(height: 45),
+                  const SizedBox(height: 45),
                   RichText(
                     textAlign: TextAlign.center,
                     text: TextSpan(
                       style: Theme.of(context).textTheme.bodyLarge,
-                      children: [
+                      children: const [
                         TextSpan(text: "From the scenario given: \n"),
                         TextSpan(
                             text: "$pOfD = $DValue",
@@ -129,7 +122,7 @@ class Bayes_Theorem_Example_Template extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(height: 30),
+                  const SizedBox(height: 30),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -139,7 +132,7 @@ class Bayes_Theorem_Example_Template extends StatelessWidget {
                               style: Theme.of(context).textTheme.bodyLarge)
                         ],
                       ),
-                      SizedBox(width: 10),
+                      const SizedBox(width: 10),
                       Column(
                         children: [
                           Row(
@@ -166,12 +159,12 @@ class Bayes_Theorem_Example_Template extends StatelessWidget {
                           Container(
                             height: 1,
                             color: darkBlue,
-                            constraints: BoxConstraints(maxWidth: 300),
+                            constraints: const BoxConstraints(maxWidth: 300),
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text("[ "),
+                              const Text("[ "),
                               Text(
                                 pOfTGivenD,
                                 style: Theme.of(context)
@@ -198,7 +191,7 @@ class Bayes_Theorem_Example_Template extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(height: 50),
+                  const SizedBox(height: 50),
                   content,
                 ],
               ),

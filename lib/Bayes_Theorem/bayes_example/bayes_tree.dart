@@ -36,11 +36,11 @@ class _BinaryTreeViewState extends State<BinaryTreeView> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      constraints: BoxConstraints(maxWidth: 300),
+      constraints: const BoxConstraints(maxWidth: 300),
       height: 150,
       child: Center(
         child: CustomPaint(
-          size: Size(200, 200),
+          size: const Size(200, 200),
           painter: BinaryTreePainter(rootNode: binaryTree, context: context),
         ),
       ),

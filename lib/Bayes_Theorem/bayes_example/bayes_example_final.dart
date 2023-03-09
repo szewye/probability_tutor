@@ -27,64 +27,64 @@ class Bayes_Theorem_Example_Final extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           elevation: 0,
-          iconTheme: IconThemeData(color: darkBlue),
-          actions: [
-            Padding(
-                padding: const EdgeInsets.all(10.0), child: BackHomeButton())
+          iconTheme: const IconThemeData(color: darkBlue),
+          actions: const [
+            Padding(padding: EdgeInsets.all(10.0), child: BackHomeButton())
           ],
         ),
         body: SingleChildScrollView(
           child: Center(
             child: Container(
-              padding: EdgeInsets.all(pagePadding),
-              constraints: BoxConstraints(maxWidth: pageConstraint),
+              padding: const EdgeInsets.all(pagePadding),
+              constraints: const BoxConstraints(maxWidth: pageConstraint),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Heading(title: "Bayes' Theorem Example"),
-                  SizedBox(height: 30),
+                  const Heading(title: "Bayes' Theorem Example"),
+                  const SizedBox(height: 30),
                   Container(
-                      decoration: BoxDecoration(color: offWhite),
-                      padding: EdgeInsets.all(15),
+                      decoration: const BoxDecoration(color: offWhite),
+                      padding: const EdgeInsets.all(15),
                       child: RichText(
                         text: TextSpan(
                           style: Theme.of(context).textTheme.bodyLarge,
                           children: [
-                            TextSpan(
+                            const TextSpan(
                               text: "Suppose that ",
                             ),
                             TextSpan(
-                                text: D, style: TextStyle(color: Colors.blue)),
-                            TextSpan(
+                                text: D,
+                                style: const TextStyle(color: Colors.blue)),
+                            const TextSpan(
                                 text:
                                     " for which there is a quite accurate diagnostic test:  \n • It is "),
                             TextSpan(
                                 text: TGivenD,
-                                style: TextStyle(color: Colors.red)),
-                            TextSpan(text: " of the time when given to "),
+                                style: const TextStyle(color: Colors.red)),
+                            const TextSpan(text: " of the time when given to "),
                             TextSpan(
                                 text: TGivenDContext,
-                                style: TextStyle(color: Colors.red)),
-                            TextSpan(text: " \n • It is "),
+                                style: const TextStyle(color: Colors.red)),
+                            const TextSpan(text: " \n • It is "),
                             TextSpan(
                                 text: notTGivenNotD,
-                                style: TextStyle(color: Colors.green)),
-                            TextSpan(text: " of the time when given to "),
+                                style: const TextStyle(color: Colors.green)),
+                            const TextSpan(text: " of the time when given to "),
                             TextSpan(
                                 text: notTGivenNotDContext,
-                                style: TextStyle(color: Colors.green)),
-                            TextSpan(
+                                style: const TextStyle(color: Colors.green)),
+                            const TextSpan(
                                 text:
                                     "\n\n What is the probability that someone who tests positive for the disease actually has the disease?")
                           ],
                         ),
                       )),
-                  SizedBox(height: 15),
+                  const SizedBox(height: 15),
                   Text.rich(
                     TextSpan(
                       text: DFirstHalf,
                       style: Theme.of(context).textTheme.bodyLarge,
-                      children: <TextSpan>[
+                      children: const <TextSpan>[
                         TextSpan(
                             text: DSecondHalf,
                             style: TextStyle(
@@ -96,7 +96,7 @@ class Bayes_Theorem_Example_Final extends StatelessWidget {
                     TextSpan(
                       text: TFirstHalf,
                       style: Theme.of(context).textTheme.bodyLarge,
-                      children: <TextSpan>[
+                      children: const <TextSpan>[
                         TextSpan(
                             text: TSecondHalf,
                             style: TextStyle(
@@ -104,10 +104,10 @@ class Bayes_Theorem_Example_Final extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(height: 45),
-                  Text(
+                  const SizedBox(height: 45),
+                  const Text(
                       "to get the probability that someone who tests positive for the disease actually has the disease, P(D | T):"),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -117,7 +117,7 @@ class Bayes_Theorem_Example_Final extends StatelessWidget {
                               style: Theme.of(context).textTheme.bodyLarge)
                         ],
                       ),
-                      SizedBox(width: 10),
+                      const SizedBox(width: 10),
                       Column(
                         children: [
                           Row(
@@ -144,12 +144,12 @@ class Bayes_Theorem_Example_Final extends StatelessWidget {
                           Container(
                             height: 1,
                             color: darkBlue,
-                            constraints: BoxConstraints(maxWidth: 300),
+                            constraints: const BoxConstraints(maxWidth: 300),
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text("[ "),
+                              const Text("[ "),
                               Text(
                                 pOfTGivenD,
                                 style: Theme.of(context)
@@ -194,22 +194,22 @@ class Bayes_Theorem_Example_Final extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(height: 50),
+                  const SizedBox(height: 50),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("solution:"),
+                          const Text("solution:"),
                           Container(
-                            constraints: BoxConstraints(maxWidth: 460),
-                            padding: EdgeInsets.all(10),
+                            constraints: const BoxConstraints(maxWidth: 460),
+                            padding: const EdgeInsets.all(10),
                             decoration: BoxDecoration(
                                 border: Border.all(color: darkBlue)),
                             child: Container(
-                              constraints: BoxConstraints(maxWidth: 450),
-                              padding: EdgeInsets.all(20),
+                              constraints: const BoxConstraints(maxWidth: 450),
+                              padding: const EdgeInsets.all(20),
                               decoration: BoxDecoration(
                                   border: Border.all(color: darkBlue)),
                               child: Row(
@@ -222,7 +222,7 @@ class Bayes_Theorem_Example_Final extends StatelessWidget {
                                               .bodyLarge)
                                     ],
                                   ),
-                                  SizedBox(width: 10),
+                                  const SizedBox(width: 10),
                                   Column(
                                     children: [
                                       Row(
@@ -251,11 +251,11 @@ class Bayes_Theorem_Example_Final extends StatelessWidget {
                                         height: 1,
                                         color: darkBlue,
                                         constraints:
-                                            BoxConstraints(maxWidth: 300),
+                                            const BoxConstraints(maxWidth: 300),
                                       ),
                                       Row(
                                         children: [
-                                          Text("[ "),
+                                          const Text("[ "),
                                           Text(
                                             TDValue,
                                             style: Theme.of(context)
@@ -304,9 +304,9 @@ class Bayes_Theorem_Example_Final extends StatelessWidget {
                                           ),
                                         ],
                                       ),
-                                      SizedBox(height: 8),
+                                      const SizedBox(height: 8),
                                       Row(
-                                        children: [
+                                        children: const [
                                           Text("= $DTValue"),
                                         ],
                                       ),
@@ -321,11 +321,12 @@ class Bayes_Theorem_Example_Final extends StatelessWidget {
                       BinaryTreeView(),
                     ],
                   ),
-                  SizedBox(height: 50),
+                  const SizedBox(height: 50),
                   NextButton(
                       title: "continue to the interactive simulation?",
                       onPress: () {
-                        getNavigation()(context, Bayes_Theorem_Simulation());
+                        getNavigation()(
+                            context, const Bayes_Theorem_Simulation());
                       }),
                 ],
               ),
