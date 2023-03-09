@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:probability_tutor/Conditional_Probability/conditional_probability_template.dart';
-import 'package:probability_tutor/Conditional_Probability/cp_condition_event.dart';
 import 'package:probability_tutor/Conditional_Probability/cp_condition_sample_space.dart';
-import 'package:probability_tutor/Conditional_Probability/cp_home.dart';
 import 'package:probability_tutor/Conditional_Probability/sample_space_button.dart';
-import 'package:probability_tutor/Conditional_Probability/venn_diagram.dart';
 import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/constants.dart';
 import 'package:probability_tutor/font_style/title_caption.dart';
@@ -79,7 +76,7 @@ class _Conditional_Probability_Main_Sample_Space
   }
 
   // sample space button is clickable in this page
-  void sampleOnPress(String sampleClicked, BuildContext context) {
+  Future<void> sampleOnPress(String sampleClicked, BuildContext context) async {
     final subSampleSpace = widget.probQuery.mainSubSampleSpace();
     if (subSampleSpace.contains(sampleClicked)) {
       setState(() {
@@ -92,6 +89,7 @@ class _Conditional_Probability_Main_Sample_Space
                   probQuery: widget.probQuery));
         }
       });
+      await Future.delayed(const Duration(seconds: 1));
     }
   }
 }
