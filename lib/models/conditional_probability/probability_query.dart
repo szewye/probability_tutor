@@ -1,5 +1,6 @@
 import 'package:probability_tutor/models/conditional_probability/event.dart';
 
+// Probability query model for conditional probability part of the application
 class ProbQuery {
   Event? mainEvent;
   Event? conditionEvent;

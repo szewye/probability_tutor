@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:probability_tutor/colours.dart';
 
+// Heading for the application
 class Heading extends StatelessWidget {
   const Heading({
     Key? key,

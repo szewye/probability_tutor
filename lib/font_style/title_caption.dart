@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:probability_tutor/colours.dart';
 
+// Caption for pages in the application
 class Title_Caption extends StatelessWidget {
   const Title_Caption({
     Key? key,

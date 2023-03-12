@@ -1,3 +1,4 @@
+// Events in a given context or scenario
 class Event {
   // Identifier for events
   String id;

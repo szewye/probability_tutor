@@ -6,7 +6,7 @@ enum DoorState { OPENED, CLOSED, SELECTED }
 
 // Represents a door in the game
 class Door {
-  // Whether a door is openable, meaning if player can click on it or not
+  // Whether a door is openable, meaning if player can click on it
   bool openable;
   DoorState stateOfDoor;
   Prize prizeBehindTheDoor;

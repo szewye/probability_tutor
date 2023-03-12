@@ -9,6 +9,8 @@ enum GameState {
   END;
 }
 
+// The system for the Monty Hall problem simulation
+// i.e. the system that "plays" the amount of games selected by users
 class System {
   Door? selectedDoor;
   Game currentGame;
@@ -41,7 +43,7 @@ class System {
     selectDoor(selectedDoor!);
   }
 
-  // Change to the other door as new selection
+  // Change to the other closed door as new selection
   void changeChoice() {
     final door = (doors
             .where((Door door) => door.stateOfDoor == DoorState.CLOSED)
@@ -105,7 +107,7 @@ class System {
     });
   }
 
-  // System will slect the first door at random
+  // System will select the first door at random
   void selectRandomFirstDoor() {
     selectDoor(doors[Random().nextInt(doors.length - 1)]);
   }

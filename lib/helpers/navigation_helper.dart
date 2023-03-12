@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// Navigation helper for the application (for smoother transitions)
 Function(BuildContext, Widget) getNavigation({int duration = 300}) {
   return (context, page) => Navigator.push(
         context,
