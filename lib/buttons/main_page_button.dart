@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/constants.dart';
 
+// Button for main page
+// e.g. Monty Hall problem, conditional probability, Bayes' theorem
 class MainPageButton extends StatelessWidget {
   const MainPageButton({
     Key? key,

@@ -3,6 +3,7 @@ import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/helpers/navigation_helper.dart';
 import 'package:probability_tutor/homepage.dart';
 
+// "Go to homepage" button
 class BackHomeButton extends StatelessWidget {
   const BackHomeButton({
     Key? key,

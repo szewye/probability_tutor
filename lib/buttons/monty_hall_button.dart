@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:probability_tutor/colours.dart';
 
+// Button to navigate between the game and
+//simulation page for the Monty Hall problem
 class MontyHallButton extends StatelessWidget {
   const MontyHallButton({
     Key? key,

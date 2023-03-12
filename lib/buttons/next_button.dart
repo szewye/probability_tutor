@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:probability_tutor/colours.dart';
 
+// "Go to next page" button
 class NextButton extends StatelessWidget {
   const NextButton({
     Key? key,
