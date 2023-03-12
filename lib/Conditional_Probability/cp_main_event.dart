@@ -8,6 +8,7 @@ import 'package:probability_tutor/constants.dart';
 import 'package:probability_tutor/font_style/title_caption.dart';
 import 'package:probability_tutor/models/conditional_probability/probability_query.dart';
 
+// The page where users get to pick the main event
 class Conditional_Probability_Main_Event extends StatefulWidget {
   @override
   _Conditional_Probability_Main_Event createState() =>

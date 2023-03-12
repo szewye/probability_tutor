@@ -8,6 +8,7 @@ import 'package:probability_tutor/font_style/title_caption.dart';
 import 'package:probability_tutor/models/conditional_probability/probability_query.dart';
 import 'package:probability_tutor/helpers/navigation_helper.dart';
 
+// The page where users get to pick the main event's sub sample space
 class Conditional_Probability_Main_Sample_Space extends StatefulWidget {
   Conditional_Probability_Main_Sample_Space(
       {super.key, required this.probQuery});

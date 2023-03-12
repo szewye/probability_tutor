@@ -8,6 +8,7 @@ import 'package:probability_tutor/constants.dart';
 import 'package:probability_tutor/font_style/title_caption.dart';
 import 'package:probability_tutor/helpers/navigation_helper.dart';
 
+// The homepage for the conditional probability part
 class Conditional_Probability_Home extends StatelessWidget {
   const Conditional_Probability_Home({
     Key? key,

@@ -4,6 +4,7 @@ import 'package:probability_tutor/font_style/heading.dart';
 import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/constants.dart';
 
+// Template for the conditional probability pages as most pages have the same base
 class Conditional_Probability_Template extends StatelessWidget {
   final Widget content;
   final Widget samples;

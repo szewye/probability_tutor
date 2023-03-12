@@ -8,6 +8,7 @@ import 'package:probability_tutor/font_style/title_caption.dart';
 import 'package:probability_tutor/helpers/navigation_helper.dart';
 import 'package:probability_tutor/models/conditional_probability/probability_query.dart';
 
+// The page that leads the users to go to the Venn diagram page
 class Conditional_Probability_Venn_Diagram_Caption extends StatefulWidget {
   Conditional_Probability_Venn_Diagram_Caption(
       {super.key, required this.probQuery});

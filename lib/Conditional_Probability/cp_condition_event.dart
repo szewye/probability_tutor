@@ -7,6 +7,7 @@ import 'package:probability_tutor/constants.dart';
 import 'package:probability_tutor/font_style/title_caption.dart';
 import 'package:probability_tutor/models/conditional_probability/probability_query.dart';
 
+// The page where users get to pick the condition event
 class Conditional_Probability_Condition_Event extends StatefulWidget {
   Conditional_Probability_Condition_Event({super.key, required this.probQuery});
 

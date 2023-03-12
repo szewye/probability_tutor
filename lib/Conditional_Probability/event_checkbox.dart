@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/helpers/navigation_helper.dart';
 
+// Checkbox for users to select event for main and condition event
 class EventCheckBox extends StatefulWidget {
   const EventCheckBox({
     Key? key,

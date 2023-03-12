@@ -9,6 +9,8 @@ import 'package:probability_tutor/constants.dart';
 import 'package:probability_tutor/helpers/navigation_helper.dart';
 import 'package:probability_tutor/models/conditional_probability/probability_query.dart';
 
+// The page where users can see the conditional probability
+// from the Venn diagram (users can basically just count the sample spaces)
 class Conditional_Probability_Venn_Diagram_Solution extends StatefulWidget {
   Conditional_Probability_Venn_Diagram_Solution(
       {super.key, required this.probQuery});

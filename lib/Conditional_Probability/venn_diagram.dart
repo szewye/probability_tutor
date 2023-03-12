@@ -16,6 +16,7 @@ class VennDiagram extends StatelessWidget {
   }
 }
 
+// To draw out a Venn diagram with three sets
 class VennDiagramPainter extends CustomPainter {
   VennDiagramPainter({required this.context, required this.probQuery});
 
