@@ -6,6 +6,8 @@ import 'package:probability_tutor/font_style/title_caption.dart';
 import 'package:probability_tutor/font_style/heading.dart';
 import 'package:probability_tutor/helpers/navigation_helper.dart';
 
+// The page where users can drag and drop the components
+// that form the Bayes' theorem formula
 class Bayes_Theorem_Formula extends StatefulWidget {
   @override
   _Bayes_Theorem_Formula createState() => _Bayes_Theorem_Formula();

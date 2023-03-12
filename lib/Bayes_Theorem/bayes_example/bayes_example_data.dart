@@ -6,6 +6,8 @@ import 'package:probability_tutor/constants.dart';
 import 'package:probability_tutor/font_style/title_caption.dart';
 import 'package:probability_tutor/helpers/navigation_helper.dart';
 
+// The page that directs users (gives instructions to users to click next)
+// to the next page to see the probability binary tree
 class Bayes_Theorem_Example_Data extends StatelessWidget {
   Bayes_Theorem_Example_Data({Key? key}) : super(key: key);
 

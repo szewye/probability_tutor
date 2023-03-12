@@ -8,6 +8,9 @@ import 'package:probability_tutor/buttons/main_page_button.dart';
 import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/constants.dart';
 
+// The homepage for the Bayes' theorem part
+// Users can select which part they want to explore
+// e.g. formula, example, simulation
 class Bayes_Theorem extends StatelessWidget {
   const Bayes_Theorem({Key? key}) : super(key: key);
 

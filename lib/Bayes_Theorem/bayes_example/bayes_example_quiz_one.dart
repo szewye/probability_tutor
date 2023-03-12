@@ -7,6 +7,8 @@ import 'package:probability_tutor/font_style/heading.dart';
 import 'package:probability_tutor/font_style/title_caption.dart';
 import 'package:probability_tutor/helpers/navigation_helper.dart';
 
+// The page with an introduction quiz to help warm users up
+// so that users get the context of the example
 class Bayes_Theorem_Example_Quiz_One extends StatefulWidget {
   @override
   _Bayes_Theorem_Example_Quiz_One_State createState() =>

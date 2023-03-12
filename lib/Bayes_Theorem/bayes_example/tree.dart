@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:probability_tutor/Bayes_Theorem/bayes_example/bayes_tree.dart';
 import 'package:probability_tutor/colours.dart';
 
+// To draw out a binary tree
 class BinaryTreePainter extends CustomPainter {
   final Node<String>? rootNode;
   final BuildContext context;
@@ -10,8 +11,7 @@ class BinaryTreePainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    // colour for the line
-    final paint = Paint()..color = darkBlue;
+    final paint = Paint()..color = darkBlue; // colour for the line
 
     _drawNode(canvas, paint, rootNode, size.width / 2, 10, size.width / 4);
   }
@@ -21,6 +21,7 @@ class BinaryTreePainter extends CustomPainter {
     return true;
   }
 
+  // Draw tree nodes with data
   void _drawNode(Canvas canvas, Paint paint, Node<String>? node, double x,
       double y, double dx) {
     final textPainter = TextPainter(

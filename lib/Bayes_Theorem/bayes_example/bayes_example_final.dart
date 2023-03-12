@@ -8,6 +8,7 @@ import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/constants.dart';
 import 'package:probability_tutor/helpers/navigation_helper.dart';
 
+// The page with how we come to the solution for the example
 class Bayes_Theorem_Example_Final extends StatelessWidget {
   const Bayes_Theorem_Example_Final({
     Key? key,

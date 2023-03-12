@@ -8,6 +8,8 @@ import 'package:probability_tutor/font_style/title_caption.dart';
 import 'package:probability_tutor/font_style/heading.dart';
 import 'package:probability_tutor/helpers/navigation_helper.dart';
 
+// The page where users can use the sliders to play around with the values
+// and see how the slight changes affects the probability
 class Bayes_Theorem_Simulation extends StatefulWidget {
   const Bayes_Theorem_Simulation({super.key});
 

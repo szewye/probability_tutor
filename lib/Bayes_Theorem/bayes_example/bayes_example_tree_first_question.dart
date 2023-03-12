@@ -7,6 +7,8 @@ import 'package:probability_tutor/constants.dart';
 import 'package:probability_tutor/font_style/title_caption.dart';
 import 'package:probability_tutor/helpers/navigation_helper.dart';
 
+// The page for the first quiz for users
+// Users can look at the binary tree given and pick the answer from the mcq
 class Bayes_Theorem_Example_Tree_First extends StatefulWidget {
   const Bayes_Theorem_Example_Tree_First({super.key});
 

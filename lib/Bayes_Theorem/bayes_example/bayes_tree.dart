@@ -3,6 +3,7 @@ import 'package:probability_tutor/Bayes_Theorem/bayes_example/tree.dart';
 import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/constants.dart';
 
+// Build the actual binary tree widget with the data given from example
 class Node<T> {
   T value;
   Node<T>? left, right;
