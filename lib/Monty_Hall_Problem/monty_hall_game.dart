@@ -12,6 +12,10 @@ import 'package:probability_tutor/helpers/navigation_helper.dart';
 import 'package:probability_tutor/models/monty_hall_problem/door.dart';
 import 'package:probability_tutor/models/monty_hall_problem/system.dart';
 
+// The page where users can play the game
+// Users can either keep or change their choice
+// All of the statistics will be updated every game user play
+// Users can clearly see which strategy helps them win more
 class Monty_Hall_Game extends StatefulWidget {
   final String instruction;
   System system;
@@ -165,6 +169,7 @@ class _Monty_Hall_Game extends State<Monty_Hall_Game> {
     }
   }
 
+  // One of the door will be selected when pressed
   void onDoorPress(Door pressedDoor) {
     setState(() {
       widget.system.selectDoor(pressedDoor);

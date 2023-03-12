@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:probability_tutor/colours.dart';
 
+// Dropdown box for the Monty Hall problem simulation part
+// where users can select the number of game they want to see the system plays
+// and which strategy to use
 class DropDown<T> extends StatelessWidget {
   const DropDown({
     Key? key,

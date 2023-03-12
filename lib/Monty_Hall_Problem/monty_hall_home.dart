@@ -7,6 +7,9 @@ import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/constants.dart';
 import 'package:probability_tutor/helpers/navigation_helper.dart';
 
+// The homepage for the Monty Hall problem
+// Users can select which topic they want to explore
+// e.g. play the game, try the interactive simulation
 class Monty_Hall extends StatelessWidget {
   const Monty_Hall({Key? key}) : super(key: key);
 

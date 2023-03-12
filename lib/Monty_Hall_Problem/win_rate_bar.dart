@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:probability_tutor/colours.dart';
 
+// The win rate progression bar widget for the Monty Hall problem
+// where users can keep track of the probability of them winning the game
+// (updates everytime users play a new game)
 class WinRateBar extends StatelessWidget {
   const WinRateBar({
     Key? key,
-    this.winRate = 0.5,
+    this.winRate = 0.5, // original win rate being 50% for both goat and car
   }) : super(key: key);
 
   final double winRate;

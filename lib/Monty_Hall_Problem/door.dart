@@ -3,6 +3,7 @@ import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/models/monty_hall_problem/door.dart';
 import 'package:lottie/lottie.dart';
 
+// The door widget (what we see on screen)
 class DoorShape extends StatelessWidget {
   const DoorShape({
     Key? key,

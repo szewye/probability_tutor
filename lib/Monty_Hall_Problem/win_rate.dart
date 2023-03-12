@@ -4,6 +4,9 @@ import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/models/monty_hall_problem/game.dart';
 import 'package:probability_tutor/models/monty_hall_problem/system.dart';
 
+// The win rate widget for the Monty Hall problem
+// where users can keep track of the games they played
+// and the probability of them winning the game
 class WinRate extends StatelessWidget {
   WinRate({super.key, required this.system});
 

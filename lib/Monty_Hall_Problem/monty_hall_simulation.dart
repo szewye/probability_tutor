@@ -12,6 +12,8 @@ import 'package:probability_tutor/helpers/navigation_helper.dart';
 import 'package:probability_tutor/models/monty_hall_problem/door.dart';
 import 'package:probability_tutor/models/monty_hall_problem/system.dart';
 
+// The page where users can select how many times they want the system to play
+// and which strategy to use (keep or change choice)
 class Monty_Hall_Simulation extends StatefulWidget {
   System system;
 
@@ -207,7 +209,7 @@ class _Monty_Hall_Simulation extends State<Monty_Hall_Simulation> {
     });
   }
 
-  // Get "keep your choice" or "change your choice"
+  // Get "keep your choice" or "change your choice" string
   String getChoiceString() {
     return shouldKeepChoices ? actions[0] : actions[1];
   }
