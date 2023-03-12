@@ -7,6 +7,9 @@ import 'package:probability_tutor/constants.dart';
 import 'package:probability_tutor/Monty_Hall_Problem/monty_hall_home.dart';
 import 'package:probability_tutor/helpers/navigation_helper.dart';
 
+// The homepage for the application
+// Users can select which topic they want to explore
+// e.g. Monty Hall problem, conditional probability, Bayes' theorem
 class Homepage extends StatelessWidget {
   const Homepage({Key? key}) : super(key: key);
 
