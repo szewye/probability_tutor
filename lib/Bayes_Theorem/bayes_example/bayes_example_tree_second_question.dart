@@ -53,42 +53,42 @@ class _Bayes_Theorem_Example_Tree_Second
               constraints: const BoxConstraints(maxWidth: 300),
               child: Column(
                 children: [
-                  CheckboxListTile(
-                    title: const Text(TNotDValue),
-                    checkColor: darkBlue,
-                    activeColor: offWhite,
-                    checkboxShape: const CircleBorder(),
-                    value: _TGivenNotD,
-                    onChanged: (bool? value) {
-                      setState(() {
-                        _notD = false;
-                        _TGivenNotD = value!;
-                        _notTGivenD = false;
-                        mistake = false;
-                        getNavigation(duration: 800)(
-                            context, const Bayes_Theorem_Example_Final());
-                      });
-                    },
-                  ),
                   Container(
                     color: mistake
                         ? orangyRed.withOpacity(0.9)
                         : Colors.transparent,
                     child: CheckboxListTile(
-                      title: const Text(notDValue),
+                      title: const Text(TNotDValue),
                       checkColor: darkBlue,
                       activeColor: offWhite,
                       checkboxShape: const CircleBorder(),
-                      value: _notD,
+                      value: _TGivenNotD,
                       onChanged: (bool? value) {
                         setState(() {
-                          _notD = value!;
-                          _TGivenNotD = false;
+                          _notD = false;
+                          _TGivenNotD = value!;
                           _notTGivenD = false;
-                          mistake = value;
+                          mistake = true;
                         });
                       },
                     ),
+                  ),
+                  CheckboxListTile(
+                    title: const Text(notDValue),
+                    checkColor: darkBlue,
+                    activeColor: offWhite,
+                    checkboxShape: const CircleBorder(),
+                    value: _notD,
+                    onChanged: (bool? value) {
+                      setState(() {
+                        _notD = value!;
+                        _TGivenNotD = false;
+                        _notTGivenD = false;
+                        mistake = value;
+                        getNavigation(duration: 800)(
+                            context, const Bayes_Theorem_Example_Final());
+                      });
+                    },
                   ),
                   Container(
                     color: mistake
