@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_math_fork/flutter_math.dart';
+import 'package:probability_tutor/Bayes_Theorem/bayes_example/bayes_example_quiz_one.dart';
 import 'package:probability_tutor/Conditional_Probability/conditional_probability_template.dart';
 import 'package:probability_tutor/Conditional_Probability/sample_space_button.dart';
 import 'package:probability_tutor/Conditional_Probability/venn_diagram.dart';
-import 'package:probability_tutor/buttons/back_home_button.dart';
+import 'package:probability_tutor/buttons/next_button.dart';
 import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/constants.dart';
+import 'package:probability_tutor/helpers/navigation_helper.dart';
 import 'package:probability_tutor/models/conditional_probability/probability_query.dart';
 
 // The page where users can see the conditional probability solution
@@ -121,10 +123,13 @@ class _Conditional_Probability_Formula_Solution_State
                 )
               ],
             ),
-            const SizedBox(height: 20),
-            const BackHomeButton(
-              title: "back to home page",
-            ),
+            const SizedBox(height: 15),
+            NextButton(
+              title: "interested in Bayes' theorem?",
+              onPress: () {
+                getNavigation()(context, Bayes_Theorem_Example_Quiz_One());
+              },
+            )
           ],
         ),
       );

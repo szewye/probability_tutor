@@ -68,7 +68,7 @@ class _Bayes_Theorem_Example_Tree_Second
                           _notD = false;
                           _TGivenNotD = value!;
                           _notTGivenD = false;
-                          mistake = true;
+                          mistake = value;
                         });
                       },
                     ),
@@ -84,7 +84,7 @@ class _Bayes_Theorem_Example_Tree_Second
                         _notD = value!;
                         _TGivenNotD = false;
                         _notTGivenD = false;
-                        mistake = value;
+                        mistake = false;
                         getNavigation(duration: 800)(
                             context, const Bayes_Theorem_Example_Final());
                       });
