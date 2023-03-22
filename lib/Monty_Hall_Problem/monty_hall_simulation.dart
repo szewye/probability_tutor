@@ -87,15 +87,19 @@ class _Monty_Hall_Simulation extends State<Monty_Hall_Simulation> {
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(height: 30),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: doorWidgets(widget.system.doors)
-                      ..addAll(
-                        [
-                          const SizedBox(width: 45),
-                          WinRate(system: widget.system)
-                        ],
-                      ),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    clipBehavior: Clip.none,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: doorWidgets(widget.system.doors)
+                        ..addAll(
+                          [
+                            const SizedBox(width: 45),
+                            WinRate(system: widget.system)
+                          ],
+                        ),
+                    ),
                   ),
                   const SizedBox(height: 45),
                   hideSimulationSelection
