@@ -81,6 +81,16 @@ void main() {
       expect(system.selectedDoor, isNot(system.doors.first));
     });
 
+    test('playing a game results in either winning or losing', () async {
+      System system = System();
+
+      system.selectRandomFirstDoor();
+      system.changeChoice();
+      system.gameEnded();
+
+      expect(system.currentGame.won, isIn([true, false]));
+    });
+
     test('Begin new game: ', () async {
       System system = System();
 
