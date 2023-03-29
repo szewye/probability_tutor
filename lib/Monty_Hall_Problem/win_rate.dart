@@ -16,7 +16,8 @@ class WinRate extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(30),
-      constraints: const BoxConstraints(maxWidth: 380, maxHeight: 350),
+      width: 380,
+      height: 350,
       decoration: BoxDecoration(
         color: orangyRed,
         borderRadius: const BorderRadius.all(Radius.circular(30)),
@@ -55,24 +56,31 @@ class WinRate extends StatelessWidget {
           const SizedBox(height: 2),
           WinRateBar(winRate: winRate(true)),
           const SizedBox(height: 2),
-          Row(
-            children: [
-              Text(
-                "Game(s) won: ${won(true)}",
-                style: Theme.of(context)
-                    .textTheme
-                    .bodySmall
-                    ?.apply(color: offWhite),
-              ),
-              const SizedBox(width: 30),
-              Text(
-                "Game(s) played: ${games(true)}",
-                style: Theme.of(context)
-                    .textTheme
-                    .bodySmall
-                    ?.apply(color: offWhite),
-              ),
-            ],
+          Expanded(
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Expanded(
+                  child: Text(
+                    "Game(s) won: ${won(true)}",
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodySmall
+                        ?.apply(color: offWhite),
+                  ),
+                ),
+                const SizedBox(width: 30),
+                Expanded(
+                  child: Text(
+                    "Game(s) played: ${games(true)}",
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodySmall
+                        ?.apply(color: offWhite),
+                  ),
+                ),
+              ],
+            ),
           ),
           const SizedBox(height: 15),
           Text(
@@ -85,24 +93,31 @@ class WinRate extends StatelessWidget {
           const SizedBox(height: 2),
           WinRateBar(winRate: winRate(false)),
           const SizedBox(height: 2),
-          Row(
-            children: [
-              Text(
-                "Game(s) won: ${won(false)}",
-                style: Theme.of(context)
-                    .textTheme
-                    .bodySmall
-                    ?.apply(color: offWhite),
-              ),
-              const SizedBox(width: 30),
-              Text(
-                "Game(s) played: ${games(false)}",
-                style: Theme.of(context)
-                    .textTheme
-                    .bodySmall
-                    ?.apply(color: offWhite),
-              ),
-            ],
+          Expanded(
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Expanded(
+                  child: Text(
+                    "Game(s) won: ${won(false)}",
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodySmall
+                        ?.apply(color: offWhite),
+                  ),
+                ),
+                const SizedBox(width: 30),
+                Expanded(
+                  child: Text(
+                    "Game(s) played: ${games(false)}",
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodySmall
+                        ?.apply(color: offWhite),
+                  ),
+                ),
+              ],
+            ),
           ),
           const SizedBox(height: 20),
           Row(

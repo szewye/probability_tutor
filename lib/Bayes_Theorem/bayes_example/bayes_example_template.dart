@@ -125,73 +125,83 @@ class Bayes_Theorem_Example_Template extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 30),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Column(
-                        children: [
-                          Text("using the Bayes' theorem formula: P(D | T) =",
-                              style: Theme.of(context).textTheme.bodyLarge)
-                        ],
-                      ),
-                      const SizedBox(width: 10),
-                      Column(
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                pOfTGivenD,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyLarge
-                                    ?.apply(color: Colors.red),
-                              ),
-                              Text(" × ",
-                                  style: Theme.of(context).textTheme.bodyLarge),
-                              Text(
-                                pOfD,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyLarge
-                                    ?.apply(color: Colors.blue),
-                              ),
-                            ],
-                          ),
-                          Container(
-                            height: 1,
-                            color: darkBlue,
-                            constraints: const BoxConstraints(maxWidth: 300),
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              const Text("[ "),
-                              Text(
-                                pOfTGivenD,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyLarge
-                                    ?.apply(color: Colors.red),
-                              ),
-                              Text(" × ",
-                                  style: Theme.of(context).textTheme.bodyLarge),
-                              Text(
-                                pOfD,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyLarge
-                                    ?.apply(color: Colors.blue),
-                              ),
-                              Text(
-                                " ] + [ $pOfTGivenNotD × $pOfNotD ]",
-                                style: Theme.of(context).textTheme.bodyLarge,
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ],
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Column(
+                          children: [
+                            Text("using the Bayes' theorem formula: P(D | T) =",
+                                style: Theme.of(context).textTheme.bodyLarge)
+                          ],
+                        ),
+                        const SizedBox(width: 10),
+                        Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Text(
+                                  pOfTGivenD,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyLarge
+                                      ?.apply(color: Colors.red),
+                                ),
+                                Text(" × ",
+                                    style:
+                                        Theme.of(context).textTheme.bodyLarge),
+                                Text(
+                                  pOfD,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyLarge
+                                      ?.apply(color: Colors.blue),
+                                ),
+                              ],
+                            ),
+                            Container(
+                              height: 1,
+                              color: darkBlue,
+                              constraints: const BoxConstraints(maxWidth: 300),
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                const Text("[ "),
+                                Text(
+                                  pOfTGivenD,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyLarge
+                                      ?.apply(color: Colors.red),
+                                ),
+                                Text(" × ",
+                                    style:
+                                        Theme.of(context).textTheme.bodyLarge),
+                                Text(
+                                  pOfD,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyLarge
+                                      ?.apply(color: Colors.blue),
+                                ),
+                                Text(
+                                  " ] + [ $pOfTGivenNotD × $pOfNotD ]",
+                                  style: Theme.of(context).textTheme.bodyLarge,
+                                ),
+                                /*
+                                  */
+                              ],
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                   const SizedBox(height: 50),
                   content,

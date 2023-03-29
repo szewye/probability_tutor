@@ -39,8 +39,10 @@ class _Conditional_Probability_Formula_Solution_State
     return Builder(builder: (context) {
       return Conditional_Probability_Template(
         samples: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: coinsSampleSpace
-              .map<Widget>((String sample) => SampleSpaceButton(text: sample))
+              .map<Widget>((String sample) =>
+                  Flexible(child: SampleSpaceButton(text: sample)))
               .toList(),
         ),
         content: Column(

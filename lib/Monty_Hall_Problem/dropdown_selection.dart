@@ -10,15 +10,15 @@ class DropDown<T> extends StatelessWidget {
     required this.items,
     this.value,
     required this.onPress,
-    required this.height,
-    required this.width,
+    this.height,
+    this.width,
   }) : super(key: key);
 
   final T? value;
   final List<DropdownMenuItem<T>> items;
   final void Function(T?)? onPress;
-  final double height;
-  final double width;
+  final double? height;
+  final double? width;
 
   @override
   Widget build(BuildContext context) {
