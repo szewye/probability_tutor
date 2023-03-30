@@ -30,7 +30,7 @@ class ProbQuery {
   // Sub sample space for the condition event
   // Return list of all sub sample space for the condition event
   List<String?> conditionSubSampleSpace({List<String?>? space}) {
-    if (mainEvent != null) {
+    if (conditionEvent != null) {
       if (space != null) {
         return space
             .where((String? sample) => conditionEvent!.isIn(sample))

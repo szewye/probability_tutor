@@ -4,7 +4,7 @@ import 'package:probability_tutor/models/monty_hall_problem/game.dart';
 import 'package:probability_tutor/models/monty_hall_problem/system.dart';
 
 void main() {
-  group("Default: ", () {
+  group("System: ", () {
     test('System setup: ', () async {
       System system = System();
 

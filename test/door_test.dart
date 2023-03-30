@@ -64,16 +64,15 @@ void main() {
 
     testWidgets('Function:', (WidgetTester tester) async {
       bool works = false;
-      await tester.pumpWidget(MaterialApp(home: Builder(builder: (context) {
-        return Material(
-          child: DoorShape(
-            door: Door(prizeBehindTheDoor: Prize.CAR),
-            onPress: () {
-              works = true;
-            },
-          ),
-        );
-      })));
+      await tester.pumpWidget(MaterialApp(
+          home: Material(
+        child: DoorShape(
+          door: Door(prizeBehindTheDoor: Prize.CAR),
+          onPress: () {
+            works = true;
+          },
+        ),
+      )));
 
       expect(works, false);
 
