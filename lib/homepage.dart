@@ -62,7 +62,7 @@ class Homepage extends StatelessWidget {
                         SizedBox(
                           width: double.infinity,
                           child: MainPageButton(
-                              title: "Bayes' Theorem",
+                              title: 'Bayes\' Theorem',
                               onPress: () {
                                 getNavigation()(context, const Bayes_Theorem());
                               }),

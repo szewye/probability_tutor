@@ -24,6 +24,8 @@ class _SliderState extends State<Bayes_Theorem_Simulation> {
 
   @override
   Widget build(BuildContext context) {
+    return Container();
+
     String TgivenD = _sliderTGivenD.toStringAsFixed(3);
     String D = _sliderD.toStringAsFixed(5);
     String TgivenNotD = _sliderTGivenNotD.toStringAsFixed(3);

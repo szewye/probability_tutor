@@ -89,9 +89,8 @@ class Conditional_Probability_Template extends StatelessWidget {
                       Container(
                         padding: const EdgeInsets.all(10),
                         constraints: const BoxConstraints(maxWidth: 500),
-                        decoration: BoxDecoration(
-                            // border: Border.all(color: darkBlue),
-                            color: lightBlue.withOpacity(0.8)),
+                        decoration:
+                            BoxDecoration(color: lightBlue.withOpacity(0.8)),
                         child: Column(
                           children: [const Text("Sample space, S"), samples],
                         ),

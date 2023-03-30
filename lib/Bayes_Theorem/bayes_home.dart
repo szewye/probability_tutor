@@ -71,7 +71,7 @@ class Bayes_Theorem extends StatelessWidget {
                             title: "Simulation",
                             onPress: () {
                               getNavigation()(
-                                  context, const Bayes_Theorem_Simulation());
+                                  context, Bayes_Theorem_Simulation());
                             },
                             buttonColour: darkBlue,
                             textColour: offWhite,
