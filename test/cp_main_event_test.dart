@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:probability_tutor/Conditional_Probability/cp_home.dart';
-import 'package:probability_tutor/Conditional_Probability/sample_space_button.dart';
-import 'package:probability_tutor/buttons/next_button.dart';
+import 'package:probability_tutor/Conditional_Probability/cp_main_event.dart';
+import 'package:probability_tutor/Conditional_Probability/event_checkbox.dart';
 import 'package:probability_tutor/constants.dart';
 
 void main() {
-  group('Conditional probability homepage: ', () {
+  group('Conditional probability main event selection: ', () {
     testWidgets('Title and content: ', (WidgetTester tester) async {
       await tester
-          .pumpWidget(const MaterialApp(home: Conditional_Probability_Home()));
+          .pumpWidget(MaterialApp(home: Conditional_Probability_Main_Event()));
       expect(find.text("Conditional Probability"), findsOneWidget);
       expect(
           find.text(
@@ -21,17 +20,12 @@ void main() {
       expect(find.text(EFirstHalf + ESecondHalf), findsOneWidget);
       expect(find.text(FFirstHalf + FSecondHalf), findsOneWidget);
       expect(find.text(GFirstHalf + GSecondHalf), findsOneWidget);
-      expect(find.text("Ready to proceed?"), findsOneWidget);
-      expect(find.widgetWithText(NextButton, 'next'), findsOneWidget);
+      expect(find.text("select a main event"), findsOneWidget);
+      expect(find.text("hint: P("), findsOneWidget);
+      expect(find.text("X"), findsOneWidget);
+      expect(find.text(" | Y)"), findsOneWidget);
 
-      final expectedWidgets = coinsSampleSpace
-          .map<SampleSpaceButton>(
-              (String sample) => SampleSpaceButton(text: sample))
-          .toList();
-
-      for (SampleSpaceButton widget in expectedWidgets) {
-        expect(find.text(widget.text), findsOneWidget);
-      }
+      expect(find.byType(EventCheckBox), findsNWidgets(3));
     });
   });
 }

@@ -38,42 +38,50 @@ class _Conditional_Probability_Main_Sample_Space
                   ))
               .toList(),
         ),
-        content: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Title_Caption(
-                  caption: "select all the sub sample spaces for the ",
-                ),
-                Text("main event (${widget.probQuery.mainEvent?.id})",
-                    style: Theme.of(context)
-                        .textTheme
-                        .titleLarge
-                        ?.apply(color: orangyRed)),
-              ],
-            ),
-            const SizedBox(height: 10),
-            Container(
-              padding: const EdgeInsets.all(10),
-              constraints: const BoxConstraints(maxWidth: 350, minHeight: 55),
-              decoration: BoxDecoration(
-                // color: lightBlue,
-                border: Border.all(color: darkBlue),
-                borderRadius: const BorderRadius.all(
-                  Radius.circular(10),
+        content: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Flexible(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Title_Caption(
+                      caption: "select all the sub sample spaces for the ",
+                    ),
+                    Text("main event (${widget.probQuery.mainEvent?.id})",
+                        style: Theme.of(context)
+                            .textTheme
+                            .titleLarge
+                            ?.apply(color: orangyRed)),
+                  ],
                 ),
               ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: selectedSubSampleSpace.map<Widget>(
-                  (String element) {
-                    return SampleSpaceButton(text: element);
-                  },
-                ).toList(),
+              const SizedBox(height: 10),
+              Container(
+                key: Key("cont-selected"),
+                padding: const EdgeInsets.all(10),
+                constraints: const BoxConstraints(maxWidth: 350, minHeight: 55),
+                decoration: BoxDecoration(
+                  // color: lightBlue,
+                  border: Border.all(color: darkBlue),
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(10),
+                  ),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: selectedSubSampleSpace.map<Widget>(
+                    (String element) {
+                      return SampleSpaceButton(text: element);
+                    },
+                  ).toList(),
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       );
     });

@@ -5,6 +5,7 @@ import 'package:probability_tutor/Conditional_Probability/sample_space_button.da
 import 'package:probability_tutor/colours.dart';
 import 'package:probability_tutor/constants.dart';
 import 'package:probability_tutor/font_style/title_caption.dart';
+import 'package:probability_tutor/homepage.dart';
 import 'package:probability_tutor/models/conditional_probability/probability_query.dart';
 import 'package:probability_tutor/helpers/navigation_helper.dart';
 
@@ -38,42 +39,48 @@ class _Conditional_Probability_Condition_Sample_Space
                   ))
               .toList(),
         ),
-        content: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Title_Caption(
-                  caption: "select all the sub sample spaces for the ",
-                ),
-                Text(
-                    " condition event (${widget.probQuery.conditionEvent?.id})",
-                    style: Theme.of(context)
-                        .textTheme
-                        .titleLarge
-                        ?.apply(color: Colors.green)),
-              ],
-            ),
-            const SizedBox(height: 10),
-            Container(
-              padding: const EdgeInsets.all(10),
-              constraints: const BoxConstraints(maxWidth: 350, minHeight: 55),
-              decoration: BoxDecoration(
-                border: Border.all(color: darkBlue),
-                borderRadius: const BorderRadius.all(
-                  Radius.circular(10),
+        content: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Flexible(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Title_Caption(
+                      caption: "select all the sub sample spaces for the ",
+                    ),
+                    Text(
+                        "condition event (${widget.probQuery.conditionEvent?.id})",
+                        style: Theme.of(context)
+                            .textTheme
+                            .titleLarge
+                            ?.apply(color: Colors.green)),
+                  ],
                 ),
               ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: selectedSubSampleSpace.map<Widget>(
-                  (String element) {
-                    return SampleSpaceButton(text: element);
-                  },
-                ).toList(),
+              const SizedBox(height: 10),
+              Container(
+                padding: const EdgeInsets.all(10),
+                constraints: const BoxConstraints(maxWidth: 350, minHeight: 55),
+                decoration: BoxDecoration(
+                  border: Border.all(color: darkBlue),
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(10),
+                  ),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: selectedSubSampleSpace.map<Widget>(
+                    (String element) {
+                      return SampleSpaceButton(text: element);
+                    },
+                  ).toList(),
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       );
     });
@@ -93,7 +100,7 @@ class _Conditional_Probability_Condition_Sample_Space
                   probQuery: widget.probQuery));
         }
       });
-      await Future.delayed(const Duration(seconds: 1));
+      await Future.delayed(const Duration(milliseconds: 1));
     }
   }
 }
