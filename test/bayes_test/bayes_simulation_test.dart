@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:probability_tutor/Bayes_Theorem/bayes_example/bayes_example_final.dart';
-import 'package:probability_tutor/Bayes_Theorem/bayes_example/bayes_example_tree_second_question.dart';
-import 'package:probability_tutor/Bayes_Theorem/bayes_example/bayes_tree.dart';
+import 'package:probability_tutor/Bayes_Theorem/bayes_example/bayes_example_quiz_one.dart';
 import 'package:probability_tutor/Bayes_Theorem/bayes_simulation.dart';
 import 'package:probability_tutor/buttons/back_home_button.dart';
 import 'package:probability_tutor/constants.dart';
@@ -33,22 +31,17 @@ void main() {
       addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
     });
 
-    // testWidgets('Select wrong answers: ', (WidgetTester tester) async {
-    //   await tester.binding.setSurfaceSize(const Size(1920, 1080));
-    //   await tester.pumpWidget(
-    //       const MaterialApp(home: Bayes_Theorem_Example_Tree_Second()));
+    testWidgets('Direct to example page: ', (WidgetTester tester) async {
+      await tester.binding.setSurfaceSize(const Size(1920, 1080));
+      await tester
+          .pumpWidget(const MaterialApp(home: Bayes_Theorem_Simulation()));
+      expect(find.byType(Bayes_Theorem_Example_Quiz_One), findsNothing);
 
-    //   await tester.tap(find.text(TNotDValue));
-    //   await tester.pumpAndSettle();
+      await tester.tap(find.text("example"));
+      await tester.pumpAndSettle();
 
-    //   expect(find.text("Try again?"), findsOneWidget);
-
-    //   await tester.tap(find.text(notTDValue));
-    //   await tester.pumpAndSettle();
-
-    //   expect(find.text("Try again?"), findsOneWidget);
-
-    //   addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
-    // });
+      expect(find.byType(Bayes_Theorem_Example_Quiz_One), findsOneWidget);
+      addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
+    });
   });
 }
