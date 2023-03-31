@@ -49,37 +49,41 @@ class _Conditional_Probability_Venn_Diagram_Solution_State
           children: [
             VennDiagram(probQuery: widget.probQuery),
             const SizedBox(height: 5),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "From the Venn diagram, we can see that the event of ",
-                  style: Theme.of(context).textTheme.titleSmall,
-                ),
-                Text(
-                  "${widget.probQuery.mainEvent?.id}",
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyLarge
-                      ?.apply(color: orangyRed),
-                ),
-                const Text(" happening given "),
-                Text(
-                  "${widget.probQuery.conditionEvent?.id}",
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyLarge
-                      ?.apply(color: Colors.green),
-                ),
-                const Text(" is "),
-                Text(
-                  "${solution.toStringAsFixed(4)} ",
-                  style: Theme.of(context)
-                      .textTheme
-                      .headlineSmall
-                      ?.apply(fontWeightDelta: 5),
-                )
-              ],
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    "From the Venn diagram, we can see that the event of ",
+                    style: Theme.of(context).textTheme.titleSmall,
+                  ),
+                  Text(
+                    "${widget.probQuery.mainEvent?.id}",
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyLarge
+                        ?.apply(color: orangyRed),
+                  ),
+                  const Text(" happening given "),
+                  Text(
+                    "${widget.probQuery.conditionEvent?.id}",
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyLarge
+                        ?.apply(color: Colors.green),
+                  ),
+                  const Text(" is "),
+                  Text(
+                    "${solution.toStringAsFixed(4)} ",
+                    style: Theme.of(context)
+                        .textTheme
+                        .headlineSmall
+                        ?.apply(fontWeightDelta: 5),
+                  )
+                ],
+              ),
             ),
             const SizedBox(height: 10),
             NextButton(onPress: () {

@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2023-03-30 16:47:43</td>
+            <td class="headerValue">2023-03-31 01:14:35</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">0</td>
@@ -65,7 +65,7 @@
 <a name="3"><span class="lineNum">       3 </span>            : </a>
 <a name="4"><span class="lineNum">       4 </span>            : // Heading for the application</a>
 <a name="5"><span class="lineNum">       5 </span>            : class Heading extends StatelessWidget {</a>
-<a name="6"><span class="lineNum">       6 </span><span class="lineCov">        128 :   const Heading({</span></a>
+<a name="6"><span class="lineNum">       6 </span><span class="lineCov">        160 :   const Heading({</span></a>
 <a name="7"><span class="lineNum">       7 </span>            :     Key? key,</a>
 <a name="8"><span class="lineNum">       8 </span>            :     required this.title,</a>
 <a name="9"><span class="lineNum">       9 </span>            :     this.textColour = darkBlue,</a>
@@ -74,14 +74,14 @@
 <a name="12"><span class="lineNum">      12 </span>            :   final String title;</a>
 <a name="13"><span class="lineNum">      13 </span>            :   final Color textColour;</a>
 <a name="14"><span class="lineNum">      14 </span>            : </a>
-<a name="15"><span class="lineNum">      15 </span><span class="lineCov">          9 :   @override</span></a>
+<a name="15"><span class="lineNum">      15 </span><span class="lineCov">         13 :   @override</span></a>
 <a name="16"><span class="lineNum">      16 </span>            :   Widget build(BuildContext context) {</a>
-<a name="17"><span class="lineNum">      17 </span><span class="lineCov">          9 :     return Text(</span></a>
-<a name="18"><span class="lineNum">      18 </span><span class="lineCov">          9 :       title,</span></a>
-<a name="19"><span class="lineNum">      19 </span><span class="lineCov">          9 :       style: Theme.of(context)</span></a>
-<a name="20"><span class="lineNum">      20 </span><span class="lineCov">          9 :           .textTheme</span></a>
-<a name="21"><span class="lineNum">      21 </span><span class="lineCov">          9 :           .headlineLarge</span></a>
-<a name="22"><span class="lineNum">      22 </span><span class="lineCov">         18 :           ?.apply(fontWeightDelta: 20, color: textColour),</span></a>
+<a name="17"><span class="lineNum">      17 </span><span class="lineCov">         13 :     return Text(</span></a>
+<a name="18"><span class="lineNum">      18 </span><span class="lineCov">         13 :       title,</span></a>
+<a name="19"><span class="lineNum">      19 </span><span class="lineCov">         13 :       style: Theme.of(context)</span></a>
+<a name="20"><span class="lineNum">      20 </span><span class="lineCov">         13 :           .textTheme</span></a>
+<a name="21"><span class="lineNum">      21 </span><span class="lineCov">         13 :           .headlineLarge</span></a>
+<a name="22"><span class="lineNum">      22 </span><span class="lineCov">         26 :           ?.apply(fontWeightDelta: 20, color: textColour),</span></a>
 <a name="23"><span class="lineNum">      23 </span>            :       textAlign: TextAlign.center,</a>
 <a name="24"><span class="lineNum">      24 </span>            :     );</a>
 <a name="25"><span class="lineNum">      25 </span>            :   }</a>

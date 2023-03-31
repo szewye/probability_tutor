@@ -9,9 +9,16 @@ class VennDiagram extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomPaint(
-      painter: VennDiagramPainter(context: context, probQuery: probQuery),
-      size: const Size(300, 300),
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: SizedBox(
+        height: 300,
+        width: 300,
+        child: CustomPaint(
+          painter: VennDiagramPainter(context: context, probQuery: probQuery),
+          size: const Size(300, 300),
+        ),
+      ),
     );
   }
 }

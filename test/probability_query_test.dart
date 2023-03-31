@@ -43,5 +43,28 @@ void main() {
       // Test the sub sample space with the full sample space
       expect(query.conditionSubSampleSpace(), ['TT', 'TH']);
     });
+
+    test('mainSubSampleSpace returns empty list: ', () {
+      List<String?> sampleSpace = ['HH', 'HT', 'TT', 'TH'];
+
+      ProbQuery query = ProbQuery(sampleSpace: sampleSpace, mainEvent: null);
+
+      List<String?> subset = ['HH', 'TT'];
+      expect(query.mainSubSampleSpace(space: subset), []);
+
+      expect(query.mainSubSampleSpace(), []);
+    });
+
+    test('conditionSubSampleSpace returns empty list: ', () {
+      List<String?> sampleSpace = ['HH', 'HT', 'TT', 'TH'];
+
+      ProbQuery query =
+          ProbQuery(sampleSpace: sampleSpace, conditionEvent: null);
+
+      List<String?> subset = ['HH', 'TT'];
+      expect(query.conditionSubSampleSpace(space: subset), []);
+
+      expect(query.conditionSubSampleSpace(), []);
+    });
   });
 }

@@ -31,13 +31,13 @@
             <td class="headerValue">lcov.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">3</td>
             <td class="headerCovTableEntry">7</td>
-            <td class="headerCovTableEntryLo">42.9 %</td>
+            <td class="headerCovTableEntry">7</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2023-03-30 16:47:43</td>
+            <td class="headerValue">2023-03-31 01:14:35</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">0</td>
@@ -104,7 +104,7 @@
 <a name="42"><span class="lineNum">      42 </span>            : const String GFirstHalf = &quot;Let G be the event of &quot;;</a>
 <a name="43"><span class="lineNum">      43 </span>            : const String GSecondHalf = &quot;the first flip comes up tails&quot;;</a>
 <a name="44"><span class="lineNum">      44 </span>            : </a>
-<a name="45"><span class="lineNum">      45 </span><span class="lineCov">         15 : final List&lt;String&gt; coinsSampleSpace = [</span></a>
+<a name="45"><span class="lineNum">      45 </span><span class="lineCov">         24 : final List&lt;String&gt; coinsSampleSpace = [</span></a>
 <a name="46"><span class="lineNum">      46 </span>            :   &quot;HHH&quot;,</a>
 <a name="47"><span class="lineNum">      47 </span>            :   &quot;HHT&quot;,</a>
 <a name="48"><span class="lineNum">      48 </span>            :   &quot;HTT&quot;,</a>
@@ -115,12 +115,12 @@
 <a name="53"><span class="lineNum">      53 </span>            :   &quot;THT&quot;</a>
 <a name="54"><span class="lineNum">      54 </span>            : ];</a>
 <a name="55"><span class="lineNum">      55 </span>            : </a>
-<a name="56"><span class="lineNum">      56 </span><span class="lineCov">          2 : Event E =</span></a>
-<a name="57"><span class="lineNum">      57 </span><span class="lineCov">          1 :     Event(id: &quot;E&quot;, isIn: (String? sample) =&gt; sample?.contains(&quot;HH&quot;) ?? false);</span></a>
-<a name="58"><span class="lineNum">      58 </span><span class="lineNoCov">          0 : Event F =</span></a>
-<a name="59"><span class="lineNum">      59 </span><span class="lineNoCov">          0 :     Event(id: &quot;F&quot;, isIn: (String? sample) =&gt; sample?.startsWith(&quot;H&quot;) ?? false);</span></a>
-<a name="60"><span class="lineNum">      60 </span><span class="lineNoCov">          0 : Event G =</span></a>
-<a name="61"><span class="lineNum">      61 </span><span class="lineNoCov">          0 :     Event(id: &quot;G&quot;, isIn: (String? sample) =&gt; sample?.startsWith(&quot;T&quot;) ?? false);</span></a>
+<a name="56"><span class="lineNum">      56 </span><span class="lineCov">          6 : Event E =</span></a>
+<a name="57"><span class="lineNum">      57 </span><span class="lineCov">          7 :     Event(id: &quot;E&quot;, isIn: (String? sample) =&gt; sample?.contains(&quot;HH&quot;) ?? false);</span></a>
+<a name="58"><span class="lineNum">      58 </span><span class="lineCov">          2 : Event F =</span></a>
+<a name="59"><span class="lineNum">      59 </span><span class="lineCov">          3 :     Event(id: &quot;F&quot;, isIn: (String? sample) =&gt; sample?.startsWith(&quot;H&quot;) ?? false);</span></a>
+<a name="60"><span class="lineNum">      60 </span><span class="lineCov">          2 : Event G =</span></a>
+<a name="61"><span class="lineNum">      61 </span><span class="lineCov">          3 :     Event(id: &quot;G&quot;, isIn: (String? sample) =&gt; sample?.startsWith(&quot;T&quot;) ?? false);</span></a>
 </pre>
       </td>
     </tr>

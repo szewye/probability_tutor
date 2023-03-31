@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2023-03-30 16:47:43</td>
+            <td class="headerValue">2023-03-31 01:14:35</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">0</td>
@@ -65,26 +65,26 @@
 <a name="3"><span class="lineNum">       3 </span>            : </a>
 <a name="4"><span class="lineNum">       4 </span>            : // &quot;Go to next page&quot; button</a>
 <a name="5"><span class="lineNum">       5 </span>            : class NextButton extends StatelessWidget {</a>
-<a name="6"><span class="lineNum">       6 </span><span class="lineCov">          4 :   const NextButton({</span></a>
+<a name="6"><span class="lineNum">       6 </span><span class="lineCov">          5 :   const NextButton({</span></a>
 <a name="7"><span class="lineNum">       7 </span>            :     Key? key,</a>
 <a name="8"><span class="lineNum">       8 </span>            :     this.title = &quot;next&quot;,</a>
 <a name="9"><span class="lineNum">       9 </span>            :     this.buttonColour = offWhite,</a>
 <a name="10"><span class="lineNum">      10 </span>            :     this.textColour = darkBlue,</a>
 <a name="11"><span class="lineNum">      11 </span>            :     required this.onPress,</a>
-<a name="12"><span class="lineNum">      12 </span><span class="lineCov">          4 :   }) : super(key: key);</span></a>
+<a name="12"><span class="lineNum">      12 </span><span class="lineCov">          5 :   }) : super(key: key);</span></a>
 <a name="13"><span class="lineNum">      13 </span>            : </a>
 <a name="14"><span class="lineNum">      14 </span>            :   final String title;</a>
 <a name="15"><span class="lineNum">      15 </span>            :   final Color buttonColour;</a>
 <a name="16"><span class="lineNum">      16 </span>            :   final Color textColour;</a>
 <a name="17"><span class="lineNum">      17 </span>            :   final Function() onPress;</a>
 <a name="18"><span class="lineNum">      18 </span>            : </a>
-<a name="19"><span class="lineNum">      19 </span><span class="lineCov">          4 :   @override</span></a>
+<a name="19"><span class="lineNum">      19 </span><span class="lineCov">          5 :   @override</span></a>
 <a name="20"><span class="lineNum">      20 </span>            :   Widget build(BuildContext context) {</a>
-<a name="21"><span class="lineNum">      21 </span><span class="lineCov">          4 :     return TextButton(</span></a>
-<a name="22"><span class="lineNum">      22 </span><span class="lineCov">          4 :         onPressed: onPress,</span></a>
-<a name="23"><span class="lineNum">      23 </span><span class="lineCov">          4 :         child: Text(</span></a>
-<a name="24"><span class="lineNum">      24 </span><span class="lineCov">          4 :           title,</span></a>
-<a name="25"><span class="lineNum">      25 </span><span class="lineCov">         16 :           style: Theme.of(context).textTheme.bodyMedium?.apply(</span></a>
+<a name="21"><span class="lineNum">      21 </span><span class="lineCov">          5 :     return TextButton(</span></a>
+<a name="22"><span class="lineNum">      22 </span><span class="lineCov">          5 :         onPressed: onPress,</span></a>
+<a name="23"><span class="lineNum">      23 </span><span class="lineCov">          5 :         child: Text(</span></a>
+<a name="24"><span class="lineNum">      24 </span><span class="lineCov">          5 :           title,</span></a>
+<a name="25"><span class="lineNum">      25 </span><span class="lineCov">         20 :           style: Theme.of(context).textTheme.bodyMedium?.apply(</span></a>
 <a name="26"><span class="lineNum">      26 </span>            :                 fontWeightDelta: 20,</a>
 <a name="27"><span class="lineNum">      27 </span>            :                 color: darkBlue,</a>
 <a name="28"><span class="lineNum">      28 </span>            :                 decoration: TextDecoration.underline,</a>

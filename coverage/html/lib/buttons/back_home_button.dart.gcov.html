@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2023-03-30 16:47:43</td>
+            <td class="headerValue">2023-03-31 01:14:35</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">0</td>
@@ -67,7 +67,7 @@
 <a name="5"><span class="lineNum">       5 </span>            : </a>
 <a name="6"><span class="lineNum">       6 </span>            : // &quot;Go to homepage&quot; button</a>
 <a name="7"><span class="lineNum">       7 </span>            : class BackHomeButton extends StatelessWidget {</a>
-<a name="8"><span class="lineNum">       8 </span><span class="lineCov">        161 :   const BackHomeButton({</span></a>
+<a name="8"><span class="lineNum">       8 </span><span class="lineCov">        201 :   const BackHomeButton({</span></a>
 <a name="9"><span class="lineNum">       9 </span>            :     Key? key,</a>
 <a name="10"><span class="lineNum">      10 </span>            :     this.title = &quot;home&quot;,</a>
 <a name="11"><span class="lineNum">      11 </span>            :     this.textColour = darkBlue,</a>
@@ -76,16 +76,16 @@
 <a name="14"><span class="lineNum">      14 </span>            :   final String title;</a>
 <a name="15"><span class="lineNum">      15 </span>            :   final Color textColour;</a>
 <a name="16"><span class="lineNum">      16 </span>            : </a>
-<a name="17"><span class="lineNum">      17 </span><span class="lineCov">         10 :   @override</span></a>
+<a name="17"><span class="lineNum">      17 </span><span class="lineCov">         14 :   @override</span></a>
 <a name="18"><span class="lineNum">      18 </span>            :   Widget build(BuildContext context) {</a>
-<a name="19"><span class="lineNum">      19 </span><span class="lineCov">         10 :     return TextButton(</span></a>
+<a name="19"><span class="lineNum">      19 </span><span class="lineCov">         14 :     return TextButton(</span></a>
 <a name="20"><span class="lineNum">      20 </span><span class="lineCov">          1 :         onPressed: () {</span></a>
 <a name="21"><span class="lineNum">      21 </span><span class="lineCov">          2 :           Navigator.popUntil(context, (route) =&gt; true);</span></a>
 <a name="22"><span class="lineNum">      22 </span><span class="lineCov">          2 :           getNavigation()(context, const Homepage());</span></a>
 <a name="23"><span class="lineNum">      23 </span>            :         },</a>
-<a name="24"><span class="lineNum">      24 </span><span class="lineCov">         10 :         child: Text(</span></a>
-<a name="25"><span class="lineNum">      25 </span><span class="lineCov">         10 :           title,</span></a>
-<a name="26"><span class="lineNum">      26 </span><span class="lineCov">         40 :           style: Theme.of(context).textTheme.bodySmall?.apply(</span></a>
+<a name="24"><span class="lineNum">      24 </span><span class="lineCov">         14 :         child: Text(</span></a>
+<a name="25"><span class="lineNum">      25 </span><span class="lineCov">         14 :           title,</span></a>
+<a name="26"><span class="lineNum">      26 </span><span class="lineCov">         56 :           style: Theme.of(context).textTheme.bodySmall?.apply(</span></a>
 <a name="27"><span class="lineNum">      27 </span>            :                 fontWeightDelta: 20,</a>
 <a name="28"><span class="lineNum">      28 </span>            :                 color: darkBlue,</a>
 <a name="29"><span class="lineNum">      29 </span>            :                 decoration: TextDecoration.underline,</a>
