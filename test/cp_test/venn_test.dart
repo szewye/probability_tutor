@@ -5,8 +5,7 @@ import 'package:probability_tutor/constants.dart';
 import 'package:probability_tutor/models/conditional_probability/probability_query.dart';
 
 void main() {
-  testWidgets('VennDiagram should render correctly',
-      (WidgetTester tester) async {
+  testWidgets('VennDiagram: ', (WidgetTester tester) async {
     final probQuery = ProbQuery(
       sampleSpace: coinsSampleSpace,
       mainEvent: F,

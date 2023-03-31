@@ -31,13 +31,13 @@
             <td class="headerValue">lcov.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">37</td>
             <td class="headerCovTableEntry">46</td>
-            <td class="headerCovTableEntryMed">80.4 %</td>
+            <td class="headerCovTableEntry">46</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2023-03-31 16:24:13</td>
+            <td class="headerValue">2023-03-31 16:59:06</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">0</td>
@@ -154,15 +154,15 @@
 <a name="92"><span class="lineNum">      92 </span>            :     });</a>
 <a name="93"><span class="lineNum">      93 </span>            :   }</a>
 <a name="94"><span class="lineNum">      94 </span>            : </a>
-<a name="95"><span class="lineNum">      95 </span><span class="lineNoCov">          0 :   void onSelection(int? newSelected) {</span></a>
-<a name="96"><span class="lineNum">      96 </span><span class="lineNoCov">          0 :     setState(() {</span></a>
-<a name="97"><span class="lineNum">      97 </span><span class="lineNoCov">          0 :       selected = newSelected;</span></a>
-<a name="98"><span class="lineNum">      98 </span><span class="lineNoCov">          0 :       if (selected == 0) {</span></a>
-<a name="99"><span class="lineNum">      99 </span><span class="lineNoCov">          0 :         widget.probQuery.mainEvent = E;</span></a>
-<a name="100"><span class="lineNum">     100 </span><span class="lineNoCov">          0 :       } else if (selected == 1) {</span></a>
-<a name="101"><span class="lineNum">     101 </span><span class="lineNoCov">          0 :         widget.probQuery.mainEvent = F;</span></a>
-<a name="102"><span class="lineNum">     102 </span><span class="lineNoCov">          0 :       } else if (selected == 2) {</span></a>
-<a name="103"><span class="lineNum">     103 </span><span class="lineNoCov">          0 :         widget.probQuery.mainEvent = G;</span></a>
+<a name="95"><span class="lineNum">      95 </span><span class="lineCov">          1 :   void onSelection(int? newSelected) {</span></a>
+<a name="96"><span class="lineNum">      96 </span><span class="lineCov">          2 :     setState(() {</span></a>
+<a name="97"><span class="lineNum">      97 </span><span class="lineCov">          1 :       selected = newSelected;</span></a>
+<a name="98"><span class="lineNum">      98 </span><span class="lineCov">          2 :       if (selected == 0) {</span></a>
+<a name="99"><span class="lineNum">      99 </span><span class="lineCov">          4 :         widget.probQuery.mainEvent = E;</span></a>
+<a name="100"><span class="lineNum">     100 </span><span class="lineCov">          2 :       } else if (selected == 1) {</span></a>
+<a name="101"><span class="lineNum">     101 </span><span class="lineCov">          4 :         widget.probQuery.mainEvent = F;</span></a>
+<a name="102"><span class="lineNum">     102 </span><span class="lineCov">          2 :       } else if (selected == 2) {</span></a>
+<a name="103"><span class="lineNum">     103 </span><span class="lineCov">          4 :         widget.probQuery.mainEvent = G;</span></a>
 <a name="104"><span class="lineNum">     104 </span>            :       }</a>
 <a name="105"><span class="lineNum">     105 </span>            :     });</a>
 <a name="106"><span class="lineNum">     106 </span>            :   }</a>
