@@ -34,6 +34,7 @@ class Bayes_Theorem_Example_Final extends StatelessWidget {
           ],
         ),
         body: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
           child: Center(
             child: Container(
               padding: const EdgeInsets.all(pagePadding),
@@ -109,218 +110,242 @@ class Bayes_Theorem_Example_Final extends StatelessWidget {
                   const Text(
                       "to get the probability that someone who tests positive for the disease actually has the disease, P(D | T):"),
                   const SizedBox(height: 10),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Column(
-                        children: [
-                          Text("$pOfDGivenT =",
-                              style: Theme.of(context).textTheme.bodyLarge)
-                        ],
-                      ),
-                      const SizedBox(width: 10),
-                      Column(
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                pOfTGivenD,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyLarge
-                                    ?.apply(color: Colors.red),
-                              ),
-                              Text(" × ",
-                                  style: Theme.of(context).textTheme.bodyLarge),
-                              Text(
-                                pOfD,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyLarge
-                                    ?.apply(color: Colors.blue),
-                              ),
-                            ],
-                          ),
-                          Container(
-                            height: 1,
-                            color: darkBlue,
-                            constraints: const BoxConstraints(maxWidth: 300),
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              const Text("[ "),
-                              Text(
-                                pOfTGivenD,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyLarge
-                                    ?.apply(color: Colors.red),
-                              ),
-                              Text(" × ",
-                                  style: Theme.of(context).textTheme.bodyLarge),
-                              Text(
-                                pOfD,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyLarge
-                                    ?.apply(color: Colors.blue),
-                              ),
-                              Text(" ] + [ ",
-                                  style: Theme.of(context).textTheme.bodyLarge),
-                              Text(
-                                pOfTGivenNotD,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyLarge
-                                    ?.apply(color: Colors.purple),
-                              ),
-                              Text(" × ",
-                                  style: Theme.of(context).textTheme.bodyLarge),
-                              Text(
-                                pOfNotD,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyLarge
-                                    ?.apply(color: Colors.teal),
-                              ),
-                              Text(
-                                " ]",
-                                style: Theme.of(context).textTheme.bodyLarge,
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ],
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Column(
+                          children: [
+                            Text("$pOfDGivenT =",
+                                style: Theme.of(context).textTheme.bodyLarge)
+                          ],
+                        ),
+                        const SizedBox(width: 10),
+                        Column(
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  pOfTGivenD,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyLarge
+                                      ?.apply(color: Colors.red),
+                                ),
+                                Text(" × ",
+                                    style:
+                                        Theme.of(context).textTheme.bodyLarge),
+                                Text(
+                                  pOfD,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyLarge
+                                      ?.apply(color: Colors.blue),
+                                ),
+                              ],
+                            ),
+                            Container(
+                              height: 1,
+                              color: darkBlue,
+                              constraints: const BoxConstraints(maxWidth: 300),
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                const Text("[ "),
+                                Text(
+                                  pOfTGivenD,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyLarge
+                                      ?.apply(color: Colors.red),
+                                ),
+                                Text(" × ",
+                                    style:
+                                        Theme.of(context).textTheme.bodyLarge),
+                                Text(
+                                  pOfD,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyLarge
+                                      ?.apply(color: Colors.blue),
+                                ),
+                                Text(" ] + [ ",
+                                    style:
+                                        Theme.of(context).textTheme.bodyLarge),
+                                Text(
+                                  pOfTGivenNotD,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyLarge
+                                      ?.apply(color: Colors.purple),
+                                ),
+                                Text(" × ",
+                                    style:
+                                        Theme.of(context).textTheme.bodyLarge),
+                                Text(
+                                  pOfNotD,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyLarge
+                                      ?.apply(color: Colors.teal),
+                                ),
+                                Text(
+                                  " ]",
+                                  style: Theme.of(context).textTheme.bodyLarge,
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                   const SizedBox(height: 50),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text("solution:"),
-                          Container(
-                            constraints: const BoxConstraints(maxWidth: 460),
-                            padding: const EdgeInsets.all(10),
-                            decoration: BoxDecoration(
-                                border: Border.all(color: darkBlue)),
-                            child: Container(
-                              constraints: const BoxConstraints(maxWidth: 450),
-                              padding: const EdgeInsets.all(20),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text("solution:"),
+                            Container(
+                              // constraints: const BoxConstraints(maxWidth: 460),
+                              width: 460,
+                              padding: const EdgeInsets.all(10),
                               decoration: BoxDecoration(
                                   border: Border.all(color: darkBlue)),
-                              child: Row(
-                                children: [
-                                  Column(
-                                    children: [
-                                      Text("$pOfDGivenT =",
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .bodyLarge)
-                                    ],
-                                  ),
-                                  const SizedBox(width: 10),
-                                  Column(
-                                    children: [
-                                      Row(
-                                        children: [
-                                          Text(
-                                            TDValue,
+                              child: Container(
+                                // constraints:
+                                //     const BoxConstraints(maxWidth: 450),
+                                width: 450,
+                                padding: const EdgeInsets.all(20),
+                                decoration: BoxDecoration(
+                                    border: Border.all(color: darkBlue)),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        Text("$pOfDGivenT =",
                                             style: Theme.of(context)
                                                 .textTheme
-                                                .bodyLarge
-                                                ?.apply(color: Colors.red),
-                                          ),
-                                          Text(" × ",
+                                                .bodyLarge)
+                                      ],
+                                    ),
+                                    const SizedBox(width: 10),
+                                    Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Text(
+                                              TDValue,
                                               style: Theme.of(context)
                                                   .textTheme
-                                                  .bodyLarge),
-                                          Text(
-                                            DValue,
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodyLarge
-                                                ?.apply(color: Colors.blue),
-                                          ),
-                                        ],
-                                      ),
-                                      Container(
-                                        height: 1,
-                                        color: darkBlue,
-                                        constraints:
-                                            const BoxConstraints(maxWidth: 300),
-                                      ),
-                                      Row(
-                                        children: [
-                                          const Text("[ "),
-                                          Text(
-                                            TDValue,
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodyLarge
-                                                ?.apply(color: Colors.red),
-                                          ),
-                                          Text(" × ",
+                                                  .bodyLarge
+                                                  ?.apply(color: Colors.red),
+                                            ),
+                                            Text(" × ",
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .bodyLarge),
+                                            Text(
+                                              DValue,
                                               style: Theme.of(context)
                                                   .textTheme
-                                                  .bodyLarge),
-                                          Text(
-                                            DValue,
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodyLarge
-                                                ?.apply(color: Colors.blue),
-                                          ),
-                                          Text(" ] + [ ",
+                                                  .bodyLarge
+                                                  ?.apply(color: Colors.blue),
+                                            ),
+                                          ],
+                                        ),
+                                        Container(
+                                          height: 1,
+                                          color: darkBlue,
+                                          constraints: const BoxConstraints(
+                                              maxWidth: 300),
+                                        ),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            const Text("[ "),
+                                            Text(
+                                              TDValue,
                                               style: Theme.of(context)
                                                   .textTheme
-                                                  .bodyLarge),
-                                          Text(
-                                            TNotDValue,
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodyLarge
-                                                ?.apply(color: Colors.purple),
-                                          ),
-                                          Text(" × ",
+                                                  .bodyLarge
+                                                  ?.apply(color: Colors.red),
+                                            ),
+                                            Text(" × ",
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .bodyLarge),
+                                            Text(
+                                              DValue,
                                               style: Theme.of(context)
                                                   .textTheme
-                                                  .bodyLarge),
-                                          Text(
-                                            notDValue,
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodyLarge
-                                                ?.apply(color: Colors.teal),
-                                          ),
-                                          Text(
-                                            " ]",
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodyLarge,
-                                          ),
-                                        ],
-                                      ),
-                                      const SizedBox(height: 8),
-                                      Row(
-                                        children: const [
-                                          Text("= $DTValue"),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                ],
+                                                  .bodyLarge
+                                                  ?.apply(color: Colors.blue),
+                                            ),
+                                            Text(" ] + [ ",
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .bodyLarge),
+                                            Text(
+                                              TNotDValue,
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .bodyLarge
+                                                  ?.apply(color: Colors.purple),
+                                            ),
+                                            Text(" × ",
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .bodyLarge),
+                                            Text(
+                                              notDValue,
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .bodyLarge
+                                                  ?.apply(color: Colors.teal),
+                                            ),
+                                            Text(
+                                              " ]",
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .bodyLarge,
+                                            ),
+                                          ],
+                                        ),
+                                        const SizedBox(height: 8),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: const [
+                                            Text("= $DTValue"),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
-                          ),
-                        ],
-                      ),
-                      BinaryTreeView(),
-                    ],
+                          ],
+                        ),
+                        BinaryTreeView(),
+                      ],
+                    ),
                   ),
                   const SizedBox(height: 50),
                   NextButton(

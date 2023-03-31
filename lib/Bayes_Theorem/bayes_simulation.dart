@@ -24,8 +24,6 @@ class _SliderState extends State<Bayes_Theorem_Simulation> {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
-
     String TgivenD = _sliderTGivenD.toStringAsFixed(3);
     String D = _sliderD.toStringAsFixed(5);
     String TgivenNotD = _sliderTGivenNotD.toStringAsFixed(3);
@@ -158,33 +156,41 @@ class _SliderState extends State<Bayes_Theorem_Simulation> {
                       ),
                     ),
                     const SizedBox(width: 50),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Math.tex(
-                          pOfDGivenT,
-                          textStyle: Theme.of(context).textTheme.headlineSmall,
-                        ),
-                        const SizedBox(width: 10),
-                        const SizedBox(height: 50),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Math.tex(
-                                "= \\frac{$pOfTGivenD $pOfD}{$pOfTGivenD $pOfD + $pOfTGivenNotD $pOfNotD}",
-                                textStyle:
-                                    Theme.of(context).textTheme.headlineSmall),
-                            const SizedBox(height: 50),
-                            Math.tex(formula,
-                                textStyle:
-                                    Theme.of(context).textTheme.headlineSmall),
-                            const SizedBox(height: 50),
-                            Math.tex("= ${bayes.toStringAsFixed(5)}",
-                                textStyle:
-                                    Theme.of(context).textTheme.headlineSmall),
-                          ],
-                        ),
-                      ],
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Math.tex(
+                            pOfDGivenT,
+                            textStyle:
+                                Theme.of(context).textTheme.headlineSmall,
+                          ),
+                          const SizedBox(width: 10),
+                          const SizedBox(height: 50),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Math.tex(
+                                  "= \\frac{$pOfTGivenD $pOfD}{$pOfTGivenD $pOfD + $pOfTGivenNotD $pOfNotD}",
+                                  textStyle: Theme.of(context)
+                                      .textTheme
+                                      .headlineSmall),
+                              const SizedBox(height: 50),
+                              Math.tex(formula,
+                                  textStyle: Theme.of(context)
+                                      .textTheme
+                                      .headlineSmall),
+                              const SizedBox(height: 50),
+                              Math.tex("= ${bayes.toStringAsFixed(5)}",
+                                  textStyle: Theme.of(context)
+                                      .textTheme
+                                      .headlineSmall),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),

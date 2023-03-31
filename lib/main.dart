@@ -40,7 +40,7 @@ class ProbabilityTutor extends StatelessWidget {
           ),
         ),
       ),
-      home: Homepage(),
+      home: const Homepage(),
     );
   }
 }
