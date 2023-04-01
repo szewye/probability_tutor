@@ -7,6 +7,7 @@ import 'package:probability_tutor/constants.dart';
 
 void main() {
   group('Bayes simulation: ', () {
+    // To check if there are the right title, buttons and content in the homepage
     testWidgets('Title and content: ', (WidgetTester tester) async {
       await tester.binding.setSurfaceSize(const Size(1920, 1080));
       await tester
@@ -21,16 +22,20 @@ void main() {
           find.text(
               "Play around with the sliders to see how the values affect the end result!"),
           findsOneWidget);
-      expect(find.byType(Slider), findsNWidgets(3));
+
       expect(find.widgetWithText(ElevatedButton, "example"), findsOneWidget);
       expect(find.widgetWithText(BackHomeButton, "back to home page"),
           findsOneWidget);
+
+      expect(find.byType(Slider), findsNWidgets(3));
       expect(find.text(pOfTGivenD), findsOneWidget);
       expect(find.text(pOfD), findsOneWidget);
       expect(find.text(pOfTGivenNotD), findsOneWidget);
+
       addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
     });
 
+    // To test if the example button directs to the right page
     testWidgets('Direct to example page: ', (WidgetTester tester) async {
       await tester.binding.setSurfaceSize(const Size(1920, 1080));
       await tester

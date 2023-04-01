@@ -5,6 +5,7 @@ import 'package:probability_tutor/colours.dart';
 
 void main() {
   group("SampleSpaceButton: ", () {
+    // To check the button's colour and text
     testWidgets('Button:', (WidgetTester tester) async {
       await tester.pumpWidget(const MaterialApp(
           home: SampleSpaceButton(
@@ -18,6 +19,7 @@ void main() {
       expect(widget.textColour, darkBlue);
     });
 
+    // To test if the button works when on press with a dummy function
     testWidgets('On press: ', (WidgetTester tester) async {
       bool works = false;
       await tester.pumpWidget(MaterialApp(

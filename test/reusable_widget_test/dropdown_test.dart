@@ -3,6 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:probability_tutor/Monty_Hall_Problem/dropdown_selection.dart';
 
 void main() {
+  // To test the dropdown widget
   testWidgets('DropDown selection: ', (WidgetTester tester) async {
     final items = ['keep', 'change']
         .map((String value) =>

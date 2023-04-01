@@ -7,6 +7,7 @@ import 'package:probability_tutor/constants.dart';
 
 void main() {
   group('Conditional probability homepage: ', () {
+    // To check if there are the right title, buttons and content in the homepage
     testWidgets('Title and content: ', (WidgetTester tester) async {
       await tester
           .pumpWidget(const MaterialApp(home: Conditional_Probability_Home()));
@@ -30,6 +31,7 @@ void main() {
           .toList();
 
       for (SampleSpaceButton widget in expectedWidgets) {
+        // To check if each sample space appears once
         expect(find.text(widget.text), findsOneWidget);
       }
     });

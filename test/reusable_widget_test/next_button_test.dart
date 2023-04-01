@@ -7,6 +7,7 @@ import 'package:probability_tutor/colours.dart';
 
 void main() {
   group("NextButton: ", () {
+    // To test if the button looks as what we specify
     testWidgets('Homemade title and colour:', (WidgetTester tester) async {
       await tester.pumpWidget(MaterialApp(home: Builder(builder: (context) {
         return NextButton(
@@ -28,6 +29,8 @@ void main() {
       expect(widget.buttonColour, darkBlue);
     });
 
+    // To test if the button direct to the next page
+    // The next page is the page specified in getNavigation()
     testWidgets('Function and default title:', (WidgetTester tester) async {
       await tester.pumpWidget(MaterialApp(home: Builder(builder: (context) {
         return NextButton(

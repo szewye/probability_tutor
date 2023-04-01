@@ -8,6 +8,7 @@ import 'package:probability_tutor/constants.dart';
 
 void main() {
   group('Bayes question 1: ', () {
+    // To check if there are the right title, buttons and content in the homepage
     testWidgets('Title and content: ', (WidgetTester tester) async {
       await tester.pumpWidget(
           const MaterialApp(home: Bayes_Theorem_Example_Tree_First()));
@@ -18,15 +19,19 @@ void main() {
           find.text(
               "we know that probability always add up to 1, hence we can compute a tree for the problem:"),
           findsOneWidget);
+
       expect(find.byType(BinaryTreeView), findsOneWidget);
+
       expect(find.text("what is P(T | ¬D)?"), findsOneWidget);
       expect(find.text("select the correct answer"), findsOneWidget);
+
       expect(find.byType(CheckboxListTile), findsNWidgets(3));
       expect(find.text(notDValue), findsOneWidget);
       expect(find.text(TNotDValue), findsOneWidget);
       expect(find.text(notTDValue), findsOneWidget);
     });
 
+    // To check if we get direct to the right page after selecting the correct answer
     testWidgets('Select correct answer: ', (WidgetTester tester) async {
       await tester.binding.setSurfaceSize(const Size(1920, 1080));
       await tester.pumpWidget(
@@ -41,6 +46,7 @@ void main() {
       addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
     });
 
+    // To check if there is an error message if we select the wrong answer
     testWidgets('Select wrong answers: ', (WidgetTester tester) async {
       await tester.binding.setSurfaceSize(const Size(1920, 1080));
       await tester.pumpWidget(

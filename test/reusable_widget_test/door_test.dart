@@ -6,6 +6,8 @@ import 'package:probability_tutor/models/monty_hall_problem/door.dart';
 
 void main() {
   group("Door: ", () {
+    // To test if the prize behind door is what we specified (car)
+    // and the coloured of a closed door (white)
     testWidgets('Closed door with a car behind:', (WidgetTester tester) async {
       await tester.pumpWidget(MaterialApp(
           home: Material(
@@ -23,6 +25,8 @@ void main() {
       expect(widget.getDoorknobColour(widget.door.stateOfDoor), darkBlue);
     });
 
+    // To test if the prize behind door is what we specified (goat)
+    // and the coloured of a selected door (dark blue)
     testWidgets('Selected door with a goat behind:',
         (WidgetTester tester) async {
       await tester.pumpWidget(MaterialApp(
@@ -43,6 +47,8 @@ void main() {
       expect(widget.getDoorknobColour(widget.door.stateOfDoor), offWhite);
     });
 
+    // To test if the prize behind door is what we specified (goat)
+    // and the coloured of an opened door (trasparent white)
     testWidgets('Opened door with a goat behind:', (WidgetTester tester) async {
       await tester.pumpWidget(MaterialApp(
           home: Material(
@@ -62,6 +68,8 @@ void main() {
           Colors.transparent);
     });
 
+    // To test if the door works when pressed
+    // with a dummy function here
     testWidgets('Function:', (WidgetTester tester) async {
       bool works = false;
       await tester.pumpWidget(MaterialApp(

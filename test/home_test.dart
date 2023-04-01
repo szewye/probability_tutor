@@ -8,6 +8,7 @@ import 'package:probability_tutor/homepage.dart';
 
 void main() {
   group('Homepage: ', () {
+    // To check if there are the right title and buttons in the homepage
     testWidgets('Title and content: ', (WidgetTester tester) async {
       await tester.pumpWidget(const MaterialApp(home: Homepage()));
       await tester.pumpAndSettle(const Duration(seconds: 1));
@@ -17,6 +18,7 @@ void main() {
       expect(find.text("Bayes' Theorem"), findsOneWidget);
     });
 
+    // To check if the monty hall problem button is in homepage
     testWidgets('Monty Hall Problem: ', (WidgetTester tester) async {
       await tester.pumpWidget(const MaterialApp(home: Homepage()));
       await tester.pumpAndSettle(const Duration(seconds: 1));
@@ -24,6 +26,7 @@ void main() {
           findsOneWidget);
     });
 
+    // To check if the conditional probability button is in homepage
     testWidgets('Conditional Probability: ', (WidgetTester tester) async {
       await tester.pumpWidget(const MaterialApp(home: Homepage()));
       await tester.pumpAndSettle(const Duration(seconds: 1));
@@ -31,6 +34,7 @@ void main() {
           findsOneWidget);
     });
 
+    // To check if the bayes theorem button is in homepage
     testWidgets('Bayes\' Theorem: ', (WidgetTester tester) async {
       await tester.pumpWidget(const MaterialApp(home: Homepage()));
       await tester.pumpAndSettle(const Duration(seconds: 1));
@@ -38,6 +42,7 @@ void main() {
           findsOneWidget);
     });
 
+    // To check if the monty hall problem button navigates to the right page
     testWidgets('Monty Hall Problem button navigation: ',
         (WidgetTester tester) async {
       await tester.binding.setSurfaceSize(const Size(1920, 1080));
@@ -49,6 +54,7 @@ void main() {
       addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
     });
 
+    // To check if the conditional probability button navigates to the right page
     testWidgets('Conditional Probability button navigation: ',
         (WidgetTester tester) async {
       await tester.binding.setSurfaceSize(const Size(1920, 1080));
@@ -61,6 +67,7 @@ void main() {
       addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
     });
 
+    // To check if the bayes' theorem button navigates to the right page
     testWidgets("Bayes' Theorem button navigation: ",
         (WidgetTester tester) async {
       await tester.binding.setSurfaceSize(const Size(1920, 1080));

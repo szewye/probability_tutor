@@ -6,6 +6,7 @@ import 'package:probability_tutor/homepage.dart';
 
 void main() {
   group("BackHomeButton: ", () {
+    // To check the defult text and text colour
     testWidgets('Default title:', (WidgetTester tester) async {
       await tester.pumpWidget(const MaterialApp(home: BackHomeButton()));
 
@@ -16,6 +17,7 @@ void main() {
       expect(widget.textColour, darkBlue);
     });
 
+    // To test if the text displyed is the one we specified
     testWidgets('Homemade title:', (WidgetTester tester) async {
       await tester.pumpWidget(const MaterialApp(
           home: BackHomeButton(
@@ -30,6 +32,7 @@ void main() {
       expect(widget.textColour, offWhite);
     });
 
+    // To test if the button directs back to homepage when selected
     testWidgets('On press: ', (WidgetTester tester) async {
       await tester.pumpWidget(const MaterialApp(home: BackHomeButton()));
 

@@ -10,6 +10,7 @@ import 'package:probability_tutor/models/monty_hall_problem/system.dart';
 
 void main() {
   group('Monty Hall game: ', () {
+    // To check if there are the right title, buttons and content in the homepage
     testWidgets('Title and content: ', (WidgetTester tester) async {
       await tester.pumpWidget(MaterialApp(home: Monty_Hall_Game()));
       expect(
@@ -25,6 +26,7 @@ void main() {
       expect(find.byType(WinRate), findsOneWidget);
     });
 
+    // To check if the right instruction at SECOND_SELECTION state
     testWidgets('Instruction in second selection states: ',
         (WidgetTester tester) async {
       await tester.binding.setSurfaceSize(const Size(1920, 1080));
@@ -42,6 +44,7 @@ void main() {
       addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
     });
 
+    // To check if the right instruction at END state
     testWidgets('Instruction end states: ', (WidgetTester tester) async {
       await tester.binding.setSurfaceSize(const Size(1920, 1080));
       await tester.pumpWidget(MaterialApp(home: Monty_Hall_Game()));
@@ -67,6 +70,7 @@ void main() {
       addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
     });
 
+    // To check if play again button works and reset the game
     testWidgets('Play again: ', (WidgetTester tester) async {
       await tester.binding.setSurfaceSize(const Size(1920, 1080));
       await tester.pumpWidget(MaterialApp(home: Monty_Hall_Game()));
@@ -92,6 +96,7 @@ void main() {
       addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
     });
 
+    // To check if the simulate button directs to the right page
     testWidgets('Switch to simulation page: ', (WidgetTester tester) async {
       await tester.binding.setSurfaceSize(const Size(1920, 1080));
       await tester.pumpWidget(MaterialApp(home: Monty_Hall_Game()));

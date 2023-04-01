@@ -7,6 +7,7 @@ import 'package:probability_tutor/colours.dart';
 
 void main() {
   group("MontyHallButton: ", () {
+    // To test if the button looks like what we specify
     testWidgets('Homemade title and colour:', (WidgetTester tester) async {
       await tester.pumpWidget(MaterialApp(home: Builder(builder: (context) {
         return MontyHallButton(
@@ -26,6 +27,7 @@ void main() {
       expect(widget.buttonColour, offWhite);
     });
 
+    // To test if the button directs to the right page when press
     testWidgets('Function:', (WidgetTester tester) async {
       await tester.pumpWidget(MaterialApp(home: Builder(builder: (context) {
         return MontyHallButton(

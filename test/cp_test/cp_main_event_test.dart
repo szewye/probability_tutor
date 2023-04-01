@@ -4,10 +4,10 @@ import 'package:probability_tutor/Conditional_Probability/cp_condition_event.dar
 import 'package:probability_tutor/Conditional_Probability/cp_main_event.dart';
 import 'package:probability_tutor/Conditional_Probability/event_checkbox.dart';
 import 'package:probability_tutor/constants.dart';
-import 'package:probability_tutor/models/conditional_probability/probability_query.dart';
 
 void main() {
   group('Conditional probability main event selection: ', () {
+    // To check if there are the right title, buttons and content in the homepage
     testWidgets('Title and content: ', (WidgetTester tester) async {
       await tester
           .pumpWidget(MaterialApp(home: Conditional_Probability_Main_Event()));
@@ -33,10 +33,15 @@ void main() {
       expect(find.text("G"), findsOneWidget);
     });
 
+    // To test if a main event is not null when users select an event
+    // and directs to the page for selecting the condition event
+    // for event E
     testWidgets('On selection event E: ', (WidgetTester tester) async {
       await tester.binding.setSurfaceSize(const Size(1920, 1080));
+
       await tester
           .pumpWidget(MaterialApp(home: Conditional_Probability_Main_Event()));
+
       expect(
           find.byType(Conditional_Probability_Condition_Event), findsNothing);
 
@@ -47,16 +52,24 @@ void main() {
 
       expect(widget.probQuery.mainEvent, isNotNull);
       expect(widget.probQuery.mainEvent, E);
+
       await tester.pumpAndSettle(const Duration(seconds: 1));
+
       expect(
           find.byType(Conditional_Probability_Condition_Event), findsOneWidget);
+
       addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
     });
 
+    // To test if a main event is not null when users select an event
+    // and directs to the page for selecting the condition event
+    // for event F
     testWidgets('On selection event F: ', (WidgetTester tester) async {
       await tester.binding.setSurfaceSize(const Size(1920, 1080));
+
       await tester
           .pumpWidget(MaterialApp(home: Conditional_Probability_Main_Event()));
+
       expect(
           find.byType(Conditional_Probability_Condition_Event), findsNothing);
 
@@ -67,16 +80,24 @@ void main() {
 
       expect(widget.probQuery.mainEvent, isNotNull);
       expect(widget.probQuery.mainEvent, F);
+
       await tester.pumpAndSettle(const Duration(seconds: 1));
+
       expect(
           find.byType(Conditional_Probability_Condition_Event), findsOneWidget);
+
       addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
     });
 
+    // To test if a main event is not null when users select an event
+    // and directs to the page for selecting the condition event
+    // for event G
     testWidgets('On selection event G: ', (WidgetTester tester) async {
       await tester.binding.setSurfaceSize(const Size(1920, 1080));
+
       await tester
           .pumpWidget(MaterialApp(home: Conditional_Probability_Main_Event()));
+
       expect(
           find.byType(Conditional_Probability_Condition_Event), findsNothing);
 
@@ -87,7 +108,9 @@ void main() {
 
       expect(widget.probQuery.mainEvent, isNotNull);
       expect(widget.probQuery.mainEvent, G);
+
       await tester.pumpAndSettle(const Duration(seconds: 1));
+
       expect(
           find.byType(Conditional_Probability_Condition_Event), findsOneWidget);
       addTearDown(tester.binding.window.clearPhysicalSizeTestValue);

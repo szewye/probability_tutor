@@ -6,6 +6,7 @@ import 'package:probability_tutor/models/monty_hall_problem/system.dart';
 
 void main() {
   group("WinRate: ", () {
+    // To check the default win rate (50%) and the content
     testWidgets('Default:', (WidgetTester tester) async {
       await tester.pumpWidget(MaterialApp(
           home: WinRate(
@@ -17,10 +18,13 @@ void main() {
 
       expect(find.text("Win rate"), findsOneWidget);
       expect(find.text("(car : goat)"), findsOneWidget);
+
       expect(find.text("Change your choice"), findsOneWidget);
       expect(find.text("Keep your choice"), findsOneWidget);
+
       expect(find.textContaining('Game(s) won: '), findsAtLeastNWidgets(2));
       expect(find.textContaining('Game(s) played: '), findsAtLeastNWidgets(2));
+
       expect(find.byType(WinRateBar), findsNWidgets(2));
       expect(
           find.textContaining(

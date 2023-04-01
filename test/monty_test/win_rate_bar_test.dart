@@ -4,6 +4,7 @@ import 'package:probability_tutor/Monty_Hall_Problem/win_rate_bar.dart';
 
 void main() {
   group("WinRateBar: ", () {
+    // To check the default win rate (50%) and the content
     testWidgets('Default win rate:', (WidgetTester tester) async {
       await tester.pumpWidget(const MaterialApp(home: WinRateBar()));
 
@@ -16,6 +17,7 @@ void main() {
           findsNWidgets(2));
     });
 
+    // To check if sepecifying our own win rate updates the win rate bar
     testWidgets('Homemade win rate:', (WidgetTester tester) async {
       await tester.pumpWidget(const MaterialApp(
           home: WinRateBar(

@@ -6,6 +6,8 @@ import 'package:probability_tutor/homepage.dart';
 
 void main() {
   group('EventCheckBox: ', () {
+    // To check if the checkbox display the correct text
+    // and selected that event when tapped
     testWidgets('Displays title and checkbox: ', (WidgetTester tester) async {
       int? selection;
       await tester.pumpWidget(MaterialApp(
@@ -31,6 +33,7 @@ void main() {
       expect(selection, equals(1));
     });
 
+    // To test if the button directs to the page specified
     testWidgets('Navigate to page when toggled: ', (WidgetTester tester) async {
       int? selection;
 
@@ -45,7 +48,7 @@ void main() {
                 onSelected: (id) {
                   selection = id;
                 },
-                page: Homepage(),
+                page: const Homepage(),
                 tickColour: offWhite,
                 circleColour: orangyRed,
               );

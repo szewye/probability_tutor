@@ -4,6 +4,7 @@ import 'package:probability_tutor/models/conditional_probability/probability_que
 
 void main() {
   group("ProbabilityQuery: ", () {
+    // To check if the mainSubSampleSpace() returns all correct sub-sample spaces
     test('mainSubSampleSpace returns correct sub sample space: ', () {
       // Set up a sample space and main event
       List<String?> sampleSpace = ['HH', 'HT', 'TT', 'TH'];
@@ -24,6 +25,7 @@ void main() {
       expect(query.mainSubSampleSpace(), ['HH', 'HT']);
     });
 
+    // To check if the conditionSubSampleSpace() returns all correct sub-sample spaces
     test('conditionSubSampleSpace returns correct sub sample space: ', () {
       // Set up a sample space and condition event
       List<String?> sampleSpace = ['HH', 'HT', 'TT', 'TH'];
@@ -44,6 +46,7 @@ void main() {
       expect(query.conditionSubSampleSpace(), ['TT', 'TH']);
     });
 
+    // To check if the mainSubSampleSpace() returns an empty list if nothing fits from the sample spaces
     test('mainSubSampleSpace returns empty list: ', () {
       List<String?> sampleSpace = ['HH', 'HT', 'TT', 'TH'];
 
@@ -55,6 +58,7 @@ void main() {
       expect(query.mainSubSampleSpace(), []);
     });
 
+    // To check if the conditionSubSampleSpace() returns an empty list if nothing fits from the sample spaces
     test('conditionSubSampleSpace returns empty list: ', () {
       List<String?> sampleSpace = ['HH', 'HT', 'TT', 'TH'];
 

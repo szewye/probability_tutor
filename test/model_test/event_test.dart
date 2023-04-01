@@ -3,6 +3,7 @@ import 'package:probability_tutor/models/conditional_probability/event.dart';
 
 void main() {
   group('Event: ', () {
+    // To test if isIn() function works and return true or false given a sample space
     test('Correctly identify samples in the event: ', () {
       final event = Event(
         id: 'event_one',
@@ -18,6 +19,7 @@ void main() {
       expect(event.isIn(null), isFalse);
     });
 
+    // To check if two events is unique even with the same id
     test('Unique identifier: ', () {
       final event_one = Event(
         id: 'event_one',

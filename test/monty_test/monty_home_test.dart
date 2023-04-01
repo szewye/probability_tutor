@@ -7,6 +7,7 @@ import 'package:probability_tutor/buttons/main_page_button.dart';
 
 void main() {
   group('Monty Hall Problem homepage: ', () {
+    // To check if there are the right title and buttons in the homepage
     testWidgets('Title and content: ', (WidgetTester tester) async {
       await tester.pumpWidget(const MaterialApp(home: Monty_Hall()));
       expect(find.text("Monty Hall Problem"), findsOneWidget);
@@ -14,16 +15,19 @@ void main() {
       expect(find.text('Simulate'), findsOneWidget);
     });
 
+    // To check if play button is there
     testWidgets('Play: ', (WidgetTester tester) async {
       await tester.pumpWidget(const MaterialApp(home: Monty_Hall()));
       expect(find.widgetWithText(MainPageButton, 'Play'), findsOneWidget);
     });
 
+    // To check if simulate button is there
     testWidgets('Simulate: ', (WidgetTester tester) async {
       await tester.pumpWidget(const MaterialApp(home: Monty_Hall()));
       expect(find.widgetWithText(MainPageButton, 'Simulate'), findsOneWidget);
     });
 
+    // To check if play button navigates to the right page
     testWidgets('Play button navigation: ', (WidgetTester tester) async {
       await tester.binding.setSurfaceSize(const Size(1920, 1080));
       await tester.pumpWidget(const MaterialApp(home: Monty_Hall()));
@@ -33,6 +37,7 @@ void main() {
       addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
     });
 
+    // To check if simulate button navigates to the right page
     testWidgets("Simulate button navigation: ", (WidgetTester tester) async {
       await tester.binding.setSurfaceSize(const Size(1920, 1080));
       await tester.pumpWidget(const MaterialApp(home: Monty_Hall()));

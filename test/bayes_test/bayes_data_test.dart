@@ -8,6 +8,7 @@ import 'package:probability_tutor/constants.dart';
 
 void main() {
   group('Bayes data page: ', () {
+    // To check if there are the right title, buttons and content in the homepage
     testWidgets('Title and content: ', (WidgetTester tester) async {
       await tester.pumpWidget(MaterialApp(home: Bayes_Theorem_Example_Data()));
 
@@ -20,11 +21,13 @@ void main() {
           find.text(
               "Click next to compute a tree using the data given from the scenario!"),
           findsOneWidget);
+
       expect(find.widgetWithText(BackHomeButton, "home"), findsOneWidget);
       expect(find.widgetWithText(NextButton, "next"), findsOneWidget);
       ;
     });
 
+    // To check if it directs to the right page
     testWidgets('Direct to next page: ', (WidgetTester tester) async {
       await tester.binding.setSurfaceSize(const Size(1920, 1080));
       await tester.pumpWidget(MaterialApp(home: Bayes_Theorem_Example_Data()));

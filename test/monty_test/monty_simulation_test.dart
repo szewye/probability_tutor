@@ -9,6 +9,7 @@ import 'package:probability_tutor/Monty_Hall_Problem/win_rate.dart';
 
 void main() {
   group('Monty Hall simulation: ', () {
+    // To check if there are the right title, buttons and content in the homepage
     testWidgets('Title and content: ', (WidgetTester tester) async {
       await tester.pumpWidget(MaterialApp(home: Monty_Hall_Simulation()));
       expect(
@@ -19,6 +20,7 @@ void main() {
       expect(find.byType(DoorShape), findsNWidgets(3));
       expect(find.text("Select how many times you want the system to play:"),
           findsOneWidget);
+
       expect(find.byType(DropDown<int>), findsOneWidget);
       expect(find.byType(DropDown<String>), findsOneWidget);
       expect(find.text("times and"), findsOneWidget);
@@ -29,6 +31,7 @@ void main() {
       expect(find.byType(WinRate), findsOneWidget);
     });
 
+    // To check if the right instruction displays at different game state
     testWidgets('Instruction while simulation is running: ',
         (WidgetTester tester) async {
       await tester.binding.setSurfaceSize(const Size(1920, 1080));
@@ -61,6 +64,7 @@ void main() {
       addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
     });
 
+    // To check if the game button directs to the game page
     testWidgets('Switch to game page: ', (WidgetTester tester) async {
       await tester.binding.setSurfaceSize(const Size(1920, 1080));
       await tester.pumpWidget(MaterialApp(home: Monty_Hall_Simulation()));

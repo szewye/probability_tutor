@@ -7,6 +7,7 @@ import 'package:probability_tutor/constants.dart';
 
 void main() {
   group('Bayes example homepage: ', () {
+    // To check if there are the right title, buttons and content in the homepage
     testWidgets('Title and content: ', (WidgetTester tester) async {
       await tester
           .pumpWidget(MaterialApp(home: Bayes_Theorem_Example_Quiz_One()));
@@ -18,12 +19,16 @@ void main() {
       expect(find.text("Identify what the question is asking for?"),
           findsOneWidget);
       expect(find.text("select the correct answer"), findsOneWidget);
+
       expect(find.widgetWithText(BackHomeButton, "home"), findsOneWidget);
+
       expect(find.text(pOfDGivenT), findsOneWidget);
       expect(find.text(pOfTGivenD), findsOneWidget);
+
       expect(find.byType(CheckboxListTile), findsNWidgets(2));
     });
 
+    // To check if we get direct to the right page after selecting the correct answer
     testWidgets('Select correct answer: ', (WidgetTester tester) async {
       await tester.binding.setSurfaceSize(const Size(1920, 1080));
       await tester
@@ -38,6 +43,7 @@ void main() {
       addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
     });
 
+    // To check if there is an error message if we select the wrong answer
     testWidgets('Select wrong answer: ', (WidgetTester tester) async {
       await tester.binding.setSurfaceSize(const Size(1920, 1080));
       await tester

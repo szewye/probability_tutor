@@ -8,6 +8,7 @@ import 'package:probability_tutor/models/conditional_probability/probability_que
 
 void main() {
   group('Conditional probability main event sub-sample space: ', () {
+    // To check if there are the right title, buttons and content in the homepage
     testWidgets('Title and content: ', (WidgetTester tester) async {
       final ProbQuery probQuery = ProbQuery(sampleSpace: coinsSampleSpace);
       probQuery.mainEvent = E;
@@ -33,6 +34,7 @@ void main() {
           find.text("main event (${probQuery.mainEvent?.id})"), findsOneWidget);
     });
 
+    // To check if it directs to the right page when all sub-sample spaces are selected
     testWidgets('Select all sub-sample spaces: ', (WidgetTester tester) async {
       await tester.binding.setSurfaceSize(const Size(1920, 1080));
 

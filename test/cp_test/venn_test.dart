@@ -6,6 +6,7 @@ import 'package:probability_tutor/models/conditional_probability/probability_que
 
 void main() {
   testWidgets('VennDiagram: ', (WidgetTester tester) async {
+    // To check if the Venn diagram exists
     final probQuery = ProbQuery(
       sampleSpace: coinsSampleSpace,
       mainEvent: F,
@@ -20,19 +21,6 @@ void main() {
       ),
     );
 
-    // Verify that the circles are rendered
     expect(find.byType(VennDiagram), findsOneWidget);
-
-    // // Verify that the main event sub sample space text is rendered
-    // expect(find.text('HHH, HHT, HTT, HTH'), findsOneWidget);
-
-    // // Verify that the condition event sub sample space text is rendered
-    // expect(find.text('TTT, TTH, THH, THT'), findsOneWidget);
-
-    // // Verify that the overlap text is rendered
-    // expect(find.text(''), findsOneWidget);
-
-    // // Verify that the sample space text is rendered
-    // expect(find.text('HH, HT'), findsOneWidget);
   });
 }
