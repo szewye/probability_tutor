@@ -13,6 +13,8 @@ void main() {
 
       expect(find.byType(WinRateBar), findsOneWidget);
       expect(widget.winRate, 0.5);
+
+      // There should be two 50% text on the win rate bar by default as there is no game
       expect(find.textContaining('${(widget.winRate * 100).round()}%'),
           findsNWidgets(2));
     });
@@ -29,8 +31,12 @@ void main() {
 
       expect(find.byType(WinRateBar), findsOneWidget);
       expect(widget.winRate, 0.2);
+
+      // There should be a 20% on one side of the win rate bar
       expect(find.textContaining('${(widget.winRate * 100).round()}%'),
           findsOneWidget);
+
+      // There should be a 80% on the other side of the win rate bar
       expect(find.textContaining('${((1 - widget.winRate) * 100).round()}%'),
           findsOneWidget);
     });

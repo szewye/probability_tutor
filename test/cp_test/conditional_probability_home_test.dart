@@ -23,6 +23,8 @@ void main() {
       expect(find.text(FFirstHalf + FSecondHalf), findsOneWidget);
       expect(find.text(GFirstHalf + GSecondHalf), findsOneWidget);
       expect(find.text("Ready to proceed?"), findsOneWidget);
+
+      // Button to navigate to the next page
       expect(find.widgetWithText(NextButton, 'next'), findsOneWidget);
 
       final expectedWidgets = coinsSampleSpace

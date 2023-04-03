@@ -22,7 +22,10 @@ void main() {
               "Click next to compute a tree using the data given from the scenario!"),
           findsOneWidget);
 
+      // Button to navigate to go back to home page
       expect(find.widgetWithText(BackHomeButton, "home"), findsOneWidget);
+
+      // Button to navigate to next page
       expect(find.widgetWithText(NextButton, "next"), findsOneWidget);
       ;
     });
@@ -32,11 +35,13 @@ void main() {
       await tester.binding.setSurfaceSize(const Size(1920, 1080));
       await tester.pumpWidget(MaterialApp(home: Bayes_Theorem_Example_Data()));
 
+      // Example tree page should not be there before clicking on the button
       expect(find.byType(Bayes_Theorem_Example_Tree_First), findsNothing);
 
       await tester.tap(find.text("next"));
       await tester.pumpAndSettle();
 
+      // Example tree page should be there after clicking on the button
       expect(find.byType(Bayes_Theorem_Example_Tree_First), findsOneWidget);
       addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
     });

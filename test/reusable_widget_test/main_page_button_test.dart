@@ -39,11 +39,14 @@ void main() {
       })));
 
       expect(find.text('Conditional Probability'), findsOneWidget);
+
+      // Conditional probability page should not be there after selecting the button
       expect(find.byType(Conditional_Probability_Home), findsNothing);
 
       await tester.tap(find.text('Conditional Probability'));
       await tester.pumpAndSettle();
 
+      // Conditional probability page should be there after selecting the button
       expect(find.text('Conditional Probability'), findsOneWidget);
       expect(find.byType(Conditional_Probability_Home), findsOneWidget);
     });

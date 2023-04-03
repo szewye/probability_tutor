@@ -10,10 +10,12 @@ void main() {
         isIn: (sample) => sample?.startsWith('A') ?? false,
       );
 
+      // The sub-sample spaces that should be true
       expect(event.isIn('AAA'), isTrue);
       expect(event.isIn('AAB'), isTrue);
       expect(event.isIn('ABB'), isTrue);
 
+      // The sub-sample spaces that should be false
       expect(event.isIn('BCD'), isFalse);
       expect(event.isIn('GHI'), isFalse);
       expect(event.isIn(null), isFalse);

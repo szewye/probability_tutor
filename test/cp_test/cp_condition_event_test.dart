@@ -35,7 +35,13 @@ void main() {
       expect(find.text("Y"), findsOneWidget);
       expect(find.text(")"), findsOneWidget);
 
+      // There should be 3 checkboxes to select one of the three events
       expect(find.byType(EventCheckBox), findsNWidgets(3));
+
+      // There should be values for each of the checkboxes
+      expect(find.text("E"), findsOneWidget);
+      expect(find.text("F"), findsOneWidget);
+      expect(find.text("G"), findsOneWidget);
     });
 
     // To test if a condition event is not null when users select an event
@@ -51,16 +57,22 @@ void main() {
         probQuery: probQuery,
       )));
 
+      // Main event sub-sample space selection page should not be there before selecting one of the event
       expect(
           find.byType(Conditional_Probability_Main_Sample_Space), findsNothing);
 
+      // Selects event E
       await tester.tap(find.widgetWithText(EventCheckBox, "E"));
 
+      // Condition event is not null after selection
       expect(probQuery.conditionEvent, isNotNull);
+
+      // Condition event should be E now
       expect(probQuery.conditionEvent, E);
 
       await tester.pumpAndSettle(const Duration(seconds: 1));
 
+      // Main event sub-sample space selection page should be there after selecting one of the event
       expect(find.byType(Conditional_Probability_Main_Sample_Space),
           findsOneWidget);
 
@@ -79,16 +91,22 @@ void main() {
         probQuery: probQuery,
       )));
 
+      // Main event sub-sample space selection page should not be there before selecting one of the event
       expect(
           find.byType(Conditional_Probability_Main_Sample_Space), findsNothing);
 
+      // Selects event F
       await tester.tap(find.widgetWithText(EventCheckBox, "F"));
 
+      // Condition event is not null after selection
       expect(probQuery.conditionEvent, isNotNull);
+
+      // Condition event should be F now
       expect(probQuery.conditionEvent, F);
 
       await tester.pumpAndSettle(const Duration(seconds: 1));
 
+      // Main event sub-sample space selection page should be there after selecting one of the event
       expect(find.byType(Conditional_Probability_Main_Sample_Space),
           findsOneWidget);
 
@@ -108,16 +126,22 @@ void main() {
         probQuery: probQuery,
       )));
 
+      // Main event sub-sample space selection page should not be there before selecting one of the event
       expect(
           find.byType(Conditional_Probability_Main_Sample_Space), findsNothing);
 
+      // Selects event G
       await tester.tap(find.widgetWithText(EventCheckBox, "G"));
 
+      // Condition event is not null after selection
       expect(probQuery.conditionEvent, isNotNull);
+
+      // Condition event should be G now
       expect(probQuery.conditionEvent, G);
 
       await tester.pumpAndSettle(const Duration(seconds: 1));
 
+      // Main event sub-sample space selection page should be there after selecting one of the event
       expect(find.byType(Conditional_Probability_Main_Sample_Space),
           findsOneWidget);
 

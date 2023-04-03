@@ -7,7 +7,9 @@ const double mainPageRoundedButton = 20;
 const double pagePadding = 50;
 const double pageConstraint = 1200;
 
-// Bayes' theorem part constants
+////////////////////////////////////////////////////////
+//Bayes' theorem part constants
+////////////////////////////////////////////////////////
 const String bayesExampleContext =
     "Suppose that 1 person in 100 000 has a particular rare disease for which there is a quite accurate diagnostic test: \n • It is correct 99% of the time when given to someone with the disease. \n • It is correct 99.5% of the time when given to someone who does not have the disease. \n\n What is the probability that someone who tests positive for the disease actually has the disease?";
 
@@ -31,7 +33,9 @@ const String TNotDValue = "0.005";
 const String notDValue = "0.99999";
 const String notTNotDValue = "0.995";
 
-// Coin conditional probability part constants
+////////////////////////////////////////////////////////
+// Coin conditional probability constants
+////////////////////////////////////////////////////////
 const String conditionalProbabilityContext =
     "We flip a fair coin 3 times. A couple of events can be observed through this:";
 

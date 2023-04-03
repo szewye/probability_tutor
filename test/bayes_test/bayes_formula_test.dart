@@ -19,10 +19,16 @@ void main() {
               "Drag and drop from parts of the formula from below to the respective boxes."),
           findsOneWidget);
 
+      // There should be 6 spaces we can drag and drop the draggable widgets to
       expect(find.byType(DragTarget<String>), findsNWidgets(6));
+
+      // There should be 4 draggable widgets
       expect(find.byType(Draggable<String>), findsNWidgets(4));
 
+      // Button to navigate to example page
       expect(find.widgetWithText(ElevatedButton, "example"), findsOneWidget);
+
+      // Button to navigate to go back to home page
       expect(find.widgetWithText(BackHomeButton, "home"), findsOneWidget);
 
       addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
@@ -32,11 +38,14 @@ void main() {
     testWidgets('Direct to example page: ', (WidgetTester tester) async {
       await tester.binding.setSurfaceSize(const Size(1920, 1080));
       await tester.pumpWidget(MaterialApp(home: Bayes_Theorem_Formula()));
+
+      // Example page should not be there before clicking on the button
       expect(find.byType(Bayes_Theorem_Example_Quiz_One), findsNothing);
 
       await tester.tap(find.text("example"));
       await tester.pumpAndSettle();
 
+      // Example page should be there after clicking on the button
       expect(find.byType(Bayes_Theorem_Example_Quiz_One), findsOneWidget);
       addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
     });

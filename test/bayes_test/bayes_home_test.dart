@@ -45,6 +45,7 @@ void main() {
       await tester.tap(find.text('Formula'), warnIfMissed: false);
       await tester.pumpAndSettle();
 
+      // Bayes formula page should be there after selecting the button
       expect(find.byType(Bayes_Theorem_Formula), findsOneWidget);
       addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
     });
@@ -58,6 +59,7 @@ void main() {
       await tester.tap(find.text('Example'), warnIfMissed: false);
       await tester.pumpAndSettle();
 
+      // Bayes example page should be there after selecting the button
       expect(find.byType(Bayes_Theorem_Example_Quiz_One), findsOneWidget);
       addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
     });
@@ -72,6 +74,7 @@ void main() {
       await tester.tap(find.text("Simulation"));
       await tester.pumpAndSettle();
 
+      // Bayes simulation page should be there after selecting the button
       expect(find.byType(Bayes_Theorem_Simulation), findsOneWidget);
       addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
     });

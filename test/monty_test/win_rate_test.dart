@@ -25,7 +25,9 @@ void main() {
       expect(find.textContaining('Game(s) won: '), findsAtLeastNWidgets(2));
       expect(find.textContaining('Game(s) played: '), findsAtLeastNWidgets(2));
 
+      // There should be 2 win rate bar, one for each strategy
       expect(find.byType(WinRateBar), findsNWidgets(2));
+
       expect(
           find.textContaining(
               'Total game(s) played: ${(widget.system.games.length)}'),

@@ -47,23 +47,28 @@ void main() {
       )));
       await tester.pumpAndSettle(const Duration(seconds: 1));
 
+      // Sample spaces are made clickable buttons
       final expectedWidgets = coinsSampleSpace
           .map<SampleSpaceButton>(
               (String sample) => SampleSpaceButton(text: sample))
           .toList();
 
+      // There should be one button for each sample space
       for (SampleSpaceButton widget in expectedWidgets) {
         expect(find.text(widget.text), findsOneWidget);
       }
 
+      // Condition event sub-sample space selection page should not be there before selecting all the correct sub-sample space
       expect(find.byType(Conditional_Probability_Condition_Sample_Space),
           findsNothing);
 
+      // Select all sub-sample spaces for the main event
       for (String? actual in probQuery.mainSubSampleSpace()) {
         await tester.tap(find.text(actual!).first);
         await tester.pumpAndSettle(const Duration(seconds: 1));
       }
 
+      // Condition event sub-sample space selection page should not be there before selecting all the correct sub-sample space
       expect(find.byType(Conditional_Probability_Condition_Sample_Space),
           findsOneWidget);
 

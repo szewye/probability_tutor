@@ -48,8 +48,12 @@ void main() {
       await tester.binding.setSurfaceSize(const Size(1920, 1080));
       await tester.pumpWidget(const MaterialApp(home: Homepage()));
       await tester.pumpAndSettle(const Duration(seconds: 1));
+
+      // Select monty hall problem button
       await tester.tap(find.text('Monty Hall Problem'), warnIfMissed: false);
       await tester.pumpAndSettle();
+
+      // Monty hall problem home page should be there after selecting the button
       expect(find.byType(Monty_Hall), findsOneWidget);
       addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
     });
@@ -60,9 +64,13 @@ void main() {
       await tester.binding.setSurfaceSize(const Size(1920, 1080));
       await tester.pumpWidget(const MaterialApp(home: Homepage()));
       await tester.pumpAndSettle(const Duration(seconds: 1));
+
+      // Select conditional probability button
       await tester.tap(find.text('Conditional Probability'),
           warnIfMissed: false);
       await tester.pumpAndSettle();
+
+      // Conditional probability home page should be there after selecting the button
       expect(find.byType(Conditional_Probability_Home), findsOneWidget);
       addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
     });
@@ -73,8 +81,12 @@ void main() {
       await tester.binding.setSurfaceSize(const Size(1920, 1080));
       await tester.pumpWidget(const MaterialApp(home: Homepage()));
       await tester.pumpAndSettle(const Duration(seconds: 1));
+
+      // Select bayes theorem button
       await tester.tap(find.text("Bayes' Theorem"));
       await tester.pumpAndSettle();
+
+      // Bayes theorem home page should be there after selecting the button
       expect(find.byType(Bayes_Theorem), findsOneWidget);
       addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
     });

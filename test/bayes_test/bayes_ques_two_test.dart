@@ -20,12 +20,16 @@ void main() {
               "we know that probability always add up to 1, hence we can compute a tree for the problem:"),
           findsOneWidget);
 
+      // There should be a binary tree shown on screen
       expect(find.byType(BinaryTreeView), findsOneWidget);
 
       expect(find.text("what is P(¬D)?"), findsOneWidget);
       expect(find.text("select the correct answer"), findsOneWidget);
 
+      // There should be 3 checkboxes in this page
       expect(find.byType(CheckboxListTile), findsNWidgets(3));
+
+      // There should be value for each of the 3 checkboxes
       expect(find.text(TNotDValue), findsOneWidget);
       expect(find.text(notDValue), findsOneWidget);
       expect(find.text(notTDValue), findsOneWidget);
@@ -37,6 +41,7 @@ void main() {
       await tester.pumpWidget(
           const MaterialApp(home: Bayes_Theorem_Example_Tree_Second()));
 
+      // Example final page should not be there before selecting the correct answer
       expect(find.byType(Bayes_Theorem_Example_Final), findsNothing);
 
       await tester.tap(find.text(notDValue));
@@ -53,11 +58,13 @@ void main() {
       await tester.tap(find.text(TNotDValue));
       await tester.pumpAndSettle();
 
+      // Error message will pop out if selected a wrong answer
       expect(find.text("Try again?"), findsOneWidget);
 
       await tester.tap(find.text(notTDValue));
       await tester.pumpAndSettle();
 
+      // Error message will pop out if selected a wrong answer
       expect(find.text("Try again?"), findsOneWidget);
 
       addTearDown(tester.binding.window.clearPhysicalSizeTestValue);

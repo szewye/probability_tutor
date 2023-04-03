@@ -34,6 +34,7 @@ void main() {
     await tester.tap(find.byType(DropDown<String>), warnIfMissed: false);
     await tester.pumpAndSettle();
 
+    // There should be a list of options from the dropdown
     expect(find.byType(ListView), findsOneWidget);
 
     // Tap the second option and ensure it is selected

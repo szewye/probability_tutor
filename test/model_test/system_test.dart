@@ -63,17 +63,16 @@ void main() {
     });
 
     // To test if addGame() function works
-    // See if the number of games increment
     test('Add a game: ', () async {
       System system = System();
 
       system.addGame(Game());
 
+      // See if the number of games increment
       expect(system.games.length, 1);
     });
 
     // To test if keepChoice() works
-    // Check if the same door will still be selected
     test('Selecting "keep choice" results in the same door being selected: ',
         () async {
       System system = System();
@@ -81,11 +80,11 @@ void main() {
       system.selectDoor(system.doors.first);
       system.keepChoice();
 
+      // Check if the same door will still be selected
       expect(system.selectedDoor, system.doors.first);
     });
 
     // To test if changeChoice() works
-    // Check if the same door will still be de-selected
     test(
         'Selecting "change choice" results in a different door being selected: ',
         () async {
@@ -94,6 +93,7 @@ void main() {
       system.selectDoor(system.doors.first);
       system.changeChoice();
 
+      // Check if the same door will still be de-selected
       expect(system.selectedDoor, isNot(system.doors.first));
     });
 
@@ -110,12 +110,12 @@ void main() {
     });
 
     // To test if beginNewGame() works
-    // System will set up 3 doors, no doors are selected and game state will be FIRST_SELECTION again
     test('Begin new game: ', () async {
       System system = System();
 
       system.beginNewGame();
 
+      // System will set up 3 doors, no doors are selected and game state will be FIRST_SELECTION again
       expect(system.currentGameState, GameState.FIRST_SELECTION);
       expect(system.selectedDoor, null);
       expect(system.doors.length, 3);

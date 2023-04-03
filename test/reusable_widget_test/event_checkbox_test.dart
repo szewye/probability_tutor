@@ -58,11 +58,14 @@ void main() {
       ));
 
       expect(find.byType(EventCheckBox), findsOneWidget);
+
+      // Home page should not be there before selecting the checkbox
       expect(find.byType(Homepage), findsNothing);
 
       await tester.tap(find.byType(EventCheckBox));
       await tester.pumpAndSettle();
 
+      // Home page should be there after selecting the checkbox
       expect(find.byType(Homepage), findsOneWidget);
     });
   });

@@ -17,13 +17,19 @@ void main() {
               "Understand the Monty Hall problem with this game. \n Use the simulation and see which is the best action. Keep or change your choice?"),
           findsOneWidget);
 
+      // There should be 3 doors
       expect(find.byType(DoorShape), findsNWidgets(3));
       expect(find.text("Select how many times you want the system to play:"),
           findsOneWidget);
 
+      // There should be a dropdown for the rounds to play
       expect(find.byType(DropDown<int>), findsOneWidget);
+
+      // There should be a dropdown for the strategy to play
       expect(find.byType(DropDown<String>), findsOneWidget);
       expect(find.text("times and"), findsOneWidget);
+
+      // There should be a button to start the simulation
       expect(find.widgetWithText(ElevatedButton, "start simulation"),
           findsOneWidget);
 
@@ -40,6 +46,7 @@ void main() {
       await tester.tap(find.widgetWithText(ElevatedButton, "start simulation"));
       await tester.pump();
 
+      // The initial instruction should be hidden when the simulation is running
       expect(find.text("Select how many times you want the system to play:"),
           findsNothing);
       expect(find.byType(DropDown<int>), findsNothing);
@@ -48,11 +55,13 @@ void main() {
       expect(find.widgetWithText(ElevatedButton, "start simulation"),
           findsNothing);
 
+      // The instruction when the simulation is running
       expect(find.text("Simulation running..."), findsOneWidget);
       expect(find.text("Keep an eye on the win rate 😉"), findsOneWidget);
 
       await tester.pumpAndSettle(const Duration(seconds: 5));
 
+      // The initial instruction should be shown again when the simulation is done running
       expect(find.text("Select how many times you want the system to play:"),
           findsOneWidget);
       expect(find.byType(DropDown<int>), findsOneWidget);
@@ -72,6 +81,7 @@ void main() {
       await tester.tap(find.widgetWithText(ElevatedButton, "game"));
       await tester.pumpAndSettle(const Duration(seconds: 1));
 
+      // Game page should be there after clicking on the button
       expect(find.byType(Monty_Hall_Game), findsOneWidget);
 
       addTearDown(tester.binding.window.clearPhysicalSizeTestValue);

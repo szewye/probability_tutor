@@ -23,6 +23,8 @@ void main() {
               "Want to see a Venn diagram based on the sample spaces you've just chosen?"),
           findsOneWidget);
       expect(find.text("Click next to see the Venn diagram!"), findsOneWidget);
+
+      // Button to navigate to next page
       expect(find.widgetWithText(NextButton, "next"), findsOneWidget);
     });
 
@@ -38,11 +40,13 @@ void main() {
         probQuery: probQuery,
       )));
 
+      // Conditional probability venn diagram page should not be there before selecting the next button
       expect(find.byType(Conditional_Probability_Venn_Diagram), findsNothing);
 
       await tester.tap(find.text("next"));
       await tester.pumpAndSettle();
 
+      // Conditional probability venn diagram page should be there after selecting the next button
       expect(find.byType(Conditional_Probability_Venn_Diagram), findsOneWidget);
 
       addTearDown(tester.binding.window.clearPhysicalSizeTestValue);

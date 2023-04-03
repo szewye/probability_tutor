@@ -39,10 +39,14 @@ void main() {
       })));
 
       expect(find.text('Simulation'), findsOneWidget);
+
+      // Simualtion page should not be there after selecting the button
       expect(find.byType(Monty_Hall_Simulation), findsNothing);
 
       await tester.tap(find.text('Simulation'));
       await tester.pumpAndSettle();
+
+      // Simualtion page should be there after selecting the button
       expect(find.byType(Monty_Hall_Simulation), findsOneWidget);
     });
   });

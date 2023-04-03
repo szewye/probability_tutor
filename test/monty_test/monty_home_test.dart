@@ -33,6 +33,8 @@ void main() {
       await tester.pumpWidget(const MaterialApp(home: Monty_Hall()));
       await tester.tap(find.text('Play'), warnIfMissed: false);
       await tester.pumpAndSettle();
+
+      // Game page should be there after clicking on the button
       expect(find.byType(Monty_Hall_Game), findsOneWidget);
       addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
     });
@@ -44,6 +46,8 @@ void main() {
       await tester.pumpAndSettle(const Duration(seconds: 1));
       await tester.tap(find.text("Simulate"));
       await tester.pumpAndSettle();
+
+      // Simulation page should be there after clicking on the button
       expect(find.byType(Monty_Hall_Simulation), findsOneWidget);
       addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
     });

@@ -23,11 +23,17 @@ void main() {
               "Play around with the sliders to see how the values affect the end result!"),
           findsOneWidget);
 
+      // Button to navigate to example page
       expect(find.widgetWithText(ElevatedButton, "example"), findsOneWidget);
+
+      // Button to navigate to go back to home page
       expect(find.widgetWithText(BackHomeButton, "back to home page"),
           findsOneWidget);
 
+      // There should be 3 sliders in the simulation page
       expect(find.byType(Slider), findsNWidgets(3));
+
+      // There should be header for each of the 3 sliders in the simulation page
       expect(find.text(pOfTGivenD), findsOneWidget);
       expect(find.text(pOfD), findsOneWidget);
       expect(find.text(pOfTGivenNotD), findsOneWidget);
@@ -40,11 +46,14 @@ void main() {
       await tester.binding.setSurfaceSize(const Size(1920, 1080));
       await tester
           .pumpWidget(const MaterialApp(home: Bayes_Theorem_Simulation()));
+
+      // Example page should not be there before clicking on the button
       expect(find.byType(Bayes_Theorem_Example_Quiz_One), findsNothing);
 
       await tester.tap(find.text("example"));
       await tester.pumpAndSettle();
 
+      // Example page should be there after clicking on the button
       expect(find.byType(Bayes_Theorem_Example_Quiz_One), findsOneWidget);
       addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
     });

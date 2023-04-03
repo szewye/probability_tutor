@@ -20,11 +20,13 @@ void main() {
           findsOneWidget);
       expect(find.text("select the correct answer"), findsOneWidget);
 
+      // Button to navigate to home page
       expect(find.widgetWithText(BackHomeButton, "home"), findsOneWidget);
 
       expect(find.text(pOfDGivenT), findsOneWidget);
       expect(find.text(pOfTGivenD), findsOneWidget);
 
+      // There should be 2 checkboxes for selecting the answers
       expect(find.byType(CheckboxListTile), findsNWidgets(2));
     });
 
@@ -34,11 +36,13 @@ void main() {
       await tester
           .pumpWidget(MaterialApp(home: Bayes_Theorem_Example_Quiz_One()));
 
+      // Example data page should not be there before selecting the correct answer
       expect(find.byType(Bayes_Theorem_Example_Data), findsNothing);
 
       await tester.tap(find.text(pOfDGivenT));
       await tester.pumpAndSettle();
 
+      // Example data page should be there after selecting the correct answer
       expect(find.byType(Bayes_Theorem_Example_Data), findsOneWidget);
       addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
     });
@@ -52,6 +56,7 @@ void main() {
       await tester.tap(find.text(pOfTGivenD));
       await tester.pumpAndSettle();
 
+      // Error message will pop out if selected a wrong answer
       expect(find.text("Try again?"), findsOneWidget);
 
       addTearDown(tester.binding.window.clearPhysicalSizeTestValue);

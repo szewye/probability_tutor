@@ -37,12 +37,16 @@ void main() {
       await tester.pumpWidget(const MaterialApp(home: BackHomeButton()));
 
       expect(find.text('home'), findsOneWidget);
+
+      // Homepage should not be there before selecting the button
       expect(find.byType(Homepage), findsNothing);
 
       await tester.tap(find.text('home'));
       await tester.pumpAndSettle();
 
       expect(find.text('home'), findsNothing);
+
+      // Homepage should be there after selecting the button
       expect(find.byType(Homepage), findsOneWidget);
     });
   });

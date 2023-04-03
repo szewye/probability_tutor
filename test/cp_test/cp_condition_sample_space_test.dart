@@ -47,23 +47,28 @@ void main() {
       )));
       await tester.pumpAndSettle(const Duration(seconds: 1));
 
+      // Sample spaces are made clickable buttons
       final expectedWidgets = coinsSampleSpace
           .map<SampleSpaceButton>(
               (String sample) => SampleSpaceButton(text: sample))
           .toList();
 
+      // There should be one button for each sample space
       for (SampleSpaceButton widget in expectedWidgets) {
         expect(find.text(widget.text), findsOneWidget);
       }
 
+      // Pre Venn diagram instruction page should not be there before selecting all the correct sub-sample space
       expect(find.byType(Conditional_Probability_Venn_Diagram_Caption),
           findsNothing);
 
+      // Select all sub-sample spaces for the condition event
       for (String? actual in probQuery.conditionSubSampleSpace()) {
         await tester.tap(find.text(actual!).first);
         await tester.pumpAndSettle(const Duration(seconds: 1));
       }
 
+      // Pre Venn diagram instruction page should be there after selecting all the correct sub-sample space
       expect(find.byType(Conditional_Probability_Venn_Diagram_Caption),
           findsOneWidget);
 

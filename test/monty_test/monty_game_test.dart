@@ -35,6 +35,7 @@ void main() {
       await tester.tap(find.byType(DoorShape).first);
       await tester.pumpAndSettle(const Duration(seconds: 1));
 
+      // There should be a button for each strategy
       expect(find.text("Do you want to"), findsOneWidget);
       expect(find.widgetWithText(MontyHallButton, "Keep your choice?"),
           findsOneWidget);
@@ -56,6 +57,7 @@ void main() {
           .tap(find.widgetWithText(MontyHallButton, "Change your choice?"));
       await tester.pumpAndSettle(const Duration(seconds: 1));
 
+      // END state instructions
       expect(find.byWidgetPredicate((widget) {
         if (widget is Text) {
           return widget.data == 'Congratulations, you won!' ||
@@ -85,12 +87,14 @@ void main() {
       expect(
           find.widgetWithText(MontyHallButton, "Play again?"), findsOneWidget);
 
+      // Select play again button
       await tester.tap(find.widgetWithText(MontyHallButton, "Play again?"));
       await tester.pumpAndSettle(const Duration(seconds: 1));
 
       final finder = find.byType(Monty_Hall_Game);
       final widget = tester.widget<Monty_Hall_Game>(finder);
 
+      // Game state should be FIRST_SELECTION again
       expect(widget.system.currentGameState, GameState.FIRST_SELECTION);
 
       addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
@@ -104,6 +108,7 @@ void main() {
       await tester.tap(find.widgetWithText(ElevatedButton, "simulation"));
       await tester.pumpAndSettle(const Duration(seconds: 1));
 
+      // Simulation page should be there after clicking on the button
       expect(find.byType(Monty_Hall_Simulation), findsOneWidget);
 
       addTearDown(tester.binding.window.clearPhysicalSizeTestValue);

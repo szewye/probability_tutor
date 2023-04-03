@@ -27,7 +27,10 @@ void main() {
       expect(find.text("X"), findsOneWidget);
       expect(find.text(" | Y)"), findsOneWidget);
 
+      // There should be 3 checkboxes to select one of the three events
       expect(find.byType(EventCheckBox), findsNWidgets(3));
+
+      // There should be values for each of the checkboxes
       expect(find.text("E"), findsOneWidget);
       expect(find.text("F"), findsOneWidget);
       expect(find.text("G"), findsOneWidget);
@@ -42,19 +45,25 @@ void main() {
       await tester
           .pumpWidget(MaterialApp(home: Conditional_Probability_Main_Event()));
 
+      // Condition event selection page should not be there before selecting one of the event
       expect(
           find.byType(Conditional_Probability_Condition_Event), findsNothing);
 
+      // Selects event E
       await tester.tap(find.widgetWithText(EventCheckBox, "E"));
 
       final widget = tester.widget<Conditional_Probability_Main_Event>(
           find.byType(Conditional_Probability_Main_Event));
 
+      // Main event is not null after selection
       expect(widget.probQuery.mainEvent, isNotNull);
+
+      // Main event should be E now
       expect(widget.probQuery.mainEvent, E);
 
       await tester.pumpAndSettle(const Duration(seconds: 1));
 
+      // Condition event selection page should be there after selecting one of the event
       expect(
           find.byType(Conditional_Probability_Condition_Event), findsOneWidget);
 
@@ -70,19 +79,25 @@ void main() {
       await tester
           .pumpWidget(MaterialApp(home: Conditional_Probability_Main_Event()));
 
+      // Condition event selection page should not be there before selecting one of the event
       expect(
           find.byType(Conditional_Probability_Condition_Event), findsNothing);
 
+      // Selects event F
       await tester.tap(find.widgetWithText(EventCheckBox, "F"));
 
       final widget = tester.widget<Conditional_Probability_Main_Event>(
           find.byType(Conditional_Probability_Main_Event));
 
+      // Main event is not null after selection
       expect(widget.probQuery.mainEvent, isNotNull);
+
+      // Main event should be F now
       expect(widget.probQuery.mainEvent, F);
 
       await tester.pumpAndSettle(const Duration(seconds: 1));
 
+      // Condition event selection page should be there after selecting one of the event
       expect(
           find.byType(Conditional_Probability_Condition_Event), findsOneWidget);
 
@@ -98,19 +113,25 @@ void main() {
       await tester
           .pumpWidget(MaterialApp(home: Conditional_Probability_Main_Event()));
 
+      // Condition event selection page should not be there before selecting one of the event
       expect(
           find.byType(Conditional_Probability_Condition_Event), findsNothing);
 
+      // Selects event G
       await tester.tap(find.widgetWithText(EventCheckBox, "G"));
 
       final widget = tester.widget<Conditional_Probability_Main_Event>(
           find.byType(Conditional_Probability_Main_Event));
 
+      // Main event is not null after selection
       expect(widget.probQuery.mainEvent, isNotNull);
+
+      // Main event should be G now
       expect(widget.probQuery.mainEvent, G);
 
       await tester.pumpAndSettle(const Duration(seconds: 1));
 
+      // Condition event selection page should be there after selecting one of the event
       expect(
           find.byType(Conditional_Probability_Condition_Event), findsOneWidget);
       addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
