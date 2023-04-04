@@ -216,14 +216,11 @@ class Bayes_Theorem_Example_Final extends StatelessWidget {
                           children: [
                             const Text("solution:"),
                             Container(
-                              // constraints: const BoxConstraints(maxWidth: 460),
                               width: 460,
                               padding: const EdgeInsets.all(10),
                               decoration: BoxDecoration(
                                   border: Border.all(color: darkBlue)),
                               child: Container(
-                                // constraints:
-                                //     const BoxConstraints(maxWidth: 450),
                                 width: 450,
                                 padding: const EdgeInsets.all(20),
                                 decoration: BoxDecoration(
