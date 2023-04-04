@@ -13,3 +13,6 @@ The probability tutor tool is an interactive resource that aims to teach users a
 7. Run the command ‘flutter pub get’ to install dependencies.
 8. On the bottom right in Visual Studio Code, select a device to use, we normally use "Chrome".
 9. Run the command ‘flutter run’ to run the application. You will be asked which device to use sometimes, there will be instructions on the terminal.
+
+## Deployed Version
+The application is deployed on GitHub Pages and can be found here (https://szewye.github.io/probability_tutor/).
